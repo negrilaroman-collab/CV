@@ -1,292 +1,244 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV Roman Negrila - Alternance Réseaux & Sécurité</title>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Negrila - CV Alternance R&T Cybersécurité</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  </head>
-  <body class="p-4 md:p-6">
-    <div class="max-w-5xl mx-auto">
-      <!-- Bouton Impression -->
-      <div class="flex justify-end mb-4 no-print">
-        <button
-          onclick="window.print()"
-          class="gold-bg text-slate-900 px-6 py-2 rounded-full font-bold hover:bg-yellow-500 transition shadow-lg"
-        >
-          <i class="fas fa-print mr-2"></i> Télécharger en PDF
-        </button>
-      </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#facc15">
+</head>
+<body data-theme="dark">
+    <div id="progress-bar"></div>
 
-      <header
-        class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4"
-      >
-        <div class="text-center md:text-left">
-          <h1 class="text-4xl font-extrabold tracking-tight mb-1 uppercase">
-            ROMAN <span class="gold-text">NEGRILA</span>
-          </h1>
-          <p
-            class="text-lg font-semibold text-slate-400 uppercase tracking-widest"
-          >
-            Alternant Administrateur Réseaux & Sécurité
-          </p>
-          <div
-            class="mt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs"
-          >
-            <span class="flex items-center"
-              ><i class="fas fa-id-card gold-text mr-2"></i> Permis B</span
-            >
-            <span class="flex items-center"
-              ><i class="fas fa-birthday-cake gold-text mr-2"></i>
-              03/12/2004</span
-            >
-          </div>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">
+                <span class="logo-bracket"><</span>R<span class="logo-slash">/</span>N<span class="logo-bracket">></span>
+            </h1>
+            <p class="profile-tag">R&T Cyberséc</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="relative">
-            <div
-              class="w-32 h-32 rounded-full border-4 gold-border overflow-hidden shadow-xl bg-slate-800"
-            >
-              <img
-                src="img_Roman_Negrila.png"
-                alt="Roman Negrila"
-                class="profile-img"
-                onerror="
-                  this.src =
-                    'https://api.dicebear.com/7.x/avataaars/svg?seed=Roman'
-                "
-              />
+        <nav class="sidebar-nav">
+            <a href="#accueil" class="sidebar-link active">
+                <i class="fas fa-home"></i> <span>Accueil</span>
+            </a>
+            <a href="#formation" class="sidebar-link">
+                <i class="fas fa-graduation-cap"></i> <span>Formation</span>
+            </a>
+            <div class="sidebar-section-title">Expertise</div>
+            <a href="#competences" class="sidebar-link">
+                <i class="fas fa-brain"></i> <span>Compétences</span>
+            </a>
+            <a href="#realisations" class="sidebar-link">
+                <i class="fas fa-project-diagram"></i> <span>Réalisations</span>
+            </a>
+            <div class="sidebar-section-title">Contact</div>
+            <a href="#contact" class="sidebar-link">
+                <i class="fas fa-envelope"></i> <span>Contact</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="pdf-download">
+                <button onclick="window.print()" class="print-btn">
+                    <i class="fas fa-download"></i> PDF
+                </button>
             </div>
-          </div>
         </div>
+    </aside>
 
-        <div class="space-y-1 text-xs md:text-right">
-          <p>
-            <i class="fas fa-envelope gold-text mr-2"></i>
-            negrilaroman@gmail.com
-          </p>
-          <p><i class="fas fa-phone gold-text mr-2"></i> +33 7 81 43 91 30</p>
-          <p>
-            <i class="fas fa-location-dot gold-text mr-2"></i> Dunkerque, France
-          </p>
-          <p>
-            <i class="fab fa-linkedin gold-text mr-2"></i>
-            linkedin.com/in/roman-negrila
-          </p>
-        </div>
-      </header>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div class="lg:col-span-2 space-y-6">
-          <section>
-            <h2
-              class="text-xl font-bold mb-3 flex items-center uppercase tracking-wider"
-            >
-              <span class="gold-bg w-6 h-1 mr-3"></span> Éducation
-            </h2>
-            <div class="space-y-4">
-              <div class="card p-4 rounded-xl border-l-4 gold-border">
-                <div class="flex justify-between items-start mb-1">
-                  <h3 class="text-lg font-bold gold-text uppercase">
-                    BUT Réseaux & Télécommunications
-                  </h3>
-                  <span class="text-xs font-medium opacity-60"
-                    >2022 - Présent</span
-                  >
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="accueil" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-pulse"></span>
+                    Disponible alternance 2026
                 </div>
-                <p class="font-bold text-sm">
-                  IUT de Béthune - Université d'Artois
-                </p>
-                <p class="text-xs text-slate-400 mb-2">
-                  Parcours : Cybersécurité et Pilotage de projets.
-                </p>
-                <ul class="text-xs space-y-1 text-slate-300">
-                  <li>
-                    •
-                    <span class="text-white font-semibold"
-                      >Infrastructures :</span
-                    >
-                    Configuration Cisco (VLAN, STP, OSPF, ACL).
-                  </li>
-                  <li>
-                    •
-                    <span class="text-white font-semibold">Services IP :</span>
-                    Déploiement Linux/Windows (DNS, DHCP, Web, Mail).
-                  </li>
-                </ul>
-              </div>
-
-              <div class="card p-4 rounded-xl opacity-90">
-                <div class="flex justify-between items-start mb-1">
-                  <h3 class="text-lg font-bold gold-text uppercase">
-                    Baccalauréat Général
-                  </h3>
-                  <span class="text-xs font-medium opacity-60">2022</span>
+                <h1 class="hero-title typing-container">
+                    <span class="typing"></span><span class="cursor">|</span>
+                </h1>
+                <p class="hero-subtitle">BUT R&T <span class="highlight">Cybersécurité</span></p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">21</span>
+                        <span>ans</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Permis B</span>
+                        <span>Véhiculé</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Béthune</span>
+                        <span>France</span>
+                    </div>
                 </div>
-                <p class="text-sm font-bold">
-                  Spécialités : Mathématiques & NSI
-                </p>
-                <p class="text-xs text-slate-400 italic">
-                  Mention Assez Bien — Section Européenne Anglais
-                </p>
-              </div>
             </div>
-          </section>
-
-          <section>
-            <h2
-              class="text-xl font-bold mb-3 flex items-center uppercase tracking-wider"
-            >
-              <span class="gold-bg w-6 h-1 mr-3"></span> Réalisations (SAÉ)
-            </h2>
-            <div class="space-y-3">
-              <div class="card p-4 rounded-xl">
-                <h3 class="font-bold text-md uppercase">
-                  Déploiement Infrastructure Critique
-                </h3>
-                <p class="text-[10px] text-slate-500 mb-2 font-mono">
-                  SAÉ 3.01 | Réseaux complexes
-                </p>
-                <p class="text-xs text-slate-300 mb-3">
-                  Réseau multi-sites : routage dynamique (OSPF/BGP), redondance
-                  (EtherChannel) et VPN IPsec.
-                </p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="skill-tag">OSPF</span
-                  ><span class="skill-tag">VPN</span
-                  ><span class="skill-tag">GNS3</span>
+            <div class="hero-profile">
+                <div class="profile-ring">
+                    <img src="IMG_Roman_Negrila.png" alt="Roman Negrila" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Roman+Negrila&size=256&background=1e293b&color=facc15'">
                 </div>
-              </div>
-
-              <div class="card p-4 rounded-xl">
-                <h3 class="font-bold text-md uppercase">
-                  Audit et Sécurisation
-                </h3>
-                <p class="text-[10px] text-slate-500 mb-2 font-mono">
-                  SAÉ 4.02 | Cybersécurité
-                </p>
-                <p class="text-xs text-slate-300 mb-3">
-                  Audit Linux, politiques de durcissement (Hardening), Firewalls
-                  et supervision Zabbix.
-                </p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="skill-tag">Zabbix</span
-                  ><span class="skill-tag">Hardening</span
-                  ><span class="skill-tag">Pentesting</span>
-                </div>
-              </div>
             </div>
-          </section>
-        </div>
+        </section>
 
-        <div class="space-y-6">
-          <section>
-            <h2
-              class="text-xl font-bold mb-3 flex items-center uppercase tracking-wider"
-            >
-              <span class="gold-bg w-6 h-1 mr-3"></span> Expertise
-            </h2>
-            <div class="card p-4 rounded-xl space-y-4">
-              <div>
-                <p class="text-[10px] font-bold uppercase text-slate-500 mb-2">
-                  Réseaux
-                </p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="skill-tag">LAN/WAN</span
-                  ><span class="skill-tag">Cisco CLI</span
-                  ><span class="skill-tag">BGP/OSPF</span>
-                </div>
-              </div>
-              <div>
-                <p class="text-[10px] font-bold uppercase text-slate-500 mb-2">
-                  Systèmes
-                </p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="skill-tag">Linux</span
-                  ><span class="skill-tag">Windows Server</span
-                  ><span class="skill-tag">Docker</span>
-                </div>
-              </div>
-              <div>
-                <p class="text-[10px] font-bold uppercase text-slate-500 mb-2">
-                  Sécurité
-                </p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="skill-tag">PFSense</span
-                  ><span class="skill-tag">ACL</span
-                  ><span class="skill-tag">Kali</span>
-                </div>
-              </div>
+        <!-- Formation -->
+        <section id="formation">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Formation</h2>
             </div>
-          </section>
-
-          <section>
-            <h2
-              class="text-xl font-bold mb-3 flex items-center uppercase tracking-wider"
-            >
-              <span class="gold-bg w-6 h-1 mr-3"></span> Langues
-            </h2>
-            <div class="card p-4 rounded-xl">
-              <div class="flex justify-between items-center mb-1">
-                <span class="text-sm font-bold">Anglais (Euro)</span>
-                <span class="gold-text font-black text-xs">B2+</span>
-              </div>
-              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
-                <div class="gold-bg h-full" style="width: 80%"></div>
-              </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - 2026</div>
+                        <h3>BUT Réseaux & Télécommunications</h3>
+                        <h4 class="timeline-sub">Parcours Cybersécurité</h4>
+                        <p>IUT de Béthune - Université d'Artois</p>
+                        <ul class="feature-list">
+                            <li>Réseaux Cisco avancés (VLANs, OSPF, BGP)</li>
+                            <li>Systèmes Linux/Windows Server</li>
+                            <li>Cybersécurité offensive/défensive</li>
+                            <li>Projets industriels réels</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2022</div>
+                        <h3>Baccalauréat Général</h3>
+                        <h4 class="timeline-sub">Mathématiques + NSI</h4>
+                        <p>Lycée de l'Europe, Béthune - Mention Assez Bien</p>
+                        <ul class="feature-list">
+                            <li>Section Européenne Anglais</li>
+                            <li>Algorithmique & Programmation</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </section>
+        </section>
 
-          <section>
-            <h2
-              class="text-xl font-bold mb-3 flex items-center uppercase tracking-wider"
-            >
-              <span class="gold-bg w-6 h-1 mr-3"></span> Intérêts
-            </h2>
-            <div class="grid grid-cols-2 gap-2">
-              <div class="card p-2 rounded-lg text-center">
-                <i class="fas fa-microchip text-sm gold-text"></i>
-                <p class="text-[8px] font-bold uppercase mt-1">Montage PC</p>
-              </div>
-              <div class="card p-2 rounded-lg text-center">
-                <i class="fas fa-server text-sm gold-text"></i>
-                <p class="text-[8px] font-bold uppercase mt-1">Home Lab</p>
-              </div>
-              <div class="card p-2 rounded-lg text-center">
-                <i class="fas fa-plane text-sm gold-text"></i>
-                <p class="text-[8px] font-bold uppercase mt-1">Voyages</p>
-              </div>
-              <div class="card p-2 rounded-lg text-center">
-                <i class="fas fa-shield-virus text-sm gold-text"></i>
-                <p class="text-[8px] font-bold uppercase mt-1">Veille Cyber</p>
-              </div>
+        <!-- Compétences -->
+        <section id="competences">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Expertise Technique</h2>
             </div>
-          </section>
-        </div>
-      </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Réseaux</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fab fa-cisco"></i> Cisco IOS</span>
+                        <span class="skill-tag"><i class="fas fa-layer-group"></i> VLAN/STP</span>
+                        <span class="skill-tag"><i class="fas fa-route"></i> OSPF/BGP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Systèmes</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fab fa-linux"></i> Linux Admin</span>
+                        <span class="skill-tag"><i class="fab fa-windows"></i> Windows Server</span>
+                        <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Sécurité</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fas fa-firewall"></i> pfSense</span>
+                        <span class="skill-tag"><i class="fas fa-lock"></i> ACL Hardening</span>
+                        <span class="skill-tag"><i class="fab fa-kali-linux"></i> Kali Linux</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <footer class="mt-6 pt-4 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-[10px] italic uppercase tracking-widest">
-          Candidature Alternance 2026-2028 • Groupe Auchan
-        </p>
-      </footer>
-    </div>
+        <!-- Réalisations Projets -->
+        <section id="realisations">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Réalisations SAÉ</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-building-columns"></i>
+                    </div>
+                    <h3>SAÉ Pépinière d'Entreprise</h3>
+                    <p>Infrastructure réseau Cisco complète + services (16/20)</p>
+                    <div class="project-tech">
+                        <span>Cisco</span>
+                        <span>Asterisk</span>
+                        <span>Docker</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>SAÉ 501 DevOps</h3>
+                    <p>Multi-conteneurs Flask API + monitoring (17/20)</p>
+                    <div class="project-tech">
+                        <span>Docker</span>
+                        <span>Flask</span>
+                        <span>Portainer</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>SAÉ 503 Communications</h3>
+                    <p>Asterisk VoIP + OpenCV caméra QR (15/20)</p>
+                    <div class="project-tech">
+                        <span>VoIP</span>
+                        <span>OpenCV</span>
+                        <span>Wireshark</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="project-modal">
-        <div class="project-modal-content">
-            <span class="modal-close">&times;</span>
-            <div id="modal-body"></div>
-        </div>
-    </div>
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Contact</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-main">
+                    <h3>Prêt pour votre alternance</h3>
+                    <p class="contact-lead">Réseaux | Sécurité | Projets industriels</p>
+                </div>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>negrilaroman@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+33 7 81 43 91 30</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Dunkerque / Béthune</span>
+                    </div>
+                    <a href="https://linkedin.com/in/roman-negrila" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="js/main.js"></script>
-  </body>
+</body>
 </html>
 
