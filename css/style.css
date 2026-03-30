@@ -1,4 +1,4 @@
-/* CV Roman Negrila - Style Professionnel Moderne 2024 - FROM ZERO */ 
+/* CV Roman Negrila - Style Professionnel Moderne 2024 - FROM ZERO */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
@@ -313,13 +313,12 @@ body {
 
 .section-title {
   background: var(--white);
-  padding: 1rem 2.5rem;
+  padding: 1.75rem 2.5rem;
   border-radius: 20px;
   box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-top: 3.5rem;
   margin-bottom: 3.5rem;
   border: 2px solid var(--border-color);
 }
@@ -587,7 +586,7 @@ body {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: var(--text-dark);
+  color: var(--white);
 }
 
 .contact-links {
@@ -601,24 +600,28 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  color: #ffffff;
+  color: var(--white);
   text-decoration: none;
   border-radius: var(--border-radius);
   transition: var(--transition);
-  border: 1px solid transparent;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .contact-link:hover {
-  color: #0f172a ;
   background: var(--card-bg);
   border-color: var(--border-color);
+  color: var(--text-dark);
   transform: translateX(4px);
 }
 
 .contact-link i {
   width: 20px;
-  color: var(--accent-blue);
+  color: var(--accent-light);
   font-size: 1.25rem;
+}
+
+.contact-link:hover i {
+  color: var(--accent-blue);
 }
 
 .contact-side {
