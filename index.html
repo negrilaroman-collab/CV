@@ -59,7 +59,7 @@
                     <p class="hero-subtitle">
                         BUT Réseaux &amp; Télécoms <strong>Cybersécurité</strong>
                     </p>
-                    <div class="hero-stats">
+                <div class="hero-stats">
                         <div class="stat">
                             <span class="stat-value">21</span>
                             <span>ans</span>
@@ -72,7 +72,12 @@
                             <span class="stat-value">Permis B</span>
                             <span>+</span>
                         </div>
+                        <div class="stat">
+                            <span class="stat-value">Alternance</span>
+                            <span>2026</span>
+                        </div>
                     </div>
+
                 </div>
                 <div class="hero-image">
                     <div class="profile-large">
@@ -129,6 +134,12 @@
                             <div class="skill-fill" style="width: 90%"></div>
                         </div>
                     </div>
+                    <div class="skill-item">
+                        <span>QOS / Wireshark</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="skill-column">
                     <h4>Systèmes</h4>
@@ -142,6 +153,12 @@
                         <span>Docker/Proxmox</span>
                         <div class="skill-bar">
                             <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Netbox/Netdisco</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 82%"></div>
                         </div>
                     </div>
                 </div>
@@ -160,8 +177,54 @@
                         </div>
                     </div>
                 </div>
+                <div class="skill-column">
+                    <h4>Dev</h4>
+                    <div class="skill-item">
+                        <span>Python/Flask</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>HTML/CSS/JS</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <div class="section-title">
+                <span class="title-number">03</span>
+                Certifications
+            </div>
+            <div class="certifs-grid">
+                <div class="certif-card">
+                    <img src="../assets/images/certifs/logo_ccna.png" alt="CCNA" class="certif-logo">
+                    <h4>Cisco CCNA</h4>
+                    <p>Cisco Certified Network Associate</p>
+                </div>
+                <div class="certif-card">
+                    <img src="../assets/images/certifs/logo_toeic.png" alt="TOEIC" class="certif-logo">
+                    <h4>TOEIC</h4>
+                    <p>Anglais Professionnel</p>
+                </div>
+                <div class="certif-card">
+                    <img src="../assets/images/certifs/logo_pix.png" alt="Pix" class="certif-logo">
+                    <h4>PIX Numérique</h4>
+                    <p>Compétences Digitales</p>
+                </div>
+                <div class="certif-card">
+                    <img src="../assets/images/certifs/logo_anssi.png" alt="ANSSI" class="certif-logo">
+                    <h4>ANSSI SecNum</h4>
+                    <p>Sécurité Numérique</p>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Projets -->
         <section id="projects">
@@ -170,43 +233,56 @@
                 Projets SAÉ
             </div>
             <div class="projects-grid">
-                <div class="project-card" onclick="openModal('pepiniere', 'Infrastructure Cisco complète - VLANs ToIP AD - Note 16/20')">
+                <div class="project-card" onclick="openModal('pepiniere')">
                     <div class="project-header">
                         <i class="fas fa-network-wired project-icon"></i>
                         <h4>Pépinière Entreprise</h4>
                     </div>
-                    <p>Réseau Cisco + Asterisk + Docker (SAE21)</p>
+                    <p>Infrastructure Cisco complète - VLANs ToIP AD - Note <strong>16/20</strong></p>
                     <div class="project-tags">
-                        <span>Cisco</span>
-                        <span>Docker</span>
+                        <span>Cisco IOS</span>
                         <span>Asterisk</span>
+                        <span>Docker</span>
                     </div>
                 </div>
-                <div class="project-card" onclick="openModal('sae501', 'DevOps Flask Docker Portainer - Note 17/20')">
+                <div class="project-card" onclick="openModal('sae501')">
                     <div class="project-header">
                         <i class="fab fa-docker project-icon"></i>
                         <h4>SAE 501 DevOps</h4>
                     </div>
-                    <p>API Flask + multi-conteneurs monitoring</p>
+                    <p>API Flask Docker Portainer MySQL - Note <strong>17/20</strong></p>
                     <div class="project-tags">
                         <span>Docker</span>
-                        <span>Flask</span>
-                        <span>MySQL</span>
+                        <span>Flask Python</span>
+                        <span>Portainer</span>
                     </div>
                 </div>
-                <div class="project-card" onclick="openModal('sae503', 'VoIP OpenCV QR realtime - Note 15/20')">
+                <div class="project-card" onclick="openModal('sae503')">
                     <div class="project-header">
                         <i class="fas fa-video project-icon"></i>
                         <h4>SAE 503 Communications</h4>
                     </div>
-                    <p>Asterisk + caméra IA detection</p>
+                    <p>VoIP OpenCV QR realtime - Note <strong>15/20</strong></p>
                     <div class="project-tags">
-                        <span>VoIP</span>
-                        <span>OpenCV</span>
-                        <span>Python</span>
+                        <span>VoIP Asterisk</span>
+                        <span>OpenCV Python</span>
+                        <span>Wireshark</span>
+                    </div>
+                </div>
+                <div class="project-card" onclick="openModal('sae_rom03')">
+                    <div class="project-header">
+                        <i class="fas fa-globe project-icon"></i>
+                        <h4>SAE ROM.03 Multimédia</h4>
+                    </div>
+                    <p>Déploiement Services Web Multimédia</p>
+                    <div class="project-tags">
+                        <span>Web Integration</span>
+                        <span>Multimédia</span>
+                        <span>ROM</span>
                     </div>
                 </div>
             </div>
+
         </section>
 
         <!-- Contact -->
@@ -250,6 +326,7 @@
         </div>
     </div>
 
+    <script src="js/modals.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
