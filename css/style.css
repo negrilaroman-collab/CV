@@ -313,13 +313,14 @@ body {
 
 .section-title {
   background: var(--white);
-  padding: 1.75rem 2.5rem;
+  padding: 1rem 2.5rem;
   border-radius: 20px;
   box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   gap: 1.25rem;
   margin-bottom: 3.5rem;
+  margin-top: 3.5rem;
   border: 2px solid var(--border-color);
 }
 
