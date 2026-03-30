@@ -47,21 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Project Modal
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const title = card.querySelector('h3').textContent;
-            const details = card.querySelector('.project-details')?.innerHTML || 'Détails projet...';
-            openProjectModal(title, details);
-        });
-    });
-
-    function openProjectModal(title, details) {
-        const modal = document.getElementById('project-modal');
-        const body = document.getElementById('modal-body');
-        body.innerHTML = `<h4>${title}</h4><div class="project-details">${details}</div>`;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+// Modals - Load modals.js for detailed content
+    if (typeof openModal === 'undefined') {
+      const script = document.createElement('script');
+      script.src = 'js/modals.js';
+      document.head.appendChild(script);
     }
 
     // Close Modal
