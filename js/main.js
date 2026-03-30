@@ -2,9 +2,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Sidebar Toggle Mobile
     const sidebar = document.querySelector('.sidebar');
-    document.querySelectorAll('.sidebar-link').forEach(link => {
+    document.querySelectorAll('.nav-item').forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth < 1024) sidebar.classList.remove('open');
+            if (window.innerWidth < 1024) sidebar.classList.remove('active');
         });
     });
 
