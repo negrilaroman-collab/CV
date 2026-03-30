@@ -3,7 +3,7 @@ const modalsData = {
     title: 'Pépinière d\'Entreprise - SAE21/SAE24',
     description: 'Infrastructure réseau complète pour pépinière d\'entreprises: VLANs, routage OSPF, ToIP Asterisk, AD/LDAP, portail web Guacamole, sécurité pfSense. Note: <strong>16/20</strong>',
     technologies: ['Cisco IOS', 'Asterisk VoIP', 'Docker', 'pfSense', 'Active Directory'],
-    images: ['../assets/images/connec/connecter_infra.jpg', '../assets/images/connec/connecter_telephonie.jpg'],
+    images: ['images/connec/connecter_infra.jpg', 'images/connec/connecter_telephonie.jpg'],
     achievements: ['Réseau multi-VLAN fonctionnel', 'ToIP opérationnel 20 extensions', 'Portail d\'accès sécurisé']
   },
   'sae501': {
@@ -17,14 +17,14 @@ const modalsData = {
     title: 'SAE 503 - Communications Multimédia',
     description: 'Système de communication VoIP Asterisk + detection QR code realtime OpenCV Python + analyse Wireshark. Équipe Duval/Bauchart/Negrila. Note: <strong>15/20</strong>',
     technologies: ['Asterisk VoIP', 'OpenCV Python', 'Wireshark', 'QR Detection'],
-    images: ['../assets/images/projets/SAE/connecter_videoufc.jpg', '../assets/images/surve/surveiller_docker.jpg'],
+    images: ['images/projets/SAE/connecter_videoufc.jpg', 'images/surve/surveiller_docker.jpg'],
     achievements: ['Détection QR temps réel', 'Flux vidéo sécurisé', 'Analyse paquets VoIP']
   },
   'sae_rom03': {
     title: 'SAE ROM.03 - Services Multimédias Web',
     description: 'Déploiement services multimédias et intégration web pour ROM. Infrastructure web + streaming.',
     technologies: ['Web Integration', 'Multimédia', 'ROM Services'],
-    images: ['../assets/images/projets/SAE/connecter_emetteur.png'],
+    images: ['images/projets/SAE/connecter_emetteur.png'],
     achievements: ['Services web déployés', 'Intégration multimédia']
   }
 };
