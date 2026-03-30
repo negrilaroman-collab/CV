@@ -3,7 +3,7 @@ const modalsData = {
     title: 'Pépinière d\'Entreprise - SAE21/SAE24',
     description: 'Infrastructure réseau complète pour pépinière d\'entreprises: VLANs, routage OSPF, ToIP Asterisk, AD/LDAP, portail web Guacamole, sécurité pfSense. Note: <strong>16/20</strong>',
     technologies: ['Cisco IOS', 'Asterisk VoIP', 'Docker', 'pfSense', 'Active Directory'],
-    images: ['../images/connec/connecter_infra.jpg', '../images/connec/connecter_telephonie.jpg'],
+    images: ['/images/connec/connecter_infra.jpg', '/images/connec/connecter_telephonie.jpg'],
     achievements: ['Réseau multi-VLAN fonctionnel', 'ToIP opérationnel 20 extensions', 'Portail d\'accès sécurisé']
   },
   'sae501': {
