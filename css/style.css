@@ -601,7 +601,7 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  color: var(--text-dark);
+  color: white;
   text-decoration: none;
   border-radius: var(--border-radius);
   transition: var(--transition);
@@ -609,6 +609,7 @@ body {
 }
 
 .contact-link:hover {
+  color: black ;
   background: var(--card-bg);
   border-color: var(--border-color);
   transform: translateX(4px);
