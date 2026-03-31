@@ -307,26 +307,6 @@ body {
 }
 
 .section-title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.title-number {
-  width: 50px;
-  height: 50px;
-  background: var(--accent-blue);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-
-.section-title {
   background: var(--white);
   padding: 1rem 2.5rem;
   border-radius: 20px;
@@ -337,15 +317,25 @@ body {
   margin-bottom: 3.5rem;
   margin-top: 3.5rem;
   border: 2px solid var(--border-color);
-}
-
-.section-title h2 {
+  color: var(--text-dark); /* Ensure text color is dark */
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-dark);
-  margin: 0;
   text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-title .title-number {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-blue);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-shrink: 0; /* Prevent number from shrinking */
 }
 
 /* Timeline */
@@ -517,6 +507,134 @@ body {
 .certif-card p {
   color: var(--text-light);
   font-size: 0.95rem;
+}
+
+/* Loisirs & Passions (NOUVEAUX STYLES) */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.hobby-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Important pour les animations de fond */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hobby-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  border-color: var(--accent-blue);
+}
+
+.hobby-icon {
+  font-size: 3.5rem;
+  color: var(--accent-blue);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2; /* S'assure que l'icône est au-dessus des effets de fond */
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.hobby-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hobby-card p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+/* Fonds animés pour chaque loisir */
+.hobby-card::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* Prend toute la taille de la carte */
+  opacity: 0.08; /* Légèrement visible par défaut */
+  z-index: 1; /* Derrière le contenu mais devant le glow */
+  background-size: cover; /* Ajuste la taille du fond */
+  transition: opacity 0.5s ease;
+}
+
+.hobby-card:hover::before {
+  opacity: 0.2; /* Devient plus visible au survol */
+}
+
+/* Musique (Exemple de fond animé) */
+.hobby-card.music::before {
+  background-image: url('https://www.transparenttextures.com/patterns/binding-dark.png'); /* Remplacez par votre image/texture */
+  animation: bg-pan-music 30s linear infinite alternate;
+}
+/* Informatique (Exemple de fond animé) */
+.hobby-card.it::before {
+  background-image: url('https://www.transparenttextures.com/patterns/diagmonds.png'); /* Remplacez par votre image/texture */
+  animation: bg-pan-it 25s linear infinite;
+}
+/* Jeux Vidéo (Exemple de fond animé) */
+.hobby-card.gaming::before {
+  background-image: url('https://www.transparenttextures.com/patterns/pyramid.png'); /* Remplacez par votre image/texture */
+  animation: bg-pan-gaming 35s linear infinite reverse;
+}
+
+/* Effet "LED" / Glow autour de la carte */
+.hobby-glow {
+  position: absolute;
+  inset: -2px; /* Dépasse légèrement pour un effet de bordure lumineuse */
+  border-radius: var(--border-radius);
+  background: transparent;
+  transition: var(--transition);
+  z-index: 0; /* En arrière-plan */
+  pointer-events: none; /* N'intercepte pas les événements de la souris */
+}
+
+.hobby-card:hover .hobby-glow {
+  animation: glow-effect 1.5s infinite alternate;
+}
+
+@keyframes glow-effect {
+  from {
+    box-shadow: 0 0 5px var(--accent-blue), 0 0 10px var(--accent-light);
+  }
+  to {
+    box-shadow: 0 0 15px var(--accent-blue), 0 0 25px var(--accent-light), 0 0 35px var(--accent-blue);
+  }
+}
+
+/* Animations de mouvement de fond */
+@keyframes bg-pan-music {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes bg-pan-it {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes bg-pan-gaming {
+  0% { background-position: 50% 0%; }
+  100% { background-position: 50% 100%; }
 }
 
 /* Projects */
@@ -979,7 +1097,8 @@ body {
   
   .skills-matrix,
   .projects-grid,
-  .certifs-grid {
+  .certifs-grid,
+  .hobbies-grid { /* Ajout de la grille des loisirs */
     grid-template-columns: 1fr;
   }
   
@@ -1031,7 +1150,8 @@ body {
   #modal-overlay,
   #progress-bar,
   .sidebar-toggle-btn,
-  .lightbox-overlay /* Cache également la lightbox à l'impression */ {
+  .lightbox-overlay,
+  .hobby-glow /* Cache également la lightbox et le glow à l'impression */ {
     display: none !important;
   }
   
@@ -1064,6 +1184,11 @@ body {
   a {
     color: #0066cc !important;
     text-decoration: underline !important;
+  }
+
+  /* Pour l'impression, cacher les fonds animés des cartes de loisirs */
+  .hobby-card::before {
+    background-image: none !important;
   }
 }
 
