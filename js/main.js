@@ -106,3 +106,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('section').forEach(section => observer.observe(section));
 });
 
+
+// --- NOUVELLE FONCTION POUR IMPRIMER LE CV PDF DÉDIÉ ---
+    window.printDedicatedCvPdf = function() {
+        // Ouvre la page cv-pdf.html dans un nouvel onglet/fenêtre
+        const printWindow = window.open('cv-pdf.html', '_blank');
+
+        // Attend que la nouvelle page soit entièrement chargée
+        printWindow.onload = function() {
+            // Une fois chargée, déclenche la boîte de dialogue d'impression pour cette nouvelle page
+            printWindow.print();
+            // Optionnel : fermer la nouvelle fenêtre après l'impression (certains navigateurs peuvent le bloquer ou demander confirmation)
+            // printWindow.close();
+        };
+    };
+
+
