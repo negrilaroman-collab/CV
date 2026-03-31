@@ -867,19 +867,8 @@ body {
 
 /* Media query pour les grands écrans (desktop) */
 @media (min-width: 1024px) {
-    .sidebar-toggle-btn {
-        display: none; /* Cache le bouton sur les grands écrans */
-    }
-
-    .sidebar {
-        transform: translateX(0); /* Le menu est toujours visible sur desktop */
-        /* Note : "position: sticky;" pourrait être utilisé si vous voulez que la sidebar défile
-           avec le contenu au lieu de rester fixe. Cependant, "fixed" est cohérent avec votre
-           définition initiale de .sidebar et devrait fonctionner ici. */
-    }
-
-    .main-content {
-        margin-left: 280px; /* Crée un espace pour la sidebar sur desktop */
+   .sidebar.active + .main-content {
+        margin-left: 280px;
     }
 }
 
