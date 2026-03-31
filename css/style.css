@@ -866,8 +866,13 @@ body {
 }
 
 /* Media query pour les grands écrans (desktop) */
+/* Media query pour les grands écrans (desktop) */
 @media (min-width: 1024px) {
-   .sidebar.active + .main-content {
+    /* Le bouton de bascule est désormais visible par défaut (règle globale). */
+    /* La sidebar est désormais cachée par défaut (règle globale) et sera contrôlée par la classe 'active'. */
+
+    /* Lorsque la sidebar est active (ouverte) sur desktop, elle pousse le contenu principal. */
+    .sidebar.active + .main-content {
         margin-left: 280px;
     }
 }
