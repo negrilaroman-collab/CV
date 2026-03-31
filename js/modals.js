@@ -1,6 +1,6 @@
 const modalsData = {
   'pepiniere': {
-    title: 'Pépinière d\'Entreprise - SAE21/SAE24',
+    title: 'Pépinière d\'Entreprise - SAE21/SAE24', 
     description: 'Infrastructure réseau complète pour pépinière d\'entreprises: VLANs, routage OSPF, ToIP Asterisk, AD/LDAP, portail web Guacamole, sécurité pfSense. Note: <strong>16/20</strong>',
     technologies: ['Cisco IOS', 'Asterisk VoIP', 'Docker', 'pfSense', 'Active Directory'],
     images: [
