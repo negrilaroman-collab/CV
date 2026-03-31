@@ -1,0 +1,234 @@
+/* style-pdf.css pour le CV de Roman Negrila (version PDF) */
+
+/* Variables de couleurs pour la version PDF */
+:root {
+    --primary-text: #333333;
+    --secondary-text: #666666;
+    --accent-color: #3b82f6; /* Bleu accent de votre design original */
+    --border-light: #eeeeee;
+    --white-bg: #ffffff;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+    color: var(--primary-text);
+    margin: 0;
+    padding: 0;
+    background-color: var(--white-bg); /* S'assure que le fond est blanc pour l'impression */
+    /* Ces propriétés aident à garantir que les couleurs de fond et de texte sont imprimées telles quelles */
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+
+/* Conteneur principal du CV pour simuler une page A4 */
+.cv-container {
+    width: 21cm; /* Largeur standard A4 */
+    min-height: 29.7cm; /* Hauteur standard A4 */
+    margin: 0 auto; /* Centre le contenu sur la page */
+    padding: 1.5cm 2cm; /* Marges confortables pour l'impression */
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.1); /* Ombre légère pour l'aperçu écran, sera ignorée à l'impression */
+    background: var(--white-bg);
+}
+
+/* En-tête du CV (Nom, Rôle, Contact) */
+.header-pdf {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 1.5cm;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.profile-pic-pdf {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color); /* Cadre autour de la photo */
+}
+
+.header-info-pdf {
+    flex-grow: 1;
+}primary-text);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.role-pdf {
+    font-size: 1.1em;
+    color: var(--secondary-text);
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.contact-info-header-pdf {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9em;
+    color: var(--secondary-text);
+}
+
+.contact-info-header-pdf span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}}
+
+.summary-pdf {
+    margin-top: 15px;
+    margin-bottom: 1.5cm;
+    font-size: 1em;
+    color: var(--primary-text);
+    text-align: justify;
+    padding: 0 5px; /* Petit padding pour éviter que le texte ne touche les bords du conteneur */
+}
+
+/* Styles des sections principales */
+.section-pdf {
+    margin-bottom: 1cm;
+    page-break-inside: avoid; /* Important pour éviter que les sections ne soient coupées */
+}section-title-pdf {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4em;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Listes d'entrées (Formation, Expérience) */
+.entry-list-pdf {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.entry-card-pdf {
+    position: relative;
+    padding-left: 15px; /* Pour l'effet "timeline" */
+    border-left: 2px solid var(--border-light);
+}
+
+.entry-card-pdf::before {
+    content: '';
+    position: absolute;
+    left: -6px; /* Ajuste la position du cercle pour qu'il soit sur la ligne */
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    border: 2px solid var(--white-bg); /* Permet au cercle de ressortir de la ligne */
+}
+
+.entry-date-pdf {    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--secondary-text);
+    margin-bottom: 5px;
+}
+
+.entry-card-pdf h3 {
+    font-size: 1.1em;
+    color: var(--primary-text);
+    margin: 0 0 3px 0;
+}
+
+.entry-subtitle-pdf {
+    font-size: 0.95em;
+    font-style: italic;
+    color: var(--secondary-text);
+    margin: 0 0 5px 0;
+}
+
+.entry-desc-pdf {
+    font-size: 0.9em;
+    color: var(--primary-text);
+}: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les compétences */
+    gap: 15px 30px;
+}
+
+.skill-category-pdf h4 {
+    font-size: 1em;
+    color: var(--primary-text);
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.skill-category-pdf p {
+    font-size: 0.9em;
+    color: var(--secondary-text);
+    margin: 0;
+}
+
+/* Certifications */
+.certifs-list-pdf {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les certifications */
+    gap: 15px 30px;
+}
+
+.certif-item-pdf h4 {
+    font-size: 1em;
+    color: var(--primary-text);
+    margin: 0 0 3px 0;
+    font-weight: 600;
+} p {
+    font-size: 0.9em;
+    color: var(--secondary-text);
+    margin: 0;
+}
+
+/* Projets */
+.projects-list-pdf {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-item-pdf h3 {
+    font-size: 1.1em;
+    color: var(--primary-text);
+    margin: 0 0 3px 0;
+}size: 0.9em;
+    color: var(--secondary-text);
+    margin: 0;
+}
+
+/* Media query spécifique pour l'impression afin de maximiser l'espace */
+@media print {
+    body {
+        margin: 0;
+        box-shadow: none; /* Supprime l'ombre du conteneur en impression */
+    }
+    .cv-container {
+        width: 100%; /* Utilise toute la largeur de la page imprimée */
+        min-height: auto; /* La hauteur s'ajuste au contenu */
+        margin: 0;
+        padding: 1.5cm; /* Assure des marges cohérentes à l'impression */
+    }
+    .header-pdf {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }    .profile-pic-pdf {
+        margin-bottom: 15px;
+    }
+    .contact-info-header-pdf {
+        justify-content: center;
+    }
+    .skills-grid-pdf, .certifs-list-pdf {
+        grid-template-columns: 1fr; /* Force une seule colonne pour plus de lisibilité sur le print */
+    }
+    /* Empêche la coupure à l'intérieur des éléments importants */
+    .entry-card-pdf, .skill-category-pdf, .certif-item-pdf, .project-item-pdf {
+        page-break-inside: avoid;
+    }
+}
