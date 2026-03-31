@@ -162,7 +162,7 @@ body {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 1001; /* S'assure qu'il est au-dessus de tout */
+    z-index: 1001;
     background-color: var(--accent-blue);
     color: var(--white);
     border: none;
@@ -174,7 +174,7 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: var(--transition); /* Utilise la variable de transition */
+    transition: var(--transition);
 }
 
 /* Main Content */
@@ -707,21 +707,19 @@ body {
 
 .modal-content {
   background: var(--white);
-  padding: 2rem; /* Garde le padding existant de l'utilisateur */
-  border-radius: var(--border-radius); /* Garde le border-radius existant */
-  box-shadow: var(--shadow-lg); /* Garde le box-shadow existant */
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
   position: relative;
   
-  /* --- NOUVELLES RÈGLES DE LARGEUR/HAUTEUR --- */
-  width: 90%; /* Prend 90% de la largeur du parent (modal-overlay) */
-  max-width: 800px; /* Mais ne dépasse jamais 800px de large sur les grands écrans */
-  max-height: 90vh; /* Limite la hauteur de la modale à 90% de la hauteur de la fenêtre */
-  overflow-y: auto; /* Ajoute un défilement si le contenu dépasse */
-  /* --- FIN NOUVELLES RÈGLES DE LARGEUR/HAUTEUR --- */
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
 
-  transform: scale(0.9); /* Garde l'animation de départ de l'utilisateur */
-  transition: transform 0.3s ease; /* Garde la transition existante */
-  margin: 2rem; /* Garde la marge existante de l'utilisateur */
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  margin: 2rem;
 }
 
 .modal-overlay.show .modal-content {
@@ -782,55 +780,41 @@ body {
   border: 1px solid var(--border-color);
 }
 
-/* Styles pour les images de la modale et l'effet de survol (MODIFIÉ/AJOUTÉ) */
+/* Styles pour les images de la modale et l'effet de survol */
 .modal-images {
-    display: flex; /* Affiche les images côte à côte */
-    flex-wrap: wrap; /* Permet aux images de passer à la ligne */
-    gap: 15px; /* Espace entre les images */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-top: 20px;
     margin-bottom: 30px;
-    justify-content: center; /* Centre les images si elles ne remplissent pas la ligne */
+    justify-content: center;
 }
 
 .modal-image-wrapper {
-    position: relative; /* Nécessaire pour positionner la description */
-    flex: 1; /* Permet aux images de prendre de l'espace */
-    min-width: 280px; /* Taille minimale pour une image */
-    max-width: 45%; /* Maximum 2 images par ligne sur grand écran, ajustez selon le besoin */
-    overflow: hidden; /* Cache les parties de l'image qui dépassent lors du scale */
-    border-radius: var(--border-radius); /* Utilise la variable existante */
-    box-shadow: var(--shadow-md); /* Utilise la variable existante */
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+    max-width: 45%;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
     transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer; /* Indique que l'élément est cliquable */
 }
 
 .modal-image-wrapper:hover {
-    box-shadow: var(--shadow-lg); /* Utilise la variable existante */
+    box-shadow: var(--shadow-lg);
 }
 
-/* Style spécifique pour le lien de l'image pour qu'il prenne toute la place cliquable */
-.modal-image-wrapper > a {
-    display: block;
+.modal-img {
     width: 100%;
-    height: 100%;
-    text-decoration: none; /* Supprime le soulignement par défaut des liens */
-    color: inherit; /* Hérite de la couleur du texte */
-    position: absolute; /* Prend toute la place dans le wrapper */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1; /* S'assure que le lien est au-dessus de l'image pour être cliquable */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
 }
 
-.modal-image-wrapper > a > .modal-img {
-    width: 100%; /* L'image prend toute la largeur du wrapper */
-    height: auto; /* Maintient le ratio d'aspect */
-    display: block; /* Supprime l'espace sous l'image */
-    transition: transform 0.3s ease-in-out; /* Animation pour l'agrandissement */
-}
-
-.modal-image-wrapper:hover > a > .modal-img {
-    transform: scale(1.1); /* Agrandit l'image de 10% au survol */
+.modal-image-wrapper:hover .modal-img {
+    transform: scale(1.1);
 }
 
 .modal-image-description {
@@ -838,20 +822,20 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent noir */
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 10px 15px;
     font-size: 0.95em;
     text-align: center;
-    opacity: 0; /* Cachée par défaut */
-    transition: opacity 0.3s ease-in-out; /* Animation pour l'apparition */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
     pointer-events: none; /* Permet de cliquer à travers la description si elle chevauche le contenu */
     line-height: 1.4;
-    z-index: 2; /* S'assure que la description est au-dessus du lien */
+    z-index: 2; /* S'assure que la description est au-dessus de l'image (pour la visibilité) */
 }
 
 .modal-image-wrapper:hover .modal-image-description {
-    opacity: 1; /* Apparaît au survol */
+    opacity: 1;
 }
 
 .modal-achievements {
@@ -882,12 +866,100 @@ body {
 
 .modal-achievements li::before {
   content: "\f00c"; /* Font Awesome check icon */
-  font-family: "Font Awesome 6 Pro"; /* Assurez-vous que la bonne police est chargée */
+  font-family: "Font Awesome 6 Free"; /* Assurez-vous que la bonne police est chargée */
   font-weight: 900; /* Pour l'icône solide */
   position: absolute;
   left: 0;
   color: var(--accent-blue);
 }
+
+/* NOUVEAUX STYLES LIGHTBOX */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Fond sombre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001; /* Plus élevé que la modale principale */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* S'assure que l'image tient dans les limites sans être coupée */
+    display: block;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -20px; /* Positionnement du bouton de fermeture */
+    right: -20px;
+    background: var(--white);
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Pour centrer le 'x' */
+    transition: var(--transition);
+    z-index: 10002; /* S'assure que le bouton est cliquable */
+}
+
+.lightbox-close:hover {
+    background: var(--accent-blue);
+    color: var(--white);
+}
+
+.lightbox-description {
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 90%;
+    font-size: 1.1em;
+    visibility: hidden; /* Cachée par défaut */
+    opacity: 0; /* Cachée par défaut */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Afficher la description quand on survole l'image dans la lightbox */
+/* NOTE: C'est un peu délicat de survoler "juste l'image" dans la lightbox,
+   on applique l'effet au survol du contenu de la lightbox */
+.lightbox-overlay.show .lightbox-content:hover .lightbox-description {
+    opacity: 1;
+    visibility: visible;
+}
+/* FIN NOUVEAUX STYLES LIGHTBOX */
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -929,16 +1001,21 @@ body {
 
   /* Rendre le wrapper d'image plus flexible sur les petits écrans */
   .modal-image-wrapper {
-      max-width: 100%; /* Une image par ligne sur les écrans plus petits */
+      max-width: 100%;
   }
+
+  /* Ajustements pour le bouton de fermeture de la lightbox sur mobile */
+  .lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+    }
 }
 
 /* Media query pour les grands écrans (desktop) */
 @media (min-width: 1024px) {
-    /* Le bouton de bascule est désormais visible par défaut (règle globale). */
-    /* La sidebar est désormais cachée par défaut (règle globale) et sera contrôlée par la classe 'active'. */
-
-    /* Lorsque la sidebar est active (ouverte) sur desktop, elle pousse le contenu principal. */
     .sidebar.active + .main-content {
         margin-left: 280px;
     }
@@ -954,7 +1031,8 @@ body {
   .sidebar,
   #modal-overlay,
   #progress-bar,
-  .sidebar-toggle-btn /* Cache également le bouton bascule à l'impression */ {
+  .sidebar-toggle-btn,
+  .lightbox-overlay /* Cache également la lightbox à l'impression */ {
     display: none !important;
   }
   
