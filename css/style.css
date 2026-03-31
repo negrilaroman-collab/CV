@@ -57,10 +57,17 @@ body {
   height: 100vh;
   background: var(--white);
   box-shadow: var(--shadow-lg);
-  z-index: 999;
+  z-index: 1000; /* Modifié : Z-index ajusté */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  transform: translateX(-100%); /* Ajouté : Cache le menu par défaut */
+  transition: var(--transition); /* Ajouté : Transition pour l'ouverture/fermeture */
+}
+
+/* Quand la classe 'active' est ajoutée par JS, le menu s'affiche */
+.sidebar.active {
+    transform: translateX(0);
 }
 
 .sidebar-top {
@@ -150,24 +157,32 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* Main Content */
-.main-content {
-  margin-left: 280px;
-  padding: 2rem;
-  min-height: 100vh;
+/* Styles pour le bouton de bascule du menu */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001; /* S'assure qu'il est au-dessus de tout */
+    background-color: var(--accent-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: var(--transition); /* Utilise la variable de transition */
 }
 
-@media (max-width: 1024px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: var(--transition);
-  }
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  .main-content {
-    margin-left: 0;
-  }
+/* Main Content */
+.main-content {
+  margin-left: 0; /* Modifié : Pas de marge par défaut si la sidebar est cachée */
+  padding: 2rem;
+  min-height: 100vh;
+  transition: var(--transition); /* Ajouté : Transition pour la marge */
 }
 
 /* Hero Section */
@@ -850,6 +865,24 @@ body {
   }
 }
 
+/* Media query pour les grands écrans (desktop) */
+@media (min-width: 1024px) {
+    .sidebar-toggle-btn {
+        display: none; /* Cache le bouton sur les grands écrans */
+    }
+
+    .sidebar {
+        transform: translateX(0); /* Le menu est toujours visible sur desktop */
+        /* Note : "position: sticky;" pourrait être utilisé si vous voulez que la sidebar défile
+           avec le contenu au lieu de rester fixe. Cependant, "fixed" est cohérent avec votre
+           définition initiale de .sidebar et devrait fonctionner ici. */
+    }
+
+    .main-content {
+        margin-left: 280px; /* Crée un espace pour la sidebar sur desktop */
+    }
+}
+
 @media print {
   body {
     background: white !important;
@@ -859,81 +892,14 @@ body {
   
   .sidebar,
   #modal-overlay,
-  #progress-bar {
+  #progress-bar,
+  .sidebar-toggle-btn /* Cache également le bouton bascule à l'impression */ {
     display: none !important;
   }
   
   .main-content {
     margin-left: 0 !important;
   }
-
-  /* Styles pour le bouton de bascule du menu */
-.sidebar-toggle-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1001; /* Pour s'assurer qu'il est au-dessus de tout */
-    background-color: var(--primary-color, #007bff); /* Couleur de votre choix */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Styles par défaut de la sidebar (cachée) */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 280px; /* Ajustez la largeur de votre menu si nécessaire */
-    height: 100%;
-    background-color: var(--sidebar-bg, #2c3e50); /* Couleur de fond de votre menu */
-    transform: translateX(-100%); /* Cache le menu hors de l'écran */
-    transition: transform 0.3s ease-in-out; /* Pour une animation fluide */
-    z-index: 1000; /* Assurez-vous qu'il est au-dessus du main content */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* Ombre subtile */
-}
-
-/* Quand la classe 'active' est ajoutée, le menu s'affiche */
-.sidebar.active {
-    transform: translateX(0);
-}
-
-/* Ajustement du main content si le menu doit le pousser */
-/* Ou laissez-le recouvrir le main content si c'est ce que vous préférez */
-.main-content {
-    transition: margin-left 0.3s ease-in-out;
-    margin-left: 0; /* Par défaut, sans le menu visible */
-}
-.sidebar.active ~ .main-content {
-    /* Ce sélecteur ne fonctionnera pas car le main-content n'est pas un frère direct après la sidebar */
-    /* Si vous voulez que le main-content bouge, il faudra l'englober avec la sidebar dans un conteneur parent ou utiliser JS */
-}
-
-/* Media query pour les grands écrans (tablette et desktop) */
-@media (min-width: 1024px) {
-    .sidebar-toggle-btn {
-        display: none; /* Cache le bouton sur les grands écrans */
-    }
-
-    .sidebar {
-        transform: translateX(0); /* Le menu est toujours visible sur desktop */
-        position: sticky; /* ou fixed, selon votre design initial */
-        /* Si vous utilisez sticky, assurez-vous que son parent a une hauteur définie */
-        /* Si vous voulez le défiler avec la page, retirez fixed et mettez-le dans le flux */
-    }
-
-    .main-content {
-        margin-left: 280px; /* Crée un espace pour la sidebar sur desktop */
-    }
-}
   
   .section {
     box-shadow: none !important;
