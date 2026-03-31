@@ -24,8 +24,8 @@ const modalsData = {
     description: 'Système de communication VoIP Asterisk + detection QR code realtime OpenCV Python + analyse Wireshark. Équipe Duval/Bauchart/Negrila. Note: <strong>15/20</strong>',
     technologies: ['Asterisk VoIP', 'OpenCV Python', 'Wireshark', 'QR Detection'],
     images: [
-      { src: 'images/projets/SAE/connecter_videoufc.jpg', description: 'Démonstration de la détection QR code en temps réel' },
-      { src: 'images/connec/connecter_camqrcode.jpg', description: 'Configuration de la caméra pour la détection' }
+      { src: 'images/projets/SAE/connecter_videoufc.jpg', description: 'Paramétrage de VLC : Visionnage Chaine TV' },
+      { src: 'images/connec/connecter_camqrcode.jpg', description: 'Démonstration de la détection QR code en temps réel' }
     ],
     achievements: ['Détection QR temps réel', 'Flux vidéo sécurisé', 'Analyse paquets VoIP']
   },
