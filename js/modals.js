@@ -34,7 +34,7 @@ const modalsData = {
     description: 'Déploiement services multimédias et intégration web pour ROM. Infrastructure web + streaming.',
     technologies: ['Web Integration', 'Multimédia', 'ROM Services'],
     images: [
-      { src: '../assets/images/projets/SAE/connecter_emetteur.png', description: 'Mise en place d\'un émetteur multimédia' }
+      { src: 'images/projets/SAE/connecter_emetteur.png', description: 'Mise en place d\'un émetteur multimédia' }
     ],
     achievements: ['Services web déployés', 'Intégration multimédia']
   }
