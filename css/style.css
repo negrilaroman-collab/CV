@@ -361,7 +361,6 @@ body {
 
 .formation-card {
   background: var(--white);
-  border: 1px solid var(--border-color);
   border-left: 5px solid var(--accent-blue);
   padding: 2.5rem;
   border-radius: var(--border-radius);
