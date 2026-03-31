@@ -58,7 +58,9 @@ function openModal(projectId) {
     ${data.images && data.images.length > 0 ? `<div class="modal-images">
       ${data.images.map(img => `
         <div class="modal-image-wrapper">
-          <img src="${img.src}" alt="${img.description || 'Image du projet'}" class="modal-img">
+          <a href="${img.src}" target="_blank" aria-label="${img.description || 'Ouvrir l\'image en grand'}">
+            <img src="${img.src}" alt="${img.description || 'Image du projet'}" class="modal-img">
+          </a>
           <div class="modal-image-description">
             ${img.description || 'Description de l\'image non disponible'}
           </div>
