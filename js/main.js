@@ -1,28 +1,35 @@
-// CV Main JS - Adapté Portfolio (Sidebar, Modal, Animations)
 document.addEventListener('DOMContentLoaded', function() {
-    // Sidebar Toggle Mobile
     const sidebar = document.querySelector('.sidebar');
-    document.querySelectorAll('.nav-item').forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth < 1024) sidebar.classList.remove('active');
-        });
-    });
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle'); // Votre nouveau bouton
 
-    // Smooth Scroll & Active Nav
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // --- LOGIQUE POUR LE BOUTON BASCULE ---
+    if (sidebarToggleBtn) {
+        sidebarToggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active'); // Ajoute/retire la classe 'active'
+        });
+    }
+
+    // --- ADAPTATION DE LA LOGIQUE DES LIENS DE NAVIGATION ---
+    document.querySelectorAll('.nav-item').forEach(link => { // Note: C'était '.sidebar-link' dans votre JS original, mais votre HTML utilise '.nav-item'
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // Active sidebar
-                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+
+                // Fermer la sidebar après avoir cliqué sur un lien (sur mobile ou si elle est ouverte)
+                if (window.innerWidth < 1024 || sidebar.classList.contains('active')) { // Vérifie si mobile OU si la sidebar est ouverte
+                    sidebar.classList.remove('active');
+                }
+
+                // Logique pour marquer le lien actif
+                document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active')); // Utilisez .nav-item
                 this.classList.add('active');
             }
         });
     });
 
-    // Scroll Active Sidebar
+    // --- ADAPTATION DE LA LOGIQUE DE DÉFILEMENT (Active Nav) ---
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -31,11 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 let current = '';
                 sections.forEach(section => {
                     const rect = section.getBoundingClientRect();
-                    if (rect.top <= 100 && rect.bottom >= 100) {
+                    // Ajustez ces valeurs si nécessaire pour un meilleur déclenchement
+                    if (rect.top <= 150 && rect.bottom >= 150) { // Un peu plus large pour la détection
                         current = section.getAttribute('id');
                     }
                 });
-                document.querySelectorAll('.sidebar-link').forEach(link => {
+                document.querySelectorAll('.nav-item').forEach(link => { // Utilisez .nav-item ici aussi
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${current}`) {
                         link.classList.add('active');
@@ -47,35 +55,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-// Modals - Load modals.js for detailed content
+    // Votre code existant pour les modals et autres...
+    // Modals - Load modals.js for detailed content
     if (typeof openModal === 'undefined') {
-      const script = document.createElement('script');
-      script.src = 'js/modals.js';
-      document.head.appendChild(script);
+        const script = document.createElement('script');
+        script.src = 'js/modals.js';
+        document.head.appendChild(script);
     }
 
     // Close Modal
     document.addEventListener('click', e => {
-        if (e.target.classList.contains('project-modal') || e.target.classList.contains('modal-close')) {
-            document.getElementById('project-modal').classList.remove('active');
+        // Assurez-vous que l'ID ici correspond à votre modal si elle a changé
+        const projectModal = document.getElementById('modal-overlay'); // Votre modal a l'id modal-overlay
+        if (projectModal && (e.target.classList.contains('modal-overlay') || e.target.closest('.modal-close'))) {
+            projectModal.classList.remove('active');
             document.body.style.overflow = '';
         }
     });
     document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            document.getElementById('project-modal').classList.remove('active');
+        const projectModal = document.getElementById('modal-overlay');
+        if (projectModal && e.key === 'Escape') {
+            projectModal.classList.remove('active');
             document.body.style.overflow = '';
         }
     });
-
-    // Theme Toggle
-    const themeToggle = document.getElementById('theme-toggle') || document.querySelector('.theme-toggle');
-    if (themeToggle) {
-        themeToggle.onclick = () => {
-            document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
-            localStorage.theme = document.body.dataset.theme;
-        };
-    }
 
     // Typing Animation (Nom)
     const typingEl = document.querySelector('.typing-name');
