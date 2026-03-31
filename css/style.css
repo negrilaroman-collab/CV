@@ -741,7 +741,7 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
   border-radius: var(--border-radius);
   transition: var(--transition);
