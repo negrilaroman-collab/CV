@@ -49,8 +49,9 @@ const allModalsData = {
     type: 'hobby', // Ajout d'un type
     title: 'Passion Musique : Artiste ',
     description: 'Depuis 3 ans, je crée de la musique avec tout son aspect visuel et je la diffuse sur toutes sortes de plateformes de streaming. Pour ce faire j\'utilise FL Studio, Photoshop et Première Pro',
+    technologies: ['FL Studio', 'Photoshop', 'Premiere Pro', 'Mixage DJ', 'Sound Design', 'Composition'], // Ajout de l'array manquant
     images: [
-      { src: 'images/hobbies/Spotify.jpg', description: 'Mon compte Spotify},
+      { src: 'images/hobbies/Spotify.jpg', description: 'Mon compte Spotify' }, // Correction : ajout de la quote fermante
       { src: 'images/hobbies/music_mix.jpg', description: 'Exemple pochette d\'un morceau' }
     ],
     achievements: ['Plusieurs morceaux composés et finalisés', 'Création et gestion d\'une chaîne Soundcloud/YouTube pour mes productions']
@@ -60,6 +61,7 @@ const allModalsData = {
     title: 'Mon Home Lab : L\'Info en Mode Bac à Sable',
     description: 'L\'informatique et les réseaux, ce n\'est pas juste mon BUT, c\'est ma passion ! J\'ai monté un petit "home lab" où je peux tester tout ce qui me passe par la tête : configurer des switches, installer des points d\'accès Wi-Fi, bidouiller des serveurs Linux... C\'est mon terrain de jeu pour expérimenter, casser et reconstruire sans pression, ce qui renforce mes compétences pour le monde pro.',
     technologies: ['Linux Servers', 'Cisco Packet Tracer', 'Ubiquiti (Unifi)', 'Proxmox', 'Docker'],
+    images: [], // Ajout de l'array manquant (vide si pas d'images pour l'instant)
     achievements: ['Mise en place d\'un serveur Proxmox avec VMs et conteneurs', 'Configuration de réseaux VLAN complexes à domicile', 'Expérimentation avec des pare-feu et VPN open-source']
   },
   'gaming': {
@@ -67,22 +69,37 @@ const allModalsData = {
     title: 'Gaming : Défis, Stratégie et Immersion',
     description: 'Les jeux vidéo sont ma bouffée d\'air frais. Particulièrement fan des "Souls-like" comme Sekiro, Dark Souls ou Elden Ring, j\'apprécie la persévérance et l\'analyse des patterns nécessaires pour surmonter les défis. Des mondes ouverts riches comme Ghost of Tsushima me permettent de m\'évader et d\'apprécier la narration. Une excellente façon de développer ma capacité à résoudre des problèmes complexes et à m\'adapter rapidement !',
     technologies: ['PC Gaming', 'Stratégie', 'Réflexes', 'Patience'],
-    images: [,
+    images: [], // Correction : doit être un array valide, même vide
     achievements: ['Platiné plusieurs jeux exigeants (ex: Elden Ring, Bloodborne)', 'Participation et victoire occasionnelle à des tournois amicaux', 'Capacité à apprendre et maîtriser de nouvelles mécaniques de jeu rapidement']
   }
 };
 
 // Modifié pour prendre en compte le type de contenu (project/hobby)
 function openModal(id) {
+  console.log(`[modals.js] openModal appelée avec l'ID: ${id}`); // LOG
   const data = allModalsData[id]; // Utilise le nouvel objet global
-  if (!data) return;
+  if (!data) {
+    console.error(`[modals.js] Aucune donnée trouvée pour l'ID: ${id}`); // LOG D'ERREUR
+    return;
+  }
+  console.log(`[modals.js] Données chargées pour le modal:`, data); // LOG
   
   const body = document.getElementById('modal-body');
+  if (!body) {
+      console.error(`[modals.js] L'élément #modal-body est introuvable !`); // LOG D'ERREUR
+      return;
+  }
+
+  // Correction: Si technologies est undefined, on utilise un array vide pour éviter l'erreur .map
+  const technologiesHtml = (data.technologies && data.technologies.length > 0) 
+    ? data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')
+    : '';
+
   body.innerHTML = `
     <div class="modal-title">${data.title}</div>
     <div class="modal-description">${data.description}</div>
     <div class="modal-tech">
-      ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+      ${technologiesHtml}
     </div>
     ${data.images && data.images.length > 0 ? `<div class="modal-images">
       ${data.images.map(img => `
@@ -109,20 +126,36 @@ function openModal(id) {
     });
   });
 
-  document.getElementById('modal-overlay').classList.add('show');
-  document.body.style.overflow = 'hidden';
+  const modalOverlay = document.getElementById('modal-overlay');
+  if (modalOverlay) {
+      modalOverlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      console.log(`[modals.js] Modal affiché pour l'ID: ${id}`); // LOG
+  } else {
+      console.error(`[modals.js] L'élément #modal-overlay est introuvable !`); // LOG D'ERREUR
+  }
 }
 
 function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('show');
-  document.body.style.overflow = '';
+  console.log(`[modals.js] closeModal appelée`); // LOG
+  const modalOverlay = document.getElementById('modal-overlay');
+  if (modalOverlay) {
+      modalOverlay.classList.remove('show');
+      document.body.style.overflow = '';
+  }
 }
 
 // Nouvelle fonction pour ouvrir la lightbox
 function openLightbox(imageSrc, imageDescription) {
+    console.log(`[modals.js] openLightbox appelée avec l'image: ${imageSrc}`); // LOG
     const lightboxOverlay = document.getElementById('lightbox-overlay');
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxDescription = document.getElementById('lightbox-description');
+
+    if (!lightboxOverlay || !lightboxImage || !lightboxDescription) {
+        console.error(`[modals.js] Un élément de la lightbox est introuvable !`); // LOG D'ERREUR
+        return;
+    }
 
     lightboxImage.src = imageSrc;
     lightboxImage.alt = imageDescription || 'Image en plein écran';
@@ -135,19 +168,28 @@ function openLightbox(imageSrc, imageDescription) {
 
 // Nouvelle fonction pour fermer la lightbox
 function closeLightbox() {
-    document.getElementById('lightbox-overlay').classList.remove('show');
-    document.body.style.overflow = '';
-    document.getElementById('lightbox-image').src = ''; // Clear image src
+    console.log(`[modals.js] closeLightbox appelée`); // LOG
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    if (lightboxOverlay) {
+        lightboxOverlay.classList.remove('show');
+        document.body.style.overflow = '';
+        document.getElementById('lightbox-image').src = ''; // Clear image src
+    }
 }
 
 // Init modals onclick et gestion de la lightbox
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[modals.js] DOMContentLoaded fired.'); // LOG
+
   // Attache les écouteurs pour les projets
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', () => {
       const projectId = card.dataset.projectId; // Utilise data-project-id
+      console.log(`[modals.js] Clic sur Project Card: ${projectId}`); // LOG
       if (projectId) {
         openModal(projectId);
+      } else {
+        console.warn(`[modals.js] Project Card cliquée sans data-projectId:`, card); // LOG D'ALERTE
       }
     });
   });
@@ -156,8 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.hobby-card').forEach(card => {
     card.addEventListener('click', () => {
       const hobbyId = card.dataset.hobbyId; // Utilise data-hobby-id
+      console.log(`[modals.js] Clic sur Hobby Card: ${hobbyId}`); // LOG
       if (hobbyId) {
         openModal(hobbyId);
+      } else {
+        console.warn(`[modals.js] Hobby Card cliquée sans data-hobby-id:`, card); // LOG D'ALERTE
       }
     });
   });
