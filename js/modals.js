@@ -51,7 +51,7 @@ const allModalsData = {
     description: 'Depuis 3 ans, je crée de la musique avec tout son aspect visuel et je la diffuse sur toutes sortes de plateformes de streaming. Pour ce faire j\'utilise FL Studio, Photoshop et Première Pro',
     technologies: ['FL Studio', 'Photoshop', 'Premiere Pro'], // Ajout de l'array manquant
     images: [
-      { src: 'images/hobbies/Spotify.jpg', description: 'Mon compte Spotify' }, // Correction : ajout de la quote fermante
+      { src: 'images/Spotify.png', description: 'Mon compte Spotify' }, // Correction : ajout de la quote fermante
       { src: 'images/hobbies/music_mix.jpg', description: 'Exemple pochette d\'un morceau' }
     ],
     achievements: ['Plusieurs morceaux composés et finalisés', 'Création et gestion d\'une chaîne Soundcloud/YouTube pour mes productions']
