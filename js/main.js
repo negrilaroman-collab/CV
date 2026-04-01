@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Typing Animation (Nom)
 const typingEl = document.querySelector('.typing-name');
 if (typingEl) {
-    const texts = ['ROMAN NEGRILA', 'R&T CYBERSÉCURITÉ', 'ALTERNANT 2026'];
+    const texts = ['ROMAN NEGRILA', 'R&T CYBERSÉCURITÉ', 'ALTERNANT'];
     let textIndex = 0; // Index du texte actuel dans le tableau 'texts'
     let charIndex = 0; // Index du caractère actuel dans le texte en cours
     let isDeleting = false; // true si on efface, false si on écrit
