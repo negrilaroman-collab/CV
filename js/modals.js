@@ -7,8 +7,8 @@ const allModalsData = {
     description: 'Infrastructure réseau complète pour pépinière d\'entreprises: VLANs, routage OSPF, ToIP Asterisk, AD/LDAP, portail web Guacamole, sécurité pfSense. Un projet bien costaud qui m\'a permis de mettre les mains dans le cambouis réseau et système. Note: <strong>16/20</strong>',
     technologies: ['Cisco IOS', 'Asterisk VoIP', 'Docker', 'pfSense', 'Active Directory'],
     images: [
-      { src: 'images/projets/connecter_infra.jpg', description: 'Schéma détaillé de l\'infrastructure réseau avec ses VLANs.' },
-      { src: 'images/projets/connecter_telephonie.jpg', description: 'Architecture de la téléphonie VoIP Asterisk mise en place.' }
+      { src: 'images/connec/connecter_infra.jpg', description: 'Schéma détaillé de l\'infrastructure réseau avec ses VLANs.' },
+      { src: 'images/connec/connecter_telephonie.jpg', description: 'Architecture de la téléphonie VoIP Asterisk mise en place.' }
     ],
     achievements: ['Réseau multi-VLAN fonctionnel de A à Z', 'ToIP opérationnel avec 20 extensions configurées', 'Portail d\'accès sécurisé et robuste']
   },
@@ -19,7 +19,7 @@ const allModalsData = {
     technologies: ['Docker Compose', 'Flask Python', 'MySQL', 'Portainer', 'Linux'],
     images: [
       { src: 'images/projets/SAE/connecter_docker.png', description: 'Vue d\'ensemble de l\'architecture Docker et de ses services.' },
-      { src: 'images/projets/connecter_docker.png', description: 'Interface Portainer pour la gestion visuelle des conteneurs et stacks.' }
+      { src: 'images/connec/connecter_docker.png', description: 'Interface Portainer pour la gestion visuelle des conteneurs et stacks.' }
     ],
     achievements: ['API REST complète et fonctionnelle', 'Tableaux de bord de monitoring clairs et réactifs', 'Capacité de scale horizontal des conteneurs, au top pour la charge']
   },
@@ -30,7 +30,7 @@ const allModalsData = {
     technologies: ['Asterisk VoIP', 'OpenCV Python', 'Wireshark', 'QR Detection'],
     images: [
       { src: 'images/projets/SAE/connecter_videoufc.jpg', description: 'Paramétrage de VLC pour le visionnage d\'une chaîne TV via notre infrastructure.' },
-      { src: 'images/projets/connecter_camqrcode.jpg', description: 'Démonstration en direct de la détection de QR codes via webcam.' }
+      { src: 'images/connec/connecter_camqrcode.jpg', description: 'Démonstration en direct de la détection de QR codes via webcam.' }
     ],
     achievements: ['Détection QR en temps réel précise et rapide', 'Flux vidéo sécurisé mis en place', 'Analyse de paquets VoIP détaillée avec Wireshark']
   },
@@ -47,35 +47,27 @@ const allModalsData = {
   // NOUVELLES DONNÉES POUR LES LOISIRS
   'music': {
     type: 'hobby', // Ajout d'un type
-    title: 'Passion Musique : DJ & Compositeur',
-    description: 'Quand je ne suis pas plongé dans les lignes de code ou les configurations réseau, je me transforme en DJ et compositeur ! J\'adore explorer l\'univers sonore, mixer des morceaux pour créer des ambiances uniques et produire mes propres tracks. C\'est ma zone de créativité où la rigueur technique du réseau laisse place à l\'improvisation et à l\'émotion.',
-    technologies: ['FL Studio', 'Ableton Live', 'Mixage DJ', 'Sound Design', 'Composition'],
+    title: 'Passion Musique : Artiste ',
+    description: 'Depuis 3 ans, je crée de la musique avec tout son aspect visuel et je la diffuse sur toutes sortes de plateformes de streaming. Pour ce faire j\'utilise FL Studio, Photoshop et Première Pro',
     images: [
-      { src: 'images/hobbies/music_setup.jpg', description: 'Mon setup DJ et MAO à la maison, mon petit studio.' },
-      { src: 'images/hobbies/music_mix.jpg', description: 'Capture d\'écran d\'une session de mixage ou de composition.' }
+      { src: 'images/hobbies/Spotify.jpg', description: 'Mon compte Spotify},
+      { src: 'images/hobbies/music_mix.jpg', description: 'Exemple pochette d\'un morceau' }
     ],
-    achievements: ['Plusieurs morceaux composés et finalisés', 'Performances DJ lors d\'événements privés', 'Création et gestion d\'une chaîne Soundcloud/YouTube pour mes productions']
+    achievements: ['Plusieurs morceaux composés et finalisés', 'Création et gestion d\'une chaîne Soundcloud/YouTube pour mes productions']
   },
   'it': {
     type: 'hobby',
     title: 'Mon Home Lab : L\'Info en Mode Bac à Sable',
     description: 'L\'informatique et les réseaux, ce n\'est pas juste mon BUT, c\'est ma passion ! J\'ai monté un petit "home lab" où je peux tester tout ce qui me passe par la tête : configurer des switches, installer des points d\'accès Wi-Fi, bidouiller des serveurs Linux... C\'est mon terrain de jeu pour expérimenter, casser et reconstruire sans pression, ce qui renforce mes compétences pour le monde pro.',
     technologies: ['Linux Servers', 'Cisco Packet Tracer', 'Ubiquiti (Unifi)', 'Proxmox', 'Docker'],
-    images: [
-      { src: 'images/hobbies/it_homelab.jpg', description: 'Aperçu de mon rack ou de mon setup home lab.' },
-      { src: 'images/hobbies/it_network.jpg', description: 'Schéma simple d\'une configuration réseau que j\'ai mise en place.' }
-    ],
     achievements: ['Mise en place d\'un serveur Proxmox avec VMs et conteneurs', 'Configuration de réseaux VLAN complexes à domicile', 'Expérimentation avec des pare-feu et VPN open-source']
   },
   'gaming': {
     type: 'hobby',
     title: 'Gaming : Défis, Stratégie et Immersion',
     description: 'Les jeux vidéo sont ma bouffée d\'air frais. Particulièrement fan des "Souls-like" comme Sekiro, Dark Souls ou Elden Ring, j\'apprécie la persévérance et l\'analyse des patterns nécessaires pour surmonter les défis. Des mondes ouverts riches comme Ghost of Tsushima me permettent de m\'évader et d\'apprécier la narration. Une excellente façon de développer ma capacité à résoudre des problèmes complexes et à m\'adapter rapidement !',
-    technologies: ['PS5', 'PC Gaming', 'Stratégie', 'Réflexes', 'Patience'],
-    images: [
-      { src: 'images/hobbies/gaming_souls.jpg', description: 'Capture d\'écran d\'un boss de Souls-like ou d\'un moment intense.' },
-      { src: 'images/hobbies/gaming_tsushima.jpg', description: 'Image évocatrice de Ghost of Tsushima ou d\'un autre monde ouvert.' }
-    ],
+    technologies: ['PC Gaming', 'Stratégie', 'Réflexes', 'Patience'],
+    images: [,
     achievements: ['Platiné plusieurs jeux exigeants (ex: Elden Ring, Bloodborne)', 'Participation et victoire occasionnelle à des tournois amicaux', 'Capacité à apprendre et maîtriser de nouvelles mécaniques de jeu rapidement']
   }
 };
