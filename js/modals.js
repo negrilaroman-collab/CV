@@ -52,7 +52,7 @@ const allModalsData = {
     technologies: ['FL Studio', 'Photoshop', 'Premiere Pro'], // Ajout de l'array manquant
     images: [
       { src: 'images/Spotify.png', description: 'Mon compte Spotify' }, // Correction : ajout de la quote fermante
-      { src: 'images/hobbies/Pochette.png', description: 'Exemple pochette d\'un morceau' }
+      { src: 'images//1000006353.png', description: 'Exemple pochette d\'un morceau' }
     ],
     achievements: ['Plusieurs morceaux composés et finalisés', 'Création et gestion d\'une chaîne Soundcloud/YouTube pour mes productions']
   },
