@@ -254,33 +254,36 @@
 
         <!-- Loisirs & Passions (NOUVELLE SECTION) -->
         <section id="hobbies" class="section">
-            <div class="section-title">
-                <span class="title-number">06</span>
-                Loisirs & Passions
-            </div>
-            <div class="hobbies-grid">
-                <!-- Musique -->
-                <div class="hobby-card music" data-hobby-id="music">
-                    <div class="hobby-icon"><i class="fas fa-music"></i></div>
-                    <h3>Musique</h3>
-                    <p>Artiste depuis 3ans, je crée des musiques et les diffuses sur les platformes de streaming.</p>
-                    <div class="hobby-glow"></div>
+            <div id="particles-js"></div> <!-- Ajout du conteneur pour l'animation particles.js -->
+            <div class="content-above-particles"> <!-- Contient le contenu existant -->
+                <div class="section-title">
+                    <span class="title-number">06</span>
+                    Loisirs & Passions
                 </div>
+                <div class="hobbies-grid">
+                    <!-- Musique -->
+                    <div class="hobby-card music" data-hobby-id="music">
+                        <div class="hobby-icon"><i class="fas fa-music"></i></div>
+                        <h3>Musique</h3>
+                        <p>Artiste depuis 3ans, je crée des musiques et les diffuses sur les platformes de streaming.</p>
+                        <div class="hobby-glow"></div>
+                    </div>
 
-                <!-- Informatique -->
-                <div class="hobby-card it" data-hobby-id="it">
-                    <div class="hobby-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Informatique & Réseaux</h3>
-                    <p>Passionné par l'infrastructure, je teste et configure switches et points d'accès à domicile, explorant les limites du réseau.</p>
-                    <div class="hobby-glow"></div>
-                </div>
+                    <!-- Informatique -->
+                    <div class="hobby-card it" data-hobby-id="it">
+                        <div class="hobby-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Informatique & Réseaux</h3>
+                        <p>Passionné par l'infrastructure, je teste et configure switches et points d'accès à domicile, explorant les limites du réseau.</p>
+                        <div class="hobby-glow"></div>
+                    </div>
 
-                <!-- Jeux Vidéo -->
-                <div class="hobby-card gaming" data-hobby-id="gaming">
-                    <div class="hobby-icon"><i class="fas fa-gamepad"></i></div>
-                    <h3>Jeux Vidéo</h3>
-                    <p>Adepte des défis, je maîtrise les Souls-like (Sekiro, Dark Souls, Elden Ring) et m'immerge dans des univers riches comme Ghost of Tsushima.</p>
-                    <div class="hobby-glow"></div>
+                    <!-- Jeux Vidéo -->
+                    <div class="hobby-card gaming" data-hobby-id="gaming">
+                        <div class="hobby-icon"><i class="fas fa-gamepad"></i></div>
+                        <h3>Jeux Vidéo</h3>
+                        <p>Adepte des défis, je maîtrise les Souls-like (Sekiro, Dark Souls, Elden Ring) et m'immerge dans des univers riches comme Ghost of Tsushima.</p>
+                        <div class="hobby-glow"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -393,5 +396,13 @@
 
     <script src="js/modals.js"></script>
     <script src="js/main.js"></script>
+    <!-- Scripts Particles.js pour l'animation de fond -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+      particlesJS.load('particles-js', 'assets/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+      });
+    </script>
 </body>
 </html>
