@@ -113,25 +113,18 @@ if (typingEl) {
     type();
 }
     // Intersection Observer Animations
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => { // Ajout de 'observer' comme paramètre ici
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in'); // Utilise 'fade-in' qui est définie dans le CSS
-            } else {
-                entry.target.classList.remove('fade-in'); // Optionnel: pour refaire l'animation en scrollant
+                entry.target.classList.add('fade-in'); // Ajoute la classe d'animation
+                observer.unobserve(entry.target); // Très important : arrête d'observer l'élément une fois animé
             }
+            // Le bloc 'else' a été supprimé pour empêcher la réinitialisation de l'animation
         });
     }, { threshold: 0.1 }); // Déclenche quand 10% de l'élément est visible
 
+    // Observe toutes les sections pour l'animation
     document.querySelectorAll('section').forEach(section => observer.observe(section));
-    
-    // Initialisation des animations au chargement pour les sections déjà visibles
-    document.querySelectorAll('section').forEach(section => {
-        if (section.getBoundingClientRect().top < window.innerHeight) {
-            section.classList.add('fade-in');
-        }
-    });
-});
 
 // --- NOUVELLE FONCTION POUR IMPRIMER LE CV PDF DÉDIÉ ---
 // Cette fonction reste inchangée, mais assurez-vous que cv-pdf.html existe.
