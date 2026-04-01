@@ -1,5 +1,5 @@
 // modals.js
-
+ 
 const allModalsData = {
   'pepiniere': {
     type: 'project', // Ajout d'un type
