@@ -526,11 +526,12 @@ body {
   position: relative;
   overflow: hidden; /* Important pour les animations de fond */
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: default;
+  cursor: pointer; /* Changed to pointer to indicate clickability */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 1; /* S'assure que le contenu est au-dessus du ::before */
 }
 
 .hobby-card:hover {
@@ -571,29 +572,30 @@ body {
   content: '';
   position: absolute;
   inset: 0; /* Prend toute la taille de la carte */
-  opacity: 0.08; /* Légèrement visible par défaut */
-  z-index: 1; /* Derrière le contenu mais devant le glow */
-  background-size: cover; /* Ajuste la taille du fond */
+  opacity: 0.05; /* Légèrement visible par défaut */
+  z-index: 0; /* Derrière le contenu */
+  background-size: 400% 400%; /* Permet une animation de fond plus grande */
   transition: opacity 0.5s ease;
+  pointer-events: none; /* Ne doit pas bloquer les clics */
 }
 
 .hobby-card:hover::before {
-  opacity: 0.2; /* Devient plus visible au survol */
+  opacity: 0.15; /* Devient plus visible au survol */
 }
 
-/* Musique (Exemple de fond animé) */
+/* Musique */
 .hobby-card.music::before {
-  background-image: url('https://www.transparenttextures.com/patterns/binding-dark.png'); /* Remplacez par votre image/texture */
+  background-image: url('https://www.transparenttextures.com/patterns/binding-dark.png');
   animation: bg-pan-music 30s linear infinite alternate;
 }
-/* Informatique (Exemple de fond animé) */
+/* Informatique */
 .hobby-card.it::before {
-  background-image: url('https://www.transparenttextures.com/patterns/diagmonds.png'); /* Remplacez par votre image/texture */
+  background-image: url('https://www.transparenttextures.com/patterns/diagmonds.png');
   animation: bg-pan-it 25s linear infinite;
 }
-/* Jeux Vidéo (Exemple de fond animé) */
+/* Jeux Vidéo */
 .hobby-card.gaming::before {
-  background-image: url('https://www.transparenttextures.com/patterns/pyramid.png'); /* Remplacez par votre image/texture */
+  background-image: url('https://www.transparenttextures.com/patterns/pyramid.png');
   animation: bg-pan-gaming 35s linear infinite reverse;
 }
 
@@ -604,7 +606,7 @@ body {
   border-radius: var(--border-radius);
   background: transparent;
   transition: var(--transition);
-  z-index: 0; /* En arrière-plan */
+  z-index: 0; /* En arrière-plan, mais le ::before est encore plus en arrière (z-index 0) */
   pointer-events: none; /* N'intercepte pas les événements de la souris */
 }
 
@@ -727,7 +729,7 @@ body {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: var(--white);
+  color: var(--white); /* This should probably be text-dark for consistency inside the white section */
 }
 
 .contact-links {
@@ -741,16 +743,16 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  color: var(--black);
+  color: var(--text-dark); /* Changed to text-dark for better contrast */
   text-decoration: none;
   border-radius: var(--border-radius);
   transition: var(--transition);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--border-color); /* Changed from rgba(255,255,255,0.2) to border-color */
 }
 
 .contact-link:hover {
   background: var(--card-bg);
-  border-color: var(--border-color);
+  border-color: var(--accent-blue); /* Changed to accent-blue on hover */
   color: var(--text-dark);
   transform: translateX(4px);
 }
