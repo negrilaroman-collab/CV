@@ -300,8 +300,8 @@ body {
 .section {
   max-width: 1200px;
   margin: 6rem auto;
-  padding: 3rem;
-  background: var(--white);
+  padding: 3rem; /* Padding par défaut, sera surchargé pour #hobbies */
+  background: var(--white); /* Couleur de fond par défaut, sera surchargée pour #hobbies */
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-lg);
 }
@@ -509,7 +509,38 @@ body {
   font-size: 0.95rem;
 }
 
-/* Loisirs & Passions (NOUVEAUX STYLES) */
+/* NOUVEAUX STYLES POUR LA SECTION LOISIRS AVEC PARTICLES.JS */
+#hobbies { /* Cible la section Loisirs */
+  position: relative; /* Important pour que les particules se positionnent correctement par rapport à cette section */
+  overflow: hidden; /* Cache tout débordement des particules */
+  padding: 0; /* Supprime le padding de la section, il sera géré par .content-above-particles */
+  background: none; /* Supprime le fond blanc de la section pour laisser apparaître les particules */
+  box-shadow: none; /* Supprime l'ombre de la section pour un effet de pleine largeur des particules */
+}
+
+/* Le conteneur des particules */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #1a1a2e; /* Couleur de fond de l'animation, adaptez à votre thème */
+  background-image: url(''); /* Vous pouvez ajouter une image de fond si vous voulez */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 1; /* Place les particules en dessous du contenu principal */
+}
+
+/* Le contenu qui doit apparaître par-dessus les particules */
+.content-above-particles {
+  position: relative;
+  z-index: 2; /* Place votre contenu au-dessus des particules */
+  padding: 3rem; /* Restaure le padding interne pour le contenu */
+  color: var(--white); /* Assurez-vous que votre texte est lisible sur le fond sombre */
+}
+
 .hobbies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -518,20 +549,20 @@ body {
 }
 
 .hobby-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent pour la carte */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
   padding: 2.5rem 2rem;
   text-align: center;
   position: relative;
-  overflow: hidden; /* Important pour les animations de fond */
+  overflow: hidden; 
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: pointer; /* Changed to pointer to indicate clickability */
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1; /* S'assure que le contenu est au-dessus du ::before */
+  z-index: 2; /* S'assure que la carte elle-même est au-dessus des particules */
 }
 
 .hobby-card:hover {
@@ -542,10 +573,10 @@ body {
 
 .hobby-icon {
   font-size: 3.5rem;
-  color: var(--accent-blue);
+  color: var(--accent-light); /* Couleur de l'icône */
   margin-bottom: 1.5rem;
   position: relative;
-  z-index: 2; /* S'assure que l'icône est au-dessus des effets de fond */
+  z-index: 3; /* S'assure que l'icône est au-dessus de tout */
   text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
 }
 
@@ -553,50 +584,26 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--white); /* Texte blanc pour meilleure lisibilité sur fond sombre */
   margin-bottom: 1rem;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hobby-card p {
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.8); /* Texte blanc clair pour meilleure lisibilité */
   font-size: 1.05rem;
   line-height: 1.6;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* Fonds animés pour chaque loisir */
+/* Suppression des anciens fonds animés pour les hobby-card */
 .hobby-card::before {
-  content: '';
-  position: absolute;
-  inset: 0; /* Prend toute la taille de la carte */
-  opacity: 0.05; /* Légèrement visible par défaut */
-  z-index: 0; /* Derrière le contenu */
-  background-size: 400% 400%; /* Permet une animation de fond plus grande */
-  transition: opacity 0.5s ease;
-  pointer-events: none; /* Ne doit pas bloquer les clics */
+  content: none; /* Supprime le pseudo-élément */
 }
-
 .hobby-card:hover::before {
-  opacity: 0.15; /* Devient plus visible au survol */
-}
-
-/* Musique */
-.hobby-card.music::before {
-  background-image: url('https://www.transparenttextures.com/patterns/binding-dark.png');
-  animation: bg-pan-music 30s linear infinite alternate;
-}
-/* Informatique */
-.hobby-card.it::before {
-  background-image: url('https://www.transparenttextures.com/patterns/diagmonds.png');
-  animation: bg-pan-it 25s linear infinite;
-}
-/* Jeux Vidéo */
-.hobby-card.gaming::before {
-  background-image: url('https://www.transparenttextures.com/patterns/pyramid.png');
-  animation: bg-pan-gaming 35s linear infinite reverse;
+  content: none; /* Supprime le pseudo-élément */
 }
 
 /* Effet "LED" / Glow autour de la carte */
@@ -606,7 +613,7 @@ body {
   border-radius: var(--border-radius);
   background: transparent;
   transition: var(--transition);
-  z-index: 0; /* En arrière-plan, mais le ::before est encore plus en arrière (z-index 0) */
+  z-index: 0; /* En arrière-plan de la carte, mais toujours au-dessus des particules */
   pointer-events: none; /* N'intercepte pas les événements de la souris */
 }
 
@@ -623,20 +630,9 @@ body {
   }
 }
 
-/* Animations de mouvement de fond */
-@keyframes bg-pan-music {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-@keyframes bg-pan-it {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
-}
-
-@keyframes bg-pan-gaming {
-  0% { background-position: 50% 0%; }
-  100% { background-position: 50% 100%; }
+/* Suppression des anciennes animations de mouvement de fond */
+@keyframes bg-pan-music, @keyframes bg-pan-it, @keyframes bg-pan-gaming {
+  /* Ces keyframes sont supprimés car les ::before sont supprimés */
 }
 
 /* Projects */
@@ -1153,7 +1149,8 @@ body {
   #progress-bar,
   .sidebar-toggle-btn,
   .lightbox-overlay,
-  .hobby-glow /* Cache également la lightbox et le glow à l'impression */ {
+  .hobby-glow, /* Cache également la lightbox et le glow à l'impression */
+  #particles-js /* Cache l'animation particles.js à l'impression */ {
     display: none !important;
   }
   
