@@ -49,7 +49,7 @@ const allModalsData = {
     type: 'hobby', // Ajout d'un type
     title: 'Passion Musique : Artiste ',
     description: 'Depuis 3 ans, je crée de la musique avec tout son aspect visuel et je la diffuse sur toutes sortes de plateformes de streaming. Pour ce faire j\'utilise FL Studio, Photoshop et Première Pro',
-    technologies: ['FL Studio', 'Photoshop', 'Premiere Pro', 'Mixage DJ', 'Sound Design', 'Composition'], // Ajout de l'array manquant
+    technologies: ['FL Studio', 'Photoshop', 'Premiere Pro'], // Ajout de l'array manquant
     images: [
       { src: 'images/hobbies/Spotify.jpg', description: 'Mon compte Spotify' }, // Correction : ajout de la quote fermante
       { src: 'images/hobbies/music_mix.jpg', description: 'Exemple pochette d\'un morceau' }
