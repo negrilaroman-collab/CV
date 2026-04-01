@@ -1,29 +1,29 @@
+// main.js
+
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.sidebar');
-    const sidebarToggleBtn = document.getElementById('sidebar-toggle'); // Votre nouveau bouton
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle');
 
     // --- LOGIQUE POUR LE BOUTON BASCULE ---
     if (sidebarToggleBtn) {
         sidebarToggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('active'); // Ajoute/retire la classe 'active'
+            sidebar.classList.toggle('active');
         });
     }
 
     // --- ADAPTATION DE LA LOGIQUE DES LIENS DE NAVIGATION ---
-    document.querySelectorAll('.nav-item').forEach(link => { // Note: C'était '.sidebar-link' dans votre JS original, mais votre HTML utilise '.nav-item'
+    document.querySelectorAll('.nav-item').forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-                // Fermer la sidebar après avoir cliqué sur un lien (sur mobile ou si elle est ouverte)
-                if (window.innerWidth < 1024 || sidebar.classList.contains('active')) { // Vérifie si mobile OU si la sidebar est ouverte
+                if (window.innerWidth < 1024 || sidebar.classList.contains('active')) {
                     sidebar.classList.remove('active');
                 }
 
-                // Logique pour marquer le lien actif
-                document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active')); // Utilisez .nav-item
+                document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             }
         });
@@ -38,12 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 let current = '';
                 sections.forEach(section => {
                     const rect = section.getBoundingClientRect();
-                    // Ajustez ces valeurs si nécessaire pour un meilleur déclenchement
-                    if (rect.top <= 150 && rect.bottom >= 150) { // Un peu plus large pour la détection
+                    if (rect.top <= 150 && rect.bottom >= 150) {
                         current = section.getAttribute('id');
                     }
                 });
-                document.querySelectorAll('.nav-item').forEach(link => { // Utilisez .nav-item ici aussi
+                document.querySelectorAll('.nav-item').forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${current}`) {
                         link.classList.add('active');
@@ -55,42 +54,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Votre code existant pour les modals et autres...
-    // Modals - Load modals.js for detailed content
-    if (typeof openModal === 'undefined') {
-        const script = document.createElement('script');
-        script.src = 'js/modals.js';
-        document.head.appendChild(script);
-    }
-
-    // Close Modal
-    document.addEventListener('click', e => {
-        // Assurez-vous que l'ID ici correspond à votre modal si elle a changé
-        const projectModal = document.getElementById('modal-overlay'); // Votre modal a l'id modal-overlay
-        if (projectModal && (e.target.classList.contains('modal-overlay') || e.target.closest('.modal-close'))) {
-            projectModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-    document.addEventListener('keydown', e => {
-        const projectModal = document.getElementById('modal-overlay');
-        if (projectModal && e.key === 'Escape') {
-            projectModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
+    // La logique des modals et lightbox est maintenant centralisée dans modals.js
+    // et les écouteurs de clic sont attachés là-bas.
 
     // Typing Animation (Nom)
     const typingEl = document.querySelector('.typing-name');
     if (typingEl) {
+        // Cette section nécessite que '.typing-name' existe dans le HTML pour fonctionner.
+        // Si vous l'avez supprimé, cette partie n'aura pas d'effet.
         const texts = ['ROMAN NEGRILA', 'R&T CYBERSÉCURITÉ', 'ALTERNANT 2026'];
         let i = 0, j = 0, dir = 1;
         function type() {
-            typingEl.textContent = texts[i].slice(0, j) + '|';
-            if (j === texts[i].length && dir === 1) dir = -1;
-            else if (j === 0 && dir === -1) { dir = 1; i = (i + 1) % texts.length; }
-            j += dir;
-            setTimeout(type, dir > 0 ? 100 : 50);
+            // Vérifie si typingEl est toujours dans le DOM avant d'essayer de le modifier
+            if (typingEl) {
+                typingEl.textContent = texts[i].slice(0, j) + '|';
+                if (j === texts[i].length && dir === 1) dir = -1;
+                else if (j === 0 && dir === -1) { dir = 1; i = (i + 1) % texts.length; }
+                j += dir;
+                setTimeout(type, dir > 0 ? 100 : 50);
+            }
         }
         type();
     }
@@ -99,26 +81,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('fade-in'); // Utilise 'fade-in' qui est définie dans le CSS
+            } else {
+                entry.target.classList.remove('fade-in'); // Optionnel: pour refaire l'animation en scrollant
             }
         });
-    });
+    }, { threshold: 0.1 }); // Déclenche quand 10% de l'élément est visible
+
     document.querySelectorAll('section').forEach(section => observer.observe(section));
+    
+    // Initialisation des animations au chargement pour les sections déjà visibles
+    document.querySelectorAll('section').forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+            section.classList.add('fade-in');
+        }
+    });
 });
 
-
 // --- NOUVELLE FONCTION POUR IMPRIMER LE CV PDF DÉDIÉ ---
-    window.printDedicatedCvPdf = function() {
-        // Ouvre la page cv-pdf.html dans un nouvel onglet/fenêtre
-        const printWindow = window.open('cv-pdf.html', '_blank');
-
-        // Attend que la nouvelle page soit entièrement chargée
+// Cette fonction reste inchangée, mais assurez-vous que cv-pdf.html existe.
+window.printDedicatedCvPdf = function() {
+    const printWindow = window.open('cv-pdf.html', '_blank');
+    if (printWindow) { // Assurez-vous que la fenêtre a été ouverte
         printWindow.onload = function() {
-            // Une fois chargée, déclenche la boîte de dialogue d'impression pour cette nouvelle page
             printWindow.print();
-            // Optionnel : fermer la nouvelle fenêtre après l'impression (certains navigateurs peuvent le bloquer ou demander confirmation)
-            // printWindow.close();
         };
-    };
-
-
+    } else {
+        alert('Veuillez autoriser les pop-ups pour imprimer le CV.');
+    }
+};
