@@ -29,7 +29,7 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: transparent;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
@@ -43,7 +43,7 @@ body {
   height: 100%;
   z-index: -1; /* Reste bien derrière tout */
   pointer-events: none; /* Ne gêne pas les clics sur le site */
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: transparent;
 }
 
 /* Progress Bar */
