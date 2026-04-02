@@ -41,7 +41,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -1; /* Reste bien derrière tout */
+  pointer-events: none; /* Ne gêne pas les clics sur le site */
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
@@ -310,14 +311,18 @@ body {
 .section {
   max-width: 1200px;
   margin: 6rem auto;
-  padding: 3rem; /* Padding par défaut, sera surchargé pour #hobbies */
-  background: var(--white); /* Couleur de fond par défaut, sera surchargée pour #hobbies */
+  padding: 3rem;
+  /* Effet de verre (Glassmorphism) pour voir le fond animé */
+  background: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(8px);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .section-title {
   background: var(--white);
+  background: rgba(255, 255, 255, 0.9);
   padding: 1rem 2.5rem;
   border-radius: 20px;
   box-shadow: var(--shadow-md);
