@@ -631,7 +631,9 @@ body {
 }
 
 /* Suppression des anciennes animations de mouvement de fond */
-@keyframes bg-pan-music, @keyframes bg-pan-it, @keyframes bg-pan-gaming {
+@keyframes bg-pan-music { }
+@keyframes bg-pan-it { }
+@keyframes bg-pan-gaming {
   /* Ces keyframes sont supprimés car les ::before sont supprimés */
 }
 

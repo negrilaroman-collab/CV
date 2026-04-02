@@ -144,3 +144,4 @@ window.printDedicatedCvPdf = function() {
         alert('Veuillez autoriser les pop-ups pour imprimer le CV.');
     }
 };
+});
