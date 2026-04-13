@@ -234,18 +234,19 @@ body {
 
 .hero-subtitle {
   font-size: 1.5rem;
+  line-height: 1.6; /* Explicitly set to ensure consistent base height for calculations */
   color: rgba(255,255,255,0.9);
   font-weight: 500;
-  min-height: 40px;
+  /* Calcule une min-height basée sur la taille de la police et l'interligne, plus un petit buffer */
+  min-height: calc(1.5rem * 1.6 + 4px); /* Par exemple, (24px * 1.6) + 4px = 38.4px + 4px = 42.4px */
   margin-bottom: 2rem;
   max-width: 400px;
-}
 
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem;
-}
+  /* NOUVEAUTÉS POUR STABILISER LA HAUTEUR ET FORCER SUR UNE SEULE LIGNE */
+  white-space: nowrap;     /* Empêche le texte de passer à la ligne automatiquement */
+  overflow: hidden;        /* Cache toute partie du texte qui dépasse la largeur du conteneur */
+  text-overflow: ellipsis; /* Affiche des points de suspension (...) si le texte est tronqué */
+  /* Fin des nouveautés */
 
 .stat-card {
   background: rgba(255,255,255,0.15);
