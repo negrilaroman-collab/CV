@@ -247,6 +247,7 @@ body {
   overflow: hidden;        /* Cache toute partie du texte qui dépasse la largeur du conteneur */
   text-overflow: ellipsis; /* Affiche des points de suspension (...) si le texte est tronqué */
   /* Fin des nouveautés */
+}
 
 .stat-card {
   background: rgba(255,255,255,0.15);
