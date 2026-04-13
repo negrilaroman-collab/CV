@@ -60,57 +60,57 @@ document.addEventListener('DOMContentLoaded', function() {
 // Typing Animation (Nom)
 const typingEl = document.querySelector('.typing-name');
 if (typingEl) {
-const texts = ['ROMAN NEGRILA', 'R&T CYBERSÉCURITÉ', 'ALTERNANT'];
-let textIndex = 0; // Index du texte actuel dans le tableau 'texts'
-let charIndex = 0; // Index du caractère actuel dans le texte en cours
-let isDeleting = false; // true si on efface, false si on écrit
+    const texts = ['ROMAN NEGRILA', 'R&T CYBERSÉCURITÉ', 'ALTERNANT'];
+    let textIndex = 0; // Index du texte actuel dans le tableau 'texts'
+    let charIndex = 0; // Index du caractère actuel dans le texte en cours
+    let isDeleting = false; // true si on efface, false si on écrit
 
-const typingSpeed = 100; // Vitesse d'écriture (ms par caractère)
-const deletingSpeed = 50; // Vitesse d'effacement (ms par caractère)
-const pauseAfterWord = 2000; // Durée de la pause après qu'un mot est entièrement tapé (en ms)
+    const typingSpeed = 100; // Vitesse d'écriture (ms par caractère)
+    const deletingSpeed = 50; // Vitesse d'effacement (ms par caractère)
+    const pauseAfterWord = 2000; // Durée de la pause après qu'un mot est entièrement tapé (en ms)
 
-function type() {
-    if (!typingEl) return; // S'assurer que l'élément existe toujours
+    function type() {
+        if (!typingEl) return; // S'assurer que l'élément existe toujours
 
-    const currentText = texts[textIndex];
-    let currentDisplayedText = '';
-    let timeoutDuration = typingSpeed;
+        const currentText = texts[textIndex];
+        let currentDisplayedText = '';
+        let timeoutDuration = typingSpeed;
 
-    if (isDeleting) {
-        // Mode effacement
-        currentDisplayedText = currentText.substring(0, charIndex - 1);
-        charIndex--;
-        timeoutDuration = deletingSpeed;
+        if (isDeleting) {
+            // Mode effacement
+            currentDisplayedText = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            timeoutDuration = deletingSpeed;
 
-        if (charIndex < 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length; // Passe au texte suivant
-            charIndex = 0; // Réinitialise l'index des caractères pour le nouveau mot
-            // Pas de setTimeout ici, le prochain appel de type() commencera à écrire
-            timeoutDuration = typingSpeed; // Pour le prochain cycle d'écriture
+            if (charIndex < 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length; // Passe au texte suivant
+                charIndex = 0; // Réinitialise l'index des caractères pour le nouveau mot
+                // Pas de setTimeout ici, le prochain appel de type() commencera à écrire
+                timeoutDuration = typingSpeed; // Pour le prochain cycle d'écriture
+            }
+        } else {
+            // Mode écriture
+            currentDisplayedText = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            timeoutDuration = typingSpeed;
+
+            if (charIndex > currentText.length) {
+                isDeleting = true;
+                // Le mot est entièrement tapé, on ajoute une pause avant de commencer à effacer
+                timeoutDuration = pauseAfterWord; // La pause avant l'effacement
+            }
         }
-    } else {
-        // Mode écriture
-        currentDisplayedText = currentText.substring(0, charIndex + 1);
-        charIndex++;
-        timeoutDuration = typingSpeed;
+        
+        // Mise à jour de l'affichage avec le curseur clignotant
+        typingEl.textContent = currentDisplayedText + '|';
 
-        if (charIndex > currentText.length) {
-            isDeleting = true;
-            // Le mot est entièrement tapé, on ajoute une pause avant de commencer à effacer
-            timeoutDuration = pauseAfterWord; // La pause avant l'effacement
-        }
+        // Planifie la prochaine étape
+        setTimeout(type, timeoutDuration);
     }
     
-    // Mise à jour de l'affichage avec le curseur clignotant
-    typingEl.textContent = currentDisplayedText + '|';
-
-    // Planifie la prochaine étape
-    setTimeout(type, timeoutDuration);
-}
-
-// Démarre l'animation
-type();
+    // Démarre l'animation
+    type();
 }
     // Intersection Observer Animations
     const observer = new IntersectionObserver((entries, observer) => {
