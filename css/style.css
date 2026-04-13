@@ -236,6 +236,7 @@ body {
   font-size: 1.5rem;
   color: rgba(255,255,255,0.9);
   font-weight: 500;
+  min-height: 40px;
   margin-bottom: 2rem;
   max-width: 400px;
 }
