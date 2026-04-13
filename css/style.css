@@ -232,12 +232,12 @@ background-clip: text;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  line-height: 1.6; /* Si cette propriété était là, sinon la retirer */
-  color: rgba(255,255,255,0.9);
-  font-weight: 500;
-  margin-bottom: 2rem;
-  /* Toutes les autres propriétés ajoutées ou modifiées par mes suggestions doivent être supprimées */
+font-size: 1.5rem;
+color: rgba(255,255,255,0.9);
+font-weight: 500;
+min-height: 40px;
+margin-bottom: 2rem;
+max-width: 400px;
 }
 
 .hero-stats {
