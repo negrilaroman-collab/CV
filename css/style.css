@@ -232,28 +232,26 @@ body {
   background-clip: text;
 }
 
-/* Ajoutez cette nouvelle règle pour le conteneur .hero-text */
-.hero-text {
-    min-width: 0; /* TRÈS IMPORTANT pour les grilles et le contenu nowrap */
-    /* Si vous avez d'autres styles pour .hero-text, ajoutez-les ici */
-}
-
-/* Modifiez votre règle existante pour .hero-subtitle */
 .hero-subtitle {
   font-size: 1.5rem;
-  line-height: 1.6; /* Explicitement défini pour assurer une hauteur de base cohérente pour les calculs */
+  line-height: 1.6;
   color: rgba(255,255,255,0.9);
   font-weight: 500;
-  /* Augmentons un peu la min-height pour plus de sécurité */
-  min-height: 50px; /* Une valeur fixe un peu plus généreuse pour une seule ligne */
+  
+  /* Modifications clés ici pour une stabilité maximale */
+  height: 50px; /* Force la hauteur à être fixée à 50px (au lieu de min-height) */
+  width: 400px; /* Force la largeur à être fixée à 400px (au lieu de max-width) */
+  
   margin-bottom: 2rem;
-  max-width: 400px;
+  
+  white-space: nowrap;     /* Empêche le texte de passer à la ligne */
+  overflow: hidden;        /* Cache le texte qui dépasse */
+  text-overflow: ellipsis; /* Affiche des points de suspension si le texte est caché */
+}
 
-  /* NOUVEAUTÉS POUR STABILISER LA HAUTEUR ET FORCER SUR UNE SEULE LIGNE */
-  white-space: nowrap;     /* Empêche le texte de passer à la ligne automatiquement */
-  overflow: hidden;        /* Cache toute partie du texte qui dépasse la largeur du conteneur */
-  text-overflow: ellipsis; /* Affiche des points de suspension (...) si le texte est tronqué */
-  /* Fin des nouveautés */
+/* Assurez-vous que cette règle est toujours présente également, car elle aide le conteneur de grille */
+.hero-text {
+    min-width: 0; /* Important pour que la colonne de grille ne soit pas forcée par le contenu */
 }
 
 .stat-card {
