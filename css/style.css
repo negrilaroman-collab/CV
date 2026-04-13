@@ -232,13 +232,20 @@ body {
   background-clip: text;
 }
 
+/* Ajoutez cette nouvelle règle pour le conteneur .hero-text */
+.hero-text {
+    min-width: 0; /* TRÈS IMPORTANT pour les grilles et le contenu nowrap */
+    /* Si vous avez d'autres styles pour .hero-text, ajoutez-les ici */
+}
+
+/* Modifiez votre règle existante pour .hero-subtitle */
 .hero-subtitle {
   font-size: 1.5rem;
-  line-height: 1.6; /* Explicitly set to ensure consistent base height for calculations */
+  line-height: 1.6; /* Explicitement défini pour assurer une hauteur de base cohérente pour les calculs */
   color: rgba(255,255,255,0.9);
   font-weight: 500;
-  /* Calcule une min-height basée sur la taille de la police et l'interligne, plus un petit buffer */
-  min-height: calc(1.5rem * 1.6 + 4px); /* Par exemple, (24px * 1.6) + 4px = 38.4px + 4px = 42.4px */
+  /* Augmentons un peu la min-height pour plus de sécurité */
+  min-height: 50px; /* Une valeur fixe un peu plus généreuse pour une seule ligne */
   margin-bottom: 2rem;
   max-width: 400px;
 
