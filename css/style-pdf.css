@@ -1,295 +1,276 @@
-/* style-pdf.css - Design Moderne et Aéré pour CV A4 (1 page) */
+/* style-pdf.css - Design 2 colonnes moderne et aéré */
 
 :root {
-    /* Palette de couleurs modernisée */
-    --primary-color: #0f172a;      /* Bleu nuit très foncé pour le texte principal */
-    --accent-blue: #2563eb;        /* Bleu électrique pour les accents */
-    --accent-light: #eff6ff;       /* Bleu très clair pour les fonds de badges */
-    --text-dark: #334155;          /* Gris foncé pour le texte courant */
-    --text-light: #64748b;         /* Gris clair pour les infos secondaires */
-    --bg-light: #f8fafc;           /* Fond très léger pour contraster */
-    --border-light: #e2e8f0;       /* Lignes de séparation douces */
+    --primary: #0f172a;        /* Texte foncé principal */
+    --sidebar-bg: #f1f5f9;     /* Fond de la colonne de gauche */
+    --accent: #2563eb;         /* Bleu électrique */
+    --text-main: #334155;      /* Gris foncé pour paragraphes */
+    --text-muted: #64748b;     /* Gris clair */
+    --border: #e2e8f0;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: var(--text-dark);
-    line-height: 1.45; /* Interligne légèrement augmenté pour la lisibilité */
-    background-color: #fff;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
     font-size: 10pt;
+    line-height: 1.4;
+    background: #fff;
 }
 
-/* Format A4 Impression */
 @page {
     size: A4 portrait;
-    margin: 0; /* Géré par le conteneur */
+    margin: 0;
 }
 
-.cv-container {
+/* Le conteneur principal divisé en 2 colonnes */
+.cv-page {
     width: 210mm;
-    height: 297mm; /* Hauteur stricte A4 */
+    height: 297mm;
+    display: flex;
+    overflow: hidden;
     margin: 0 auto;
-    padding: 12mm 15mm; /* Marges confortables */
     background: #fff;
+}
+
+/* ================= COLONNE GAUCHE ================= */
+.cv-sidebar {
+    width: 32%;
+    background-color: var(--sidebar-bg);
+    padding: 12mm 8mm;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Sécurité anti-débordement */
+    border-right: 1px solid var(--border);
 }
 
-/* --- HEADER (Repensé pour être plus élégant) --- */
-.header-pdf {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 12px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--border-light);
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-.profile-pic-pdf {
-    width: 85px;
-    height: 85px;
-    border-radius: 12px; /* Carré arrondi plutôt que rond pour un look tech */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+    border: 3px solid #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 12px;
 }
 
-.header-info-pdf {
-    flex: 1;
-}
-
-.name-pdf {
-    font-size: 24pt;
+.name {
+    font-size: 17pt;
     font-weight: 800;
-    color: var(--primary-color);
-    letter-spacing: -0.5px;
-    line-height: 1;
-}
-
-.role-pdf {
-    font-size: 12pt;
-    font-weight: 600;
-    color: var(--accent-blue);
-    margin: 5px 0 8px 0;
-}
-
-.contact-info-header-pdf {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 18px; /* Espacement horizontal et vertical */
-    font-size: 9pt;
-    color: var(--text-light);
-}
-
-.contact-info-header-pdf span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.contact-info-header-pdf i {
-    color: var(--accent-blue); /* Icônes en couleur */
-    font-size: 10pt;
-}
-
-/* --- SECTIONS (Structure et espacement) --- */
-.section-pdf {
-    margin-bottom: 14px;
-}
-
-.section-title-pdf {
-    font-size: 13pt;
-    color: var(--primary-color);
+    color: var(--primary);
+    line-height: 1.1;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid var(--border-light);
+    margin-bottom: 4px;
+}
+
+.role {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.sidebar-section {
+    margin-bottom: 22px;
+}
+
+.sidebar-title {
+    font-size: 11pt;
+    color: var(--primary);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border);
     padding-bottom: 4px;
     margin-bottom: 10px;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-}
-
-/* Petit carré décoratif avant le titre */
-.section-title-pdf::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 14px;
-    background-color: var(--accent-blue);
-    margin-right: 8px;
-    border-radius: 2px;
-}
-
-.summary-pdf {
-    text-align: justify;
-    font-size: 10pt;
-    color: var(--text-dark);
-}
-
-.summary-pdf strong {
-    color: var(--primary-color);
-}
-
-/* --- LISTES (Expérience / Formation) --- */
-.entry-list-pdf {
-    display: flex;
-    flex-direction: column;
-    gap: 12px; /* Plus d'espace entre les entrées */
-}
-
-.entry-card-pdf {
-    position: relative;
-    padding-left: 12px;
-    border-left: 2px solid var(--border-light); /* Ligne temporelle subtile */
-}
-
-.entry-header-pdf {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 4px;
-}
-
-.entry-header-pdf h3 {
-    font-size: 11pt;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.entry-header-pdf em {
-    font-style: normal;
-    color: var(--text-light);
-    font-weight: 500;
-}
-
-.entry-date-pdf {
-    font-size: 9pt;
-    font-weight: 600;
-    color: var(--accent-blue);
-    background-color: var(--accent-light);
-    padding: 2px 8px;
-    border-radius: 4px;
-}
-
-.entry-desc-pdf {
-    padding-left: 5px; /* Aligné avec le texte, pas la bordure */
-    list-style: none; /* On retire les puces par défaut */
-}
-
-.entry-desc-pdf li {
-    position: relative;
-    padding-left: 14px;
-    margin-bottom: 4px;
-    text-align: justify;
-    font-size: 9.5pt;
-}
-
-/* Puces personnalisées élégantes */
-.entry-desc-pdf li::before {
-    content: "▹"; /* Caractère flèche discrète */
-    position: absolute;
-    left: 0;
-    color: var(--accent-blue);
-    font-weight: bold;
-}
-
-/* --- COMPÉTENCES (Présentation en blocs) --- */
-.skills-grid-pdf {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 20px;
-}
-
-.skill-category-pdf {
-    background-color: var(--bg-light);
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid var(--border-light);
-}
-
-.skill-category-pdf h4 {
-    font-size: 9.5pt;
-    color: var(--accent-blue);
-    text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 4px;
 }
 
-.skill-category-pdf p {
-    font-size: 9.5pt;
-    color: var(--primary-color);
-    font-weight: 500;
+.contact-list {
+    list-style: none;
 }
 
-/* --- PROJETS (Design type "Card") --- */
-.projects-list-pdf {
+.contact-list li {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.project-item-pdf {
-    /* Style de carte très léger pour encadrer les projets */
-    background-color: #fff;
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    padding: 10px 12px;
-}
-
-.project-header-pdf {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 8px;
+    font-size: 8.5pt;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.contact-list i {
+    color: var(--accent);
+    width: 14px;
+    text-align: center;
+}
+
+/* Tags de compétences dans la sidebar */
+.skill-group h4 {
+    font-size: 9.5pt;
+    color: var(--primary);
     margin-bottom: 6px;
 }
 
-.project-header-pdf h3 {
-    font-size: 10.5pt;
-    font-weight: 700;
-    color: var(--primary-color);
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-.project-tags-pdf {
-    font-size: 8pt;
-    background-color: var(--primary-color); /* Fond foncé pour les tags */
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 12px;
+.tags span {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 7.5pt;
     font-weight: 500;
-    letter-spacing: 0.2px;
+    color: var(--text-muted);
 }
 
-.project-item-pdf p {
-    text-align: justify;
-    font-size: 9.5pt;
-    color: var(--text-dark);
-}
-
-/* --- FOOTER --- */
-.footer-pdf {
-    margin-top: auto; /* Pousse le footer vers le bas */
-    padding-top: 12px;
-    border-top: 1px solid var(--border-light);
-    text-align: center;
-    font-size: 9pt;
-    color: var(--text-light);
+/* ================= COLONNE DROITE ================= */
+.cv-main {
+    width: 68%;
+    padding: 12mm 12mm;
     display: flex;
     flex-direction: column;
-    gap: 4px;
 }
 
-.footer-pdf strong {
-    color: var(--primary-color);
+.main-section {
+    margin-bottom: 20px;
 }
 
-/* --- IMPRESSION (Garantit que le style passe à l'export) --- */
+/* Titres de la partie principale */
+.main-title {
+    font-size: 13pt;
+    color: var(--primary);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-title i {
+    color: var(--accent);
+}
+
+.summary-text {
+    text-align: justify;
+    font-size: 10pt;
+}
+
+.summary-text strong {
+    color: var(--primary);
+}
+
+/* Timelines pour l'expérience et la formation */
+.timeline-item {
+    margin-bottom: 15px;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.timeline-header h4 {
+    font-size: 11pt;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.date-badge {
+    font-size: 8.5pt;
+    background: var(--sidebar-bg);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.timeline-subtitle {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+.timeline-list {
+    padding-left: 14px;
+}
+
+.timeline-list li {
+    font-size: 9.5pt;
+    margin-bottom: 4px;
+    text-align: justify;
+    position: relative;
+    list-style: none;
+}
+
+/* Petits carrés bleus pour les puces */
+.timeline-list li::before {
+    content: '▪';
+    color: var(--accent);
+    position: absolute;
+    left: -12px;
+}
+
+/* Cartes pour les projets */
+.project-card {
+    border-left: 3px solid var(--accent);
+    background-color: #f8fafc;
+    padding: 8px 10px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 12px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.project-header h4 {
+    font-size: 10.5pt;
+    color: var(--primary);
+}
+
+.project-date {
+    font-size: 8.5pt;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.project-card p {
+    font-size: 9pt;
+    text-align: justify;
+    margin-bottom: 4px;
+}
+
+.tech-stack {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* Marges utilitaires */
+.mt-10 { margin-top: 10px; }
+.mt-15 { margin-top: 15px; }
+
+/* Forcer les couleurs à l'impression */
 @media print {
     * {
         -webkit-print-color-adjust: exact !important;
