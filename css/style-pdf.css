@@ -1,11 +1,14 @@
-/* style-pdf.css - Design calibré pour tenir sur 1 SEULE page A4 */
+/* style-pdf.css - Design Moderne et Aéré pour CV A4 (1 page) */
 
 :root {
-    --primary-color: #1e293b;
-    --accent-blue: #3b82f6;
-    --text-dark: #334155;
-    --text-light: #64748b;
-    --bg-light: #f8fafc;
+    /* Palette de couleurs modernisée */
+    --primary-color: #0f172a;      /* Bleu nuit très foncé pour le texte principal */
+    --accent-blue: #2563eb;        /* Bleu électrique pour les accents */
+    --accent-light: #eff6ff;       /* Bleu très clair pour les fonds de badges */
+    --text-dark: #334155;          /* Gris foncé pour le texte courant */
+    --text-light: #64748b;         /* Gris clair pour les infos secondaires */
+    --bg-light: #f8fafc;           /* Fond très léger pour contraster */
+    --border-light: #e2e8f0;       /* Lignes de séparation douces */
 }
 
 * {
@@ -15,46 +18,46 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     color: var(--text-dark);
-    line-height: 1.35; /* Légèrement réduit pour gagner de la place */
+    line-height: 1.45; /* Interligne légèrement augmenté pour la lisibilité */
     background-color: #fff;
-    font-size: 10pt; /* Réduit de 0.5pt */
+    font-size: 10pt;
 }
 
 /* Format A4 Impression */
 @page {
     size: A4 portrait;
-    margin: 0; /* Essentiel : aucune marge du navigateur */
+    margin: 0; /* Géré par le conteneur */
 }
 
 .cv-container {
     width: 210mm;
-    height: 297mm;
+    height: 297mm; /* Hauteur stricte A4 */
     margin: 0 auto;
-    padding: 10mm 12mm; /* Marges internes réduites (haut/bas et gauche/droite) */
+    padding: 12mm 15mm; /* Marges confortables */
     background: #fff;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Empêche le débordement sur une page 2 */
+    overflow: hidden; /* Sécurité anti-débordement */
 }
 
-/* Header */
+/* --- HEADER (Repensé pour être plus élégant) --- */
 .header-pdf {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--accent-blue);
-    margin-bottom: 10px;
+    gap: 20px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .profile-pic-pdf {
-    width: 80px; /* Légèrement plus petite */
-    height: 80px;
-    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    border-radius: 12px; /* Carré arrondi plutôt que rond pour un look tech */
     object-fit: cover;
-    border: 3px solid var(--bg-light);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
 }
 
 .header-info-pdf {
@@ -62,24 +65,24 @@ body {
 }
 
 .name-pdf {
-    font-size: 20pt; /* Réduit de 2pt */
-    font-weight: 700;
+    font-size: 24pt;
+    font-weight: 800;
     color: var(--primary-color);
-    text-transform: uppercase;
-    line-height: 1.1;
+    letter-spacing: -0.5px;
+    line-height: 1;
 }
 
 .role-pdf {
-    font-size: 11.5pt;
+    font-size: 12pt;
     font-weight: 600;
     color: var(--accent-blue);
-    margin: 2px 0 6px 0;
+    margin: 5px 0 8px 0;
 }
 
 .contact-info-header-pdf {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px 18px; /* Espacement horizontal et vertical */
     font-size: 9pt;
     color: var(--text-light);
 }
@@ -87,143 +90,206 @@ body {
 .contact-info-header-pdf span {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
 }
 
-.web-version-link-container {
-    background-color: var(--bg-light);
-    padding: 5px 10px;
-    border-radius: 6px;
-    text-align: center;
-    font-size: 8.5pt;
-    color: var(--primary-color);
-    margin-bottom: 10px;
+.contact-info-header-pdf i {
+    color: var(--accent-blue); /* Icônes en couleur */
+    font-size: 10pt;
 }
 
-/* Sections */
+/* --- SECTIONS (Structure et espacement) --- */
 .section-pdf {
-    margin-bottom: 10px; /* Réduit pour rapprocher les sections */
+    margin-bottom: 14px;
 }
 
 .section-title-pdf {
     font-size: 13pt;
     color: var(--primary-color);
     text-transform: uppercase;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 2px;
-    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+/* Petit carré décoratif avant le titre */
+.section-title-pdf::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 14px;
+    background-color: var(--accent-blue);
+    margin-right: 8px;
+    border-radius: 2px;
 }
 
 .summary-pdf {
     text-align: justify;
-    margin-bottom: 0;
+    font-size: 10pt;
+    color: var(--text-dark);
 }
 
-/* Layout Exp/Formation */
+.summary-pdf strong {
+    color: var(--primary-color);
+}
+
+/* --- LISTES (Expérience / Formation) --- */
 .entry-list-pdf {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px; /* Plus d'espace entre les entrées */
+}
+
+.entry-card-pdf {
+    position: relative;
+    padding-left: 12px;
+    border-left: 2px solid var(--border-light); /* Ligne temporelle subtile */
 }
 
 .entry-header-pdf {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 4px;
 }
 
 .entry-header-pdf h3 {
-    font-size: 10.5pt;
+    font-size: 11pt;
+    font-weight: 700;
     color: var(--primary-color);
+}
+
+.entry-header-pdf em {
+    font-style: normal;
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 .entry-date-pdf {
     font-size: 9pt;
     font-weight: 600;
     color: var(--accent-blue);
-}
-
-.entry-subtitle-pdf {
-    font-weight: 600;
-    color: var(--text-dark);
-    font-size: 9.5pt;
-    margin-bottom: 2px;
+    background-color: var(--accent-light);
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
 .entry-desc-pdf {
-    padding-left: 15px;
-    text-align: justify;
+    padding-left: 5px; /* Aligné avec le texte, pas la bordure */
+    list-style: none; /* On retire les puces par défaut */
 }
 
 .entry-desc-pdf li {
-    margin-bottom: 2px;
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 4px;
+    text-align: justify;
+    font-size: 9.5pt;
 }
 
-/* Compétences */
+/* Puces personnalisées élégantes */
+.entry-desc-pdf li::before {
+    content: "▹"; /* Caractère flèche discrète */
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+/* --- COMPÉTENCES (Présentation en blocs) --- */
 .skills-grid-pdf {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px 15px;
+    gap: 12px 20px;
+}
+
+.skill-category-pdf {
+    background-color: var(--bg-light);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
 }
 
 .skill-category-pdf h4 {
-    font-size: 10pt;
+    font-size: 9.5pt;
     color: var(--accent-blue);
-    margin-bottom: 0px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
 }
 
 .skill-category-pdf p {
     font-size: 9.5pt;
-    color: var(--text-dark);
+    color: var(--primary-color);
     font-weight: 500;
 }
 
-/* Projets */
+/* --- PROJETS (Design type "Card") --- */
 .projects-list-pdf {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
+}
+
+.project-item-pdf {
+    /* Style de carte très léger pour encadrer les projets */
+    background-color: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 10px 12px;
 }
 
 .project-header-pdf {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
+    margin-bottom: 6px;
 }
 
 .project-header-pdf h3 {
     font-size: 10.5pt;
+    font-weight: 700;
     color: var(--primary-color);
 }
 
 .project-tags-pdf {
     font-size: 8pt;
-    background: var(--bg-light);
-    padding: 2px 6px;
+    background-color: var(--primary-color); /* Fond foncé pour les tags */
+    color: #fff;
+    padding: 3px 8px;
     border-radius: 12px;
-    color: var(--accent-blue);
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 0.2px;
 }
 
 .project-item-pdf p {
     text-align: justify;
-    margin-top: 2px;
     font-size: 9.5pt;
+    color: var(--text-dark);
 }
 
-/* Footer */
+/* --- FOOTER --- */
 .footer-pdf {
-    margin-top: auto; /* Force le footer tout en bas */
+    margin-top: auto; /* Pousse le footer vers le bas */
+    padding-top: 12px;
+    border-top: 1px solid var(--border-light);
     text-align: center;
-    border-top: 1px solid #e2e8f0;
-    padding-top: 6px;
     font-size: 9pt;
     color: var(--text-light);
-    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-/* Impression : forcer les couleurs */
+.footer-pdf strong {
+    color: var(--primary-color);
+}
+
+/* --- IMPRESSION (Garantit que le style passe à l'export) --- */
 @media print {
     * {
         -webkit-print-color-adjust: exact !important;
