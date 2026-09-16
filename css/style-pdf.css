@@ -1,4 +1,4 @@
-/* style-pdf.css - Design calibré pour une page A4 */
+/* style-pdf.css - Design calibré pour tenir sur 1 SEULE page A4 */
 
 :root {
     --primary-color: #1e293b;
@@ -17,40 +17,41 @@
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-dark);
-    line-height: 1.4;
+    line-height: 1.35; /* Légèrement réduit pour gagner de la place */
     background-color: #fff;
-    font-size: 10.5pt; /* Taille idéale pour CV A4 */
+    font-size: 10pt; /* Réduit de 0.5pt */
 }
 
 /* Format A4 Impression */
 @page {
     size: A4 portrait;
-    margin: 0; /* Suppression des marges du navigateur */
+    margin: 0; /* Essentiel : aucune marge du navigateur */
 }
 
 .cv-container {
     width: 210mm;
-    min-height: 297mm;
+    height: 297mm;
     margin: 0 auto;
-    padding: 12mm 15mm; /* Marges internes du CV */
+    padding: 10mm 12mm; /* Marges internes réduites (haut/bas et gauche/droite) */
     background: #fff;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Empêche le débordement sur une page 2 */
 }
 
 /* Header */
 .header-pdf {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding-bottom: 12px;
+    gap: 15px;
+    padding-bottom: 8px;
     border-bottom: 2px solid var(--accent-blue);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .profile-pic-pdf {
-    width: 90px;
-    height: 90px;
+    width: 80px; /* Légèrement plus petite */
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--bg-light);
@@ -61,7 +62,7 @@ body {
 }
 
 .name-pdf {
-    font-size: 22pt;
+    font-size: 20pt; /* Réduit de 2pt */
     font-weight: 700;
     color: var(--primary-color);
     text-transform: uppercase;
@@ -69,17 +70,17 @@ body {
 }
 
 .role-pdf {
-    font-size: 13pt;
+    font-size: 11.5pt;
     font-weight: 600;
     color: var(--accent-blue);
-    margin: 4px 0 8px 0;
+    margin: 2px 0 6px 0;
 }
 
 .contact-info-header-pdf {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    font-size: 9.5pt;
+    gap: 10px;
+    font-size: 9pt;
     color: var(--text-light);
 }
 
@@ -91,39 +92,39 @@ body {
 
 .web-version-link-container {
     background-color: var(--bg-light);
-    padding: 6px 10px;
+    padding: 5px 10px;
     border-radius: 6px;
     text-align: center;
-    font-size: 9pt;
+    font-size: 8.5pt;
     color: var(--primary-color);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 /* Sections */
 .section-pdf {
-    margin-bottom: 14px;
+    margin-bottom: 10px; /* Réduit pour rapprocher les sections */
 }
 
 .section-title-pdf {
-    font-size: 14pt;
+    font-size: 13pt;
     color: var(--primary-color);
     text-transform: uppercase;
     border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 4px;
-    margin-bottom: 8px;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
     font-weight: 700;
 }
 
 .summary-pdf {
     text-align: justify;
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 
 /* Layout Exp/Formation */
 .entry-list-pdf {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .entry-header-pdf {
@@ -133,12 +134,12 @@ body {
 }
 
 .entry-header-pdf h3 {
-    font-size: 11.5pt;
+    font-size: 10.5pt;
     color: var(--primary-color);
 }
 
 .entry-date-pdf {
-    font-size: 9.5pt;
+    font-size: 9pt;
     font-weight: 600;
     color: var(--accent-blue);
 }
@@ -146,8 +147,8 @@ body {
 .entry-subtitle-pdf {
     font-weight: 600;
     color: var(--text-dark);
-    font-size: 10pt;
-    margin-bottom: 4px;
+    font-size: 9.5pt;
+    margin-bottom: 2px;
 }
 
 .entry-desc-pdf {
@@ -156,24 +157,24 @@ body {
 }
 
 .entry-desc-pdf li {
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 /* Compétences */
 .skills-grid-pdf {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 6px 15px;
 }
 
 .skill-category-pdf h4 {
-    font-size: 10.5pt;
+    font-size: 10pt;
     color: var(--accent-blue);
-    margin-bottom: 2px;
+    margin-bottom: 0px;
 }
 
 .skill-category-pdf p {
-    font-size: 10pt;
+    font-size: 9.5pt;
     color: var(--text-dark);
     font-weight: 500;
 }
@@ -182,7 +183,7 @@ body {
 .projects-list-pdf {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .project-header-pdf {
@@ -192,14 +193,14 @@ body {
 }
 
 .project-header-pdf h3 {
-    font-size: 11pt;
+    font-size: 10.5pt;
     color: var(--primary-color);
 }
 
 .project-tags-pdf {
-    font-size: 8.5pt;
+    font-size: 8pt;
     background: var(--bg-light);
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 12px;
     color: var(--accent-blue);
     font-weight: 600;
@@ -208,15 +209,16 @@ body {
 .project-item-pdf p {
     text-align: justify;
     margin-top: 2px;
+    font-size: 9.5pt;
 }
 
 /* Footer */
 .footer-pdf {
-    margin-top: auto; /* Pousse le footer tout en bas de la page */
+    margin-top: auto; /* Force le footer tout en bas */
     text-align: center;
     border-top: 1px solid #e2e8f0;
-    padding-top: 10px;
-    font-size: 9.5pt;
+    padding-top: 6px;
+    font-size: 9pt;
     color: var(--text-light);
     font-weight: 500;
 }
