@@ -9,110 +9,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cv-container">
-        <!-- HEADER -->
-        <header class="header-pdf">
-            <img src="img_Roman_Negrila.png" alt="Roman Negrila" class="profile-pic-pdf">
-            <div class="header-info-pdf">
-                <h1 class="name-pdf">Roman NEGRILA</h1>
-                <p class="role-pdf">Recherche Alternance - Admin N2/N3 ou Cybersécurité</p>
-                <div class="contact-info-header-pdf">
-                    <span><i class="fas fa-envelope"></i> negrilaroman@gmail.com</span>
-                    <span><i class="fas fa-phone"></i> +33 7 81 43 91 30</span>
-                    <span><i class="fas fa-map-marker-alt"></i> Dunkerque / Arras</span>
-                    <span><i class="fab fa-linkedin"></i> linkedin.com/in/roman-negrila</span>
+    <div class="cv-page">
+        <!-- ================= COLONNE GAUCHE ================= -->
+        <aside class="cv-sidebar">
+            <div class="sidebar-header">
+                <img src="img_Roman_Negrila.png" alt="Roman Negrila" class="profile-pic">
+                <h1 class="name">Roman NEGRILA</h1>
+                <h2 class="role">Admin N2/N3 & Cyber</h2>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Contact</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> negrilaroman@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +33 7 81 43 91 30</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Dunkerque / Arras</li>
+                    <li><i class="fab fa-linkedin"></i> linkedin.com/in/roman-negrila</li>
+                    <li><i class="fas fa-globe"></i> negrilaroman-collab.github.io/CV/</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Infos</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-user"></i> 21 ans</li>
+                    <li><i class="fas fa-car"></i> Permis B, Véhiculé</li>
+                    <li><i class="fas fa-language"></i> Anglais Pro (TOEIC B2)</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Compétences</h3>
+                <div class="skill-group">
+                    <h4>Réseaux & Sécurité</h4>
+                    <div class="tags">
+                        <span>Cisco IOS</span><span>VLAN/OSPF</span><span>pfSense</span><span>Firewalls</span><span>Kali Linux</span><span>Wireshark</span>
+                    </div>
+                </div>
+                <div class="skill-group mt-10">
+                    <h4>Systèmes & DevOps</h4>
+                    <div class="tags">
+                        <span>Linux</span><span>Docker</span><span>Proxmox</span><span>Netbox</span><span>Python</span>
+                    </div>
+                </div>
+                <div class="skill-group mt-10">
+                    <h4>Supervision & ITSM</h4>
+                    <div class="tags">
+                        <span>Zabbix</span><span>Icinga2</span><span>EasyVista</span>
+                    </div>
                 </div>
             </div>
-        </header>
+        </aside>
 
-        <!-- PROFIL -->
-        <section class="section-pdf">
-            <h2 class="section-title-pdf">Profil</h2>
-            <p class="summary-pdf">
-                Étudiant en Mastère MICSI (CESI Arras), <strong>je recherche une alternance (3 sem. entreprise / 1 sem. école)</strong>. 
-                Passionné par l'infrastructure et le DevOps, j'ai développé de fortes compétences en résolution d'incidents réseau, 
-                administration système (Linux), virtualisation (Docker) et supervision multi-constructeurs.
-            </p>
-        </section>
+        <!-- ================= COLONNE DROITE ================= -->
+        <main class="cv-main">
+            <section class="main-section">
+                <h3 class="main-title"><i class="fas fa-user-circle"></i> Profil</h3>
+                <p class="summary-text">
+                    Étudiant en Mastère MICSI (CESI Arras), <strong>je recherche une alternance (Rythme : 3 sem. entreprise / 1 sem. école)</strong>. Passionné par l'infrastructure et le DevOps, j'ai développé de fortes compétences en résolution d'incidents réseau, administration système, virtualisation et supervision multi-constructeurs.
+                </p>
+            </section>
 
-        <!-- EXPÉRIENCE -->
-        <section class="section-pdf">
-            <h2 class="section-title-pdf">Expérience Professionnelle</h2>
-            <div class="entry-list-pdf">
-                <div class="entry-card-pdf">
-                    <div class="entry-header-pdf">
-                        <h3>Technicien Exploitation Réseau - <em>Auchan Retail</em></h3>
-                        <span class="entry-date-pdf">Sept. 2024 - Août 2026</span>
+            <section class="main-section">
+                <h3 class="main-title"><i class="fas fa-briefcase"></i> Expérience Professionnelle</h3>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h4>Technicien Exploitation Réseau</h4>
+                        <span class="date-badge">Sept. 2024 - Août 2026</span>
                     </div>
-                    <ul class="entry-desc-pdf">
+                    <div class="timeline-subtitle">Auchan Retail (Alternance)</div>
+                    <ul class="timeline-list">
                         <li><strong>Résolution de crises et d'incidents complexes</strong> (WiFi, LAN, Firewalls) via Panorama, SolarWinds, EasyVista, Centreon, Meraki.</li>
-                        <li><strong>Optimisation du debugging</strong> réseau avec les fournisseurs télécoms (Orange, SFR, Sewan) et les techniciens sur site.</li>
+                        <li><strong>Optimisation du debugging réseau</strong> avec les fournisseurs télécoms (Orange, SFR, Sewan) et les techniciens sur site.</li>
                         <li><strong>Gestion proactive :</strong> configuration d'équipements, vérification des flux, intégration et supervision du réseau Starlink.</li>
                     </ul>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- FORMATION -->
-        <section class="section-pdf">
-            <h2 class="section-title-pdf">Formation</h2>
-            <div class="entry-list-pdf">
-                <div class="entry-card-pdf">
-                    <div class="entry-header-pdf">
-                        <h3>Mastère MICSI (Infrastructures & Cybersécurité) - <em>CESI Arras</em></h3>
-                        <span class="entry-date-pdf">Oct. 2026 - 2028</span>
+            <section class="main-section">
+                <h3 class="main-title"><i class="fas fa-graduation-cap"></i> Formation</h3>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h4>Mastère MICSI (Infrastructures & Cybersécurité)</h4>
+                        <span class="date-badge">Oct. 2026 - 2028</span>
                     </div>
+                    <div class="timeline-subtitle">CESI Arras</div>
                 </div>
-                <div class="entry-card-pdf">
-                    <div class="entry-header-pdf">
-                        <h3>BUT Réseaux & Télécommunications (Parcours Cyber) - <em>IUT de Béthune</em></h3>
-                        <span class="entry-date-pdf">2022 - 2026</span>
+                <div class="timeline-item mt-15">
+                    <div class="timeline-header">
+                        <h4>BUT Réseaux & Télécommunications (Cyber)</h4>
+                        <span class="date-badge">2022 - 2026</span>
                     </div>
+                    <div class="timeline-subtitle">IUT de Béthune</div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- COMPÉTENCES -->
-        <section class="section-pdf">
-            <h2 class="section-title-pdf">Compétences Techniques</h2>
-            <div class="skills-grid-pdf">
-                <div class="skill-category-pdf">
-                    <h4>Réseaux & Sécurité</h4>
-                    <p>Cisco IOS, VLAN, OSPF, QOS, pfSense, Firewalls, Kali Linux, Wireshark</p>
-                </div>
-                <div class="skill-category-pdf">
-                    <h4>Systèmes, Dev & Supervision</h4>
-                    <p>Linux, Docker, Proxmox, Netbox, Zabbix, Icinga2, Python, EasyVista</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJETS -->
-        <section class="section-pdf">
-            <h2 class="section-title-pdf">Projets Clés</h2>
-            <div class="projects-list-pdf">
-                <div class="project-item-pdf">
-                    <div class="project-header-pdf">
-                        <h3>Supervision Open Source & ITSM (Fin de BUT3)</h3>
-                        <span class="project-tags-pdf">Zabbix, Icinga2, Docker, EasyVista</span>
+            <section class="main-section">
+                <h3 class="main-title"><i class="fas fa-project-diagram"></i> Projets Clés</h3>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h4>Supervision Open Source & ITSM</h4>
+                        <span class="project-date">Projet Fin de BUT3</span>
                     </div>
-                    <p>Déploiement d'une stack de monitoring conteneurisée. Supervision multi-constructeurs (Cisco, Meraki) et automatisation de tickets via Webhooks.</p>
+                    <p>Déploiement d'une stack de monitoring conteneurisée. Supervision multi-constructeurs (Cisco, Meraki) et automatisation de la création de tickets via Webhooks.</p>
+                    <div class="tech-stack">Zabbix | Icinga2 | Docker | EasyVista</div>
                 </div>
-                <div class="project-item-pdf">
-                    <div class="project-header-pdf">
-                        <h3>Pépinière d'Entreprise & DevOps</h3>
-                        <span class="project-tags-pdf">Cisco IOS, Asterisk, Python</span>
+                <div class="project-card mt-10">
+                    <div class="project-header">
+                        <h4>Pépinière d'Entreprise & DevOps</h4>
+                        <span class="project-date">Projet SAÉ</span>
                     </div>
-                    <p>Création d'une infrastructure réseau (VLANs, routage, ToIP) et d'une architecture micro-services déployée via Docker Compose.</p>
+                    <p>Création d'une infrastructure réseau complète (VLANs, routage, ToIP) et d'une architecture micro-services déployée via Docker Compose.</p>
+                    <div class="tech-stack">Cisco IOS | Asterisk | Portainer | Python</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="footer-pdf">
-            <p>21 ans | Permis B, Véhiculé | Anglais : Pro (TOEIC B2) | Certifications : PIX, ANSSI SecNum</p>
-            <p style="margin-top: 5px;"><i class="fas fa-globe"></i> Version web interactive & portfolio : <strong>negrilaroman-collab.github.io/CV/</strong></p>
-        </footer>
+            </section>
+        </main>
     </div>
 </body>
 </html>
