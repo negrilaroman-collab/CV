@@ -6,7 +6,7 @@ const allModalsData = {
     title: 'Supervision Open Source (Fin de BUT3)',
     description: 'Pour clôturer mon cursus, j\'ai conçu et déployé de A à Z une solution de supervision réseau open-source, robuste et évolutive. L\'objectif était de créer un système capable de s\'intégrer parfaitement dans un écosystème SI d\'entreprise existant, en liant le monitoring à la gestion de tickets (ITSM).',
     technologies: ['Zabbix', 'Icinga2', 'Docker', 'MariaDB', 'EasyVista (ITSM)', 'Linux'],
-    images: [], // Tu pourras rajouter tes captures d'écran de Zabbix/Icinga ici plus tard
+    images: [],
     achievements: [
       'Conteneurisation complète des serveurs de supervision via Docker pour garantir la portabilité',
       'Monitoring multi-constructeurs (Cisco, Meraki, Huawei) via SNMP et requêtes API',
@@ -56,6 +56,69 @@ const allModalsData = {
       { src: 'images/projets/SAE/connecter_emetteur.png', description: 'Schéma de la mise en place d\'un émetteur multimédia pour la diffusion.' }
     ],
     achievements: ['Plusieurs services web multimédias déployés avec succès', 'Intégration multimédia fluide et performante', 'Solution optimisée pour la diffusion en temps réel']
+  },
+  'comp_administrer': {
+    type: 'project',
+    title: 'Administrer : systèmes, virtualisation et services',
+    description: 'Mise en place et administration des briques d\'un système d\'information : hyperviseur Proxmox, annuaire Active Directory et DNS sous Windows Server, pare-feu pfSense, accès distant Guacamole et portail web de création de machines virtuelles piloté par une API Python.',
+    technologies: ['Proxmox', 'Windows Server', 'Active Directory', 'DNS', 'pfSense', 'Guacamole', 'Python Flask'],
+    images: [
+      { src: 'images/adm/administrer_proxmox.jpg', description: 'Installation et configuration de l\'hyperviseur Proxmox VE.' },
+      { src: 'images/adm/administrer_architec.jpg', description: 'Architecture de la plateforme : pfSense, hyperviseur et services.' },
+      { src: 'images/adm/administrer_apipython.jpg', description: 'API Python (Flask) d\'orchestration des VM sur Proxmox.' },
+      { src: 'images/adm/administrer_portailwebcreavm.png', description: 'Portail web : création d\'une machine virtuelle depuis un template.' },
+      { src: 'images/adm/administrer_guacamole.png', description: 'Gestion des utilisateurs dans Apache Guacamole.' },
+      { src: 'images/adm/administrer_pfsense.jpg', description: 'Règles de filtrage pfSense sur le LAN.' },
+      { src: 'images/adm/administrer_ad.jpg', description: 'Gestionnaire DNS sous Windows Server.' }
+    ],
+    achievements: ['Plateforme de VM en libre-service, du template à l\'accès distant', 'Services d\'annuaire et DNS opérationnels', 'Filtrage réseau maîtrisé avec pfSense']
+  },
+  'comp_connecter': {
+    type: 'project',
+    title: 'Connecter : réseaux, téléphonie et qualité de service',
+    description: 'Conception et câblage d\'infrastructures réseau, segmentation VLAN, ACL inter-VLAN, politiques de QoS pour la voix, téléphonie SIP avec postes Fanvil, et analyse de trafic avec Wireshark et des scripts Python (Scapy).',
+    technologies: ['Cisco IOS', 'VLAN', 'ACL', 'QoS', 'SIP / RTP', 'Wireshark', 'Python Scapy', 'Docker'],
+    images: [
+      { src: 'images/connec/connecter_baie.png', description: 'Baie de brassage câblée et organisée.' },
+      { src: 'images/connec/connecter_infra.jpg', description: 'Schéma d\'infrastructure multi-VLAN.' },
+      { src: 'images/connec/connecter_acl.png', description: 'Politique d\'ACL entre VLAN.' },
+      { src: 'images/connec/connecter_qos.png', description: 'Politique de QoS : priorité à la voix.' },
+      { src: 'images/connec/connecter_telephonie.jpg', description: 'Configuration d\'un poste SIP Fanvil.' },
+      { src: 'images/connec/connecter_capwireshark.png', description: 'Capture Wireshark d\'enregistrements SIP.' },
+      { src: 'images/connec/connecter_scriptcap.png', description: 'Script Python Scapy d\'extraction des flux RTP.' },
+      { src: 'images/connec/connecter_docker.png', description: 'Services de sauvegarde des configurations Cisco en Docker.' }
+    ],
+    achievements: ['Réseau segmenté et filtré de bout en bout', 'Voix priorisée par la QoS', 'Analyse de trafic automatisée en Python']
+  },
+  'comp_securiser': {
+    type: 'project',
+    title: 'Sécuriser : filtrage, DMZ et durcissement',
+    description: 'Mise en œuvre des mécanismes de sécurité d\'une infrastructure : DMZ et filtrage, VPN site à site, protection du cœur de réseau (DHCP snooping, DNSSEC), sécurisation d\'un service web derrière un reverse proxy avec surveillance Fail2ban, tests d\'intrusion sous Kali Linux et veille sur les recommandations de l\'ANSSI.',
+    technologies: ['DMZ', 'Firewall', 'VPN IPsec', 'DHCP snooping', 'DNSSEC', 'Nginx', 'Fail2ban', 'Kali Linux', 'ANSSI'],
+    images: [
+      { src: 'images/secu/securiser_filtrage.jpg', description: 'Architecture DMZ et règles de filtrage.' },
+      { src: 'images/secu/securiser_infra.jpg', description: 'Interconnexion de deux sites par tunnel VPN.' },
+      { src: 'images/secu/securiser_dns.jpg', description: 'DHCP snooping et DNSSEC contre les serveurs pirates.' },
+      { src: 'images/secu/securiser_websecu.jpg', description: 'Service web en DMZ derrière Nginx, surveillé par Fail2ban.' },
+      { src: 'images/secu/securiser_pentest.jpg', description: 'Tests d\'intrusion depuis Kali Linux.' },
+      { src: 'images/secu/securiser_ANSSI.jpg', description: 'Veille : guide de recommandations de l\'ANSSI.' }
+    ],
+    achievements: ['Zones de confiance séparées et flux maîtrisés', 'Attaques réseau classiques bloquées', 'Démarche offensive et défensive']
+  },
+  'comp_surveiller': {
+    type: 'project',
+    title: 'Surveiller : inventaire et supervision',
+    description: 'Inventaire et découverte automatique du réseau avec Netbox et Netdisco, déployés en conteneurs Docker, et développement d\'outils Python pour alimenter l\'inventaire.',
+    technologies: ['Netbox', 'Netdisco', 'Docker Compose', 'PostgreSQL', 'Python', 'SNMP'],
+    images: [
+      { src: 'images/surve/surveiller_docker.jpg', description: 'Stack Docker Compose de Netbox (PostgreSQL, backend, frontend).' },
+      { src: 'images/surve/surveiller_netbox1.jpg', description: 'Tableau de bord Netbox.' },
+      { src: 'images/surve/surveiller_netbox2.png', description: 'Inventaire des équipements dans Netbox.' },
+      { src: 'images/surve/surveiller_netdisco1.jpg', description: 'Fiche équipement découverte par Netdisco.' },
+      { src: 'images/surve/surveiller_netdisco2.jpg', description: 'Cartographie du réseau générée par Netdisco.' },
+      { src: 'images/surve/surveiller_arbo.png', description: 'Arborescence du projet Python.' }
+    ],
+    achievements: ['Inventaire réseau centralisé et à jour', 'Découverte automatique des équipements', 'Déploiement reproductible en conteneurs']
   },
   'music': {
     type: 'hobby', 

@@ -9,124 +9,169 @@
     <link rel="stylesheet" href="css/style-pdf.css">
 </head>
 <body>
-    <!-- Mise en page une colonne : ordre de lecture linéaire, sans icônes ni tableaux, pour une bonne lecture par les ATS -->
-    <div class="cv-page">
-        <header class="cv-header">
-            <img src="img_Roman_Negrila.png" alt="Photo de Roman Negrila" class="profile-pic">
-            <div class="header-text">
-                <h1 class="name">Roman NEGRILA</h1>
-                <p class="role">Technicien Infrastructure &amp; Réseaux</p>
-                <p class="contact-line">
-                    <span>negrilaroman@gmail.com</span> |
-                    <span>07 81 43 91 30</span> |
-                    <span>Dunkerque / Arras (Hauts-de-France)</span> |
-                    <span>Permis B, véhiculé</span>
+<!--
+    CV une page A4.
+    Lisibilité ATS : vrai texte (aucune image de texte), icônes en SVG sans texte,
+    contenu principal placé avant la colonne latérale dans le code, police TrueType système.
+-->
+<div class="cv-page">
+
+    <header class="cv-header">
+        <div class="header-photo">
+            <img src="img_Roman_Negrila.png" alt="Photo de Roman Negrila">
+        </div>
+        <div class="header-main">
+            <h1 class="name">Roman <span>NEGRILA</span></h1>
+            <p class="role">Technicien Infrastructure &amp; Réseaux</p>
+            <p class="tagline">BUT Réseaux &amp; Télécommunications (Bac+3) · 2 ans d'exploitation réseau chez Auchan Retail</p>
+        </div>
+        <ul class="header-contact">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 6l9 7 9-7"/></svg>negrilaroman@gmail.com</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>07 81 43 91 30</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>Dunkerque / Arras</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z M8 10v6 M8 7.5v.01 M12 16v-6 M12 13a3 3 0 0 1 6 0v3"/></svg>linkedin.com/in/roman-negrila</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M3 12h18 M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21 M12 3C9.5 5.6 8.2 8.6 8.2 12s1.3 6.4 3.8 9"/></svg>negrilaroman-collab.github.io/CV</li>
+        </ul>
+    </header>
+
+    <div class="cv-body">
+        <main class="cv-main">
+
+            <section class="section">
+                <h2 class="section-title">Profil</h2>
+                <p class="summary">
+                    Diplômé d'un <strong>BUT Réseaux &amp; Télécommunications (Bac+3)</strong>, je recherche un
+                    <strong>poste de technicien infrastructure IT</strong>. Deux ans en exploitation réseau chez Auchan Retail
+                    m'ont appris à traiter les incidents sous pression, à suivre les demandes dans un outil ITSM (EasyVista)
+                    et à coordonner opérateurs et techniciens sur site. À l'aise en administration système, virtualisation
+                    et supervision multi-constructeurs.
                 </p>
-                <p class="contact-line">
-                    <span>linkedin.com/in/roman-negrila</span> |
-                    <span>negrilaroman-collab.github.io/CV</span>
-                </p>
-            </div>
-        </header>
+            </section>
 
-        <section class="section">
-            <h2 class="section-title">Profil</h2>
-            <p class="summary-text">
-                Diplômé d'un <strong>BUT Réseaux &amp; Télécommunications (Bac+3)</strong>, je recherche un <strong>poste de technicien infrastructure IT</strong>.
-                Deux ans d'expérience en exploitation réseau chez Auchan Retail : traitement d'incidents, suivi des demandes en outil ITSM (EasyVista),
-                supervision et coordination avec les opérateurs et les techniciens sur site. À l'aise en administration système, virtualisation et
-                supervision multi-constructeurs. Disponible pour les astreintes.
-            </p>
-        </section>
+            <section class="section">
+                <h2 class="section-title">Expérience professionnelle</h2>
+                <article class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3>Technicien Exploitation Réseau</h3>
+                            <p class="org">Auchan Retail · Équipe Exploitation Réseau · Alternance</p>
+                        </div>
+                        <span class="date">Sept. 2024 - Août 2026</span>
+                    </div>
+                    <ul class="bullets">
+                        <li><strong>Résolution d'incidents réseau</strong>, y compris en situation de crise : WiFi, LAN, switchs, firewalls.</li>
+                        <li><strong>Gestion des tickets</strong> incidents et demandes de service dans EasyVista : qualification, suivi, escalade, clôture.</li>
+                        <li><strong>Supervision et diagnostic</strong> avec Centreon, SolarWinds, Palo Alto Panorama et Cisco Meraki.</li>
+                        <li><strong>Coordination du debugging</strong> avec les opérateurs (Orange, SFR, Sewan, Linkt) et les techniciens sur site.</li>
+                        <li><strong>Demandes de service</strong> : configuration d'équipements, vérification des flux, intégration et supervision des liens Starlink.</li>
+                    </ul>
+                </article>
+            </section>
 
-        <section class="section">
-            <h2 class="section-title">Expérience professionnelle</h2>
-            <div class="item">
-                <div class="item-header">
-                    <h3>Technicien Exploitation Réseau (alternance) - Auchan Retail</h3>
-                    <span class="date">Sept. 2024 - Août 2026</span>
+            <section class="section">
+                <h2 class="section-title">Projets techniques</h2>
+                <article class="project">
+                    <div class="job-head">
+                        <h3>Supervision open source reliée à l'ITSM</h3>
+                        <span class="date">Projet de fin de BUT</span>
+                    </div>
+                    <p>Stack de supervision conteneurisée (Zabbix, Icinga2, Docker), monitoring multi-constructeurs (Cisco, Meraki, Huawei) via SNMP et API, création automatique de tickets EasyVista par webhooks.</p>
+                </article>
+                <article class="project">
+                    <div class="job-head">
+                        <h3>Infrastructure DevOps et API (SAÉ 501)</h3>
+                        <span class="date">Note : 17/20</span>
+                    </div>
+                    <p>API Python Flask et base MySQL déployées en conteneurs Docker Compose, administration et monitoring avec Portainer.</p>
+                </article>
+                <article class="project">
+                    <div class="job-head">
+                        <h3>Réseau complet d'une pépinière d'entreprises</h3>
+                        <span class="date">Note : 16/20</span>
+                    </div>
+                    <p>VLAN, routage OSPF, Active Directory, téléphonie sur IP Asterisk, accès distant Guacamole et filtrage pfSense.</p>
+                </article>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Formation</h2>
+                <article class="edu">
+                    <div class="job-head">
+                        <div>
+                            <h3>BUT Réseaux &amp; Télécommunications (Bac+3) · Diplômé</h3>
+                            <p class="org">IUT de Béthune · Parcours Cybersécurité · En alternance</p>
+                        </div>
+                        <span class="date">2022 - 2026</span>
+                    </div>
+                </article>
+                <article class="edu">
+                    <div class="job-head">
+                        <div>
+                            <h3>Baccalauréat général, mention Assez Bien</h3>
+                            <p class="org">Lycée de l'Europe · Mathématiques, NSI, section européenne anglais</p>
+                        </div>
+                        <span class="date">2022</span>
+                    </div>
+                </article>
+            </section>
+
+        </main>
+
+        <aside class="cv-side">
+            <section class="side-section">
+                <h2 class="side-title">Compétences</h2>
+                <div class="skill-group">
+                    <h3>Réseaux</h3>
+                    <p class="chips"><span>Cisco IOS</span> <span>VLAN</span> <span>OSPF</span> <span>QoS</span> <span>WiFi</span> <span>Meraki</span> <span>Wireshark</span></p>
                 </div>
-                <ul class="item-list">
-                    <li>Diagnostic et résolution d'incidents réseau, y compris en situation de crise (WiFi, LAN, switchs, firewalls).</li>
-                    <li>Gestion des tickets incidents et demandes de service dans <strong>EasyVista</strong> (ITSM) : qualification, suivi, escalade et clôture.</li>
-                    <li>Supervision et analyse avec <strong>Centreon, SolarWinds, Palo Alto Panorama et Cisco Meraki</strong>.</li>
-                    <li>Coordination du debugging avec les opérateurs télécoms (Orange, SFR, Sewan, Linkt) et les techniciens sur site.</li>
-                    <li>Configuration d'équipements, vérification des flux, intégration et supervision des liens Starlink.</li>
+                <div class="skill-group">
+                    <h3>Systèmes et virtualisation</h3>
+                    <p class="chips"><span>Linux</span> <span>Windows Server</span> <span>Active Directory</span> <span>Proxmox</span> <span>Docker</span></p>
+                </div>
+                <div class="skill-group">
+                    <h3>Sécurité</h3>
+                    <p class="chips"><span>pfSense</span> <span>Palo Alto</span> <span>VPN IPsec</span> <span>IDS/IPS</span> <span>DMZ</span> <span>ACL</span> <span>DNSSEC</span> <span>Kali Linux</span></p>
+                </div>
+                <div class="skill-group">
+                    <h3>Supervision et ITSM</h3>
+                    <p class="chips"><span>EasyVista</span> <span>Centreon</span> <span>SolarWinds</span> <span>Zabbix</span> <span>Icinga2</span> <span>Netbox</span> <span>SIEM</span></p>
+                </div>
+                <div class="skill-group">
+                    <h3>ToIP et scripts</h3>
+                    <p class="chips"><span>Asterisk</span> <span>Python</span> <span>Flask</span> <span>MySQL</span></p>
+                </div>
+            </section>
+
+
+            <section class="side-section">
+                <h2 class="side-title">Certifications</h2>
+                <ul class="side-list">
+                    <li><strong>TOEIC</strong> : anglais B2</li>
+                    <li><strong>ANSSI</strong> : SecNumacadémie</li>
+                    <li><strong>PIX</strong> : compétences numériques</li>
+                    <li><strong>Cisco CCNA</strong> : en préparation</li>
                 </ul>
-            </div>
-        </section>
+            </section>
 
-        <section class="section">
-            <h2 class="section-title">Compétences techniques</h2>
-            <ul class="skills-list">
-                <li><strong>Réseaux :</strong> Cisco IOS, VLAN, routage OSPF, QoS, WiFi, Wireshark, Cisco Meraki</li>
-                <li><strong>Systèmes et virtualisation :</strong> Linux, Windows Server / Active Directory, Proxmox, Docker, Docker Compose</li>
-                <li><strong>Sécurité :</strong> pfSense, firewalls Palo Alto (Panorama), VPN, ACL, Kali Linux, recommandations ANSSI</li>
-                <li><strong>Supervision et ITSM :</strong> Centreon, Zabbix, Icinga2, SolarWinds, EasyVista, Netbox, Netdisco</li>
-                <li><strong>Téléphonie et développement :</strong> ToIP Asterisk, Python (Flask), MySQL, HTML/CSS/JS</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Projets</h2>
-            <div class="item">
-                <div class="item-header">
-                    <h3>Supervision open source et ITSM</h3>
-                    <span class="date">BUT 3</span>
-                </div>
-                <p>Déploiement d'une stack de supervision conteneurisée (Zabbix, Icinga2, Docker), supervision multi-constructeurs (Cisco, Meraki, Huawei) et création automatique de tickets EasyVista via webhooks.</p>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <h3>Infrastructure DevOps et API (SAÉ 501)</h3>
-                    <span class="date">BUT 3</span>
-                </div>
-                <p>Développement d'une API Python Flask avec base MySQL, déployée en conteneurs Docker Compose et administrée avec Portainer.</p>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <h3>Infrastructure réseau d'une pépinière d'entreprises</h3>
-                    <span class="date">BUT</span>
-                </div>
-                <p>Conception et mise en place d'un réseau complet : VLAN, routage OSPF, Active Directory, téléphonie sur IP Asterisk, filtrage pfSense.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Formation</h2>
-            <div class="item compact">
-                <div class="item-header">
-                    <h3>BUT Réseaux &amp; Télécommunications (Bac+3), parcours Cybersécurité - IUT de Béthune</h3>
-                    <span class="date">2022 - 2026, diplômé</span>
-                </div>
-            </div>
-            <div class="item compact">
-                <div class="item-header">
-                    <h3>Baccalauréat général (Mathématiques, NSI, section européenne anglais) - Lycée de l'Europe</h3>
-                    <span class="date">2022</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section two-cols">
-            <div>
-                <h2 class="section-title">Certifications</h2>
-                <ul class="skills-list">
-                    <li>TOEIC : anglais professionnel, niveau B2</li>
-                    <li>ANSSI SecNumacadémie</li>
-                    <li>PIX</li>
-                    <li>Cisco CCNA : en préparation</li>
+            <section class="side-section">
+                <h2 class="side-title">Atouts</h2>
+                <ul class="side-list">
+                    <li>Disponible pour les astreintes</li>
+                    <li>Permis B, véhiculé</li>
+                    <li>Anglais professionnel (B2)</li>
                 </ul>
-            </div>
-            <div>
-                <h2 class="section-title">Langues et centres d'intérêt</h2>
-                <ul class="skills-list">
-                    <li>Anglais : niveau B2 (TOEIC)</li>
-                    <li>Homelab réseau (switchs, points d'accès)</li>
-                    <li>Création musicale, jeux vidéo</li>
+            </section>
+
+            <section class="side-section">
+                <h2 class="side-title">Centres d'intérêt</h2>
+                <ul class="side-list">
+                    <li>Homelab réseau : switchs, Proxmox, VLAN</li>
+                    <li>Création musicale</li>
+                    <li>Jeux vidéo</li>
                 </ul>
-            </div>
-        </section>
+            </section>
+        </aside>
     </div>
+</div>
 </body>
 </html>

@@ -1,492 +1,440 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Roman Negrila - CV Technicien Infrastructure &amp; Réseaux</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://platform.linkedin.com/badges/js/profile.js"
-      async
-      defer
-      type="text/javascript"
-    ></script>
-    <link rel="icon" type="image/png" href="img_Roman_Negrila.png" />
-    <meta
-      name="description"
-      content="CV de Roman Negrila, technicien infrastructure et réseaux diplômé d'un BUT R&amp;T (Bac+3). Recherche un poste en infrastructure / support IT. Cisco, Linux, EasyVista, supervision, Docker."
-    />
-  </head>
-  <body>
-    <button id="sidebar-toggle" class="sidebar-toggle-btn">
-      <i class="fas fa-bars"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roman Negrila · Technicien Infrastructure &amp; Réseaux</title>
+  <meta name="description" content="CV de Roman Negrila, technicien infrastructure et réseaux diplômé d'un BUT R&amp;T parcours Cybersécurité (Bac+3). 2 ans d'exploitation réseau chez Auchan Retail. Recherche un poste en infrastructure / support IT dans les Hauts-de-France." />
+  <meta name="theme-color" content="#070b16" />
+  <meta property="og:title" content="Roman Negrila · Technicien Infrastructure & Réseaux" />
+  <meta property="og:description" content="BUT R&T Cybersécurité (Bac+3) · 2 ans d'exploitation réseau chez Auchan Retail · Disponible pour un poste en infrastructure IT." />
+  <meta property="og:image" content="img_Roman_Negrila.png" />
+  <link rel="icon" type="image/png" href="img_Roman_Negrila.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Icônes SVG réutilisables (aucune dépendance externe) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13a3 3 0 0 1 6 0v4"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-network" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-3h14v3"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+      <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 0 4v0a2 2 0 0 1 0 4v2h18v-2a2 2 0 0 1 0-4 2 2 0 0 0 0-4V6H3z"/><path d="M14 6v12"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></symbol>
+      <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+      <symbol id="i-game" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13h.01"/></symbol>
+      <symbol id="i-lab" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 19a1.5 1.5 0 0 0 1.3 2h13.4A1.5 1.5 0 0 0 20 19l-6-10V3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    </defs>
+  </svg>
+
+  <div id="progress-bar" aria-hidden="true"></div>
+  <canvas id="net-bg" aria-hidden="true"></canvas>
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="topbar" id="topbar">
+    <a href="#hero" class="brand" aria-label="Retour en haut">
+      <span class="brand-mark">RN</span>
+      <span class="brand-text">Roman Negrila</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#profil" class="nav-item">Profil</a>
+      <a href="#experience" class="nav-item">Expérience</a>
+      <a href="#competences" class="nav-item">Compétences</a>
+      <a href="#projets" class="nav-item">Projets</a>
+      <a href="#formation" class="nav-item">Formation</a>
+      <a href="#contact" class="nav-item">Contact</a>
+    </nav>
+    <a href="Roman_Negrila_CV.pdf" download class="btn btn-small btn-primary topbar-cta">
+      <svg class="ico"><use href="#i-download"/></svg> CV PDF
+    </a>
+    <button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+      <svg class="ico"><use href="#i-menu"/></svg>
     </button>
-    <div id="progress-bar"></div>
+  </header>
 
-    <!-- Sidebar Pro -->
-    <aside class="sidebar">
-      <div class="sidebar-top">
-        <div class="profile-pic-small">
-          <img src="img_Roman_Negrila.png" alt="Roman Negrila" />
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="status-pill"><span class="dot"></span> Disponible · Poste en infrastructure / support IT</p>
+          <h1 class="hero-name">Roman <span class="grad">Negrila</span></h1>
+          <p class="hero-role mono">
+            <span class="prompt">&gt;</span> <span id="typed">Technicien Infrastructure &amp; Réseaux</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero-lead">
+            Diplômé d'un <strong>BUT Réseaux &amp; Télécommunications, parcours Cybersécurité (Bac+3)</strong>,
+            avec <strong>2 ans d'exploitation réseau chez Auchan Retail</strong>. Je diagnostique, je résous et je documente :
+            incidents réseau, tickets ITSM, supervision et sécurité des infrastructures.
+          </p>
+          <div class="hero-actions">
+            <a href="Roman_Negrila_CV.pdf" download class="btn btn-primary">
+              <svg class="ico"><use href="#i-download"/></svg> Télécharger mon CV
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              Me contacter <svg class="ico"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+          <ul class="hero-meta">
+            <li><svg class="ico"><use href="#i-pin"/></svg> Dunkerque / Arras · Hauts-de-France</li>
+            <li><svg class="ico"><use href="#i-check"/></svg> Permis B, véhiculé</li>
+            <li><svg class="ico"><use href="#i-check"/></svg> Disponible pour les astreintes</li>
+          </ul>
         </div>
-        <h1 class="sidebar-name">Roman NEGRILA</h1>
-        <p class="sidebar-role">Technicien Infrastructure &amp; Réseaux</p>
+
+        <div class="hero-visual">
+          <div class="photo-ring">
+            <img src="img_Roman_Negrila.png" alt="Portrait de Roman Negrila" width="433" height="576" />
+          </div>
+          <div class="terminal" aria-label="Résumé façon terminal">
+            <div class="terminal-bar"><span></span><span></span><span></span><em>roman@infra:~</em></div>
+            <pre class="mono"><span class="t-cmd">$ whoami</span>
+technicien-infra-reseaux
+<span class="t-cmd">$ cat stack.txt</span>
+Cisco · Meraki · Palo Alto · pfSense
+EasyVista · Centreon · Zabbix
+Linux · Windows Server · Proxmox · Docker
+<span class="t-cmd">$ systemctl status roman</span>
+<span class="t-ok">● active (running)</span> · prêt à vous rejoindre</pre>
+          </div>
+        </div>
       </div>
 
-      <nav class="sidebar-nav">
-        <a href="#hero" class="nav-item active">
-          <i class="fas fa-home"></i> Accueil
-        </a>
-        <a href="#education" class="nav-item">
-          <i class="fas fa-graduation-cap"></i> Formation
-        </a>
-        <a href="#experience" class="nav-item">
-          <i class="fas fa-briefcase"></i> Expérience
-        </a>
-        <a href="#skills" class="nav-item">
-          <i class="fas fa-brain"></i> Compétences
-        </a>
-        <a href="#certifications" class="nav-item">
-          <i class="fas fa-certificate"></i> Certifications
-        </a>
-        <a href="#hobbies" class="nav-item">
-          <i class="fas fa-heart"></i> Loisirs & Passions
-        </a>
-        <a href="#projects" class="nav-item">
-          <i class="fas fa-cubes"></i> Projets
-        </a>
-        <a href="#contact" class="nav-item">
-          <i class="fas fa-envelope"></i> Contact
-        </a>
-      </nav>
-
-      <div class="sidebar-bottom">
-        <button onclick="printDedicatedCvPdf()" class="pdf-button">
-          <i class="fas fa-file-pdf"></i> PDF
-        </button>
+      <div class="container">
+        <ul class="kpis">
+          <li class="kpi"><strong>2 ans</strong><span>d'exploitation réseau en entreprise</span></li>
+          <li class="kpi"><strong>Bac+3</strong><span>BUT R&amp;T parcours Cybersécurité</span></li>
+          <li class="kpi"><strong>N1 → N2</strong><span>incidents, demandes et escalades</span></li>
+          <li class="kpi"><strong>Multi</strong><span>constructeurs : Cisco, Meraki, Palo Alto, Huawei</span></li>
+        </ul>
       </div>
-    </aside>
+    </section>
 
-    <main class="main-content">
-      <!-- Hero Ultra -->
-      <section id="hero" class="hero-section">
-        <div class="hero-bg"></div>
-        <div class="hero-grid">
-          <div class="hero-text">
-            <div class="badge">Disponible pour un poste en CDI / CDD</div>
-            <h1 class="hero-h1 typing-name">
-              Roman<span class="gradient-text"> NEGRILA</span>
-            </h1>
-            <p class="hero-subtitle">
-              Technicien <strong>Infrastructure &amp; Réseaux</strong>
-            </p>
-            <p style="font-size: 1.1rem; color: #a0a0a0; margin-bottom: 2rem;">
-              Diplômé BUT R&amp;T (Bac+3), 2 ans d'expérience en exploitation réseau<br>
-              Recherche un poste en infrastructure / support IT
-            </p>
-            <div class="hero-stats">
-              <div class="stat-card">
-                <span class="stat-value">21</span>
-                <span class="stat-label">ans</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-value">Arras/Dk</span>
-                <span class="stat-label">FR</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-value">Permis B</span>
-                <span class="stat-label">+</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-image">
-            <div class="profile-large">
-              <img src="img_Roman_Negrila.png" alt="Roman Negrila" />
-            </div>
-          </div>
+    <!-- ================= PROFIL ================= -->
+    <section id="profil" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">01 · Profil</p>
+          <h2>Ce que j'apporte à une équipe infra</h2>
+          <p class="section-sub">Le terrain de l'exploitation, la rigueur du ticketing et le réflexe sécurité.</p>
+        </header>
+        <div class="value-grid">
+          <article class="value-card reveal">
+            <div class="value-ico"><svg class="ico"><use href="#i-pulse"/></svg></div>
+            <h3>Exploitation &amp; incidents</h3>
+            <p>Diagnostic et résolution d'incidents réseau, y compris en situation de crise, sur WiFi, LAN, switchs et firewalls. Coordination avec les opérateurs et les techniciens sur site.</p>
+          </article>
+          <article class="value-card reveal">
+            <div class="value-ico"><svg class="ico"><use href="#i-ticket"/></svg></div>
+            <h3>ITSM &amp; supervision</h3>
+            <p>Suivi des incidents et demandes de service dans EasyVista, supervision avec Centreon, SolarWinds et Meraki, et création automatique de tickets depuis la supervision.</p>
+          </article>
+          <article class="value-card reveal">
+            <div class="value-ico"><svg class="ico"><use href="#i-shield"/></svg></div>
+            <h3>Systèmes &amp; sécurité</h3>
+            <p>Administration Linux et Windows Server / Active Directory, virtualisation Proxmox et Docker, filtrage pfSense, DMZ, VPN et bonnes pratiques ANSSI.</p>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Formation -->
-      <section id="education" class="section">
-        <div class="section-title">
-          <span class="title-number">02</span>
-          Formation
-        </div>
-        <div class="formation-grid">
-          <div class="formation-card">
-            <div class="formation-date">2022 - 2026 (Diplômé)</div>
-            <h3>BUT Réseaux &amp; Télécommunications (Bac+3)</h3>
-            <p class="formation-school">IUT de Béthune</p>
-            <p class="formation-desc">
-              Parcours Cybersécurité - Projets industriels Cisco/Linux.
-            </p>
-          </div>
-          <div class="formation-card">
-            <div class="formation-date">2021 - 2022</div>
-            <h3>Baccalauréat Général</h3>
-            <p class="formation-school">
-              Lycée de l'Europe - Mention Assez Bien
-            </p>
-            <p class="formation-desc">Mathématiques + NSI + Anglais Euro</p>
-          </div>
-        </div>
-      </section>
+    <!-- ================= EXPÉRIENCE ================= -->
+    <section id="experience" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">02 · Expérience</p>
+          <h2>Deux ans au cœur du réseau d'Auchan Retail</h2>
+        </header>
 
-      <!-- Experience -->
-      <section id="experience" class="section">
-        <div class="section-title">
-          <span class="title-number">03</span>
-          Expérience Professionnelle
+        <div class="timeline">
+          <article class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-head">
+                <div>
+                  <h3>Technicien Exploitation Réseau</h3>
+                  <p class="tl-org">Auchan Retail · Équipe Exploitation Réseau · Alternance</p>
+                </div>
+                <span class="tl-date mono">sept. 2024 → août 2026</span>
+              </div>
+              <ul class="tl-list">
+                <li><strong>Résolution de crises et d'incidents complexes</strong> : bornes WiFi, LAN, switchs, firewalls.</li>
+                <li><strong>Gestion des tickets EasyVista</strong> : qualification, suivi, escalade et clôture des incidents et demandes de service.</li>
+                <li><strong>Supervision et diagnostic</strong> avec Palo Alto Panorama, SolarWinds, Centreon et Cisco Meraki.</li>
+                <li><strong>Debugging avec les opérateurs</strong> (Orange, SFR, Sewan, Linkt) et les techniciens terrain, avec des échanges plus fluides.</li>
+                <li><strong>Demandes de service</strong> : configuration d'équipements, vérification des flux, intégration et supervision des liens Starlink.</li>
+              </ul>
+              <div class="chips">
+                <span>EasyVista</span><span>Panorama</span><span>SolarWinds</span><span>Centreon</span><span>Cisco Meraki</span><span>Starlink</span>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="formation-grid">
-          <div class="formation-card">
-            <div class="formation-date">Sept. 2024 - Août 2026</div>
-            <h3>Technicien Exploitation Réseau (alternance, 2 ans)</h3>
-            <p class="formation-school">Auchan Retail - Équipe Exploitation Réseau</p>
-            <p class="formation-desc">
-              <strong>Résolution de crises complexes</strong> et d'incidents (bornes WiFi, switch/firewall) via Panorama, SolarWinds, EasyVista, Centreon, Cisco Meraki.<br><br>
-              <strong>Optimisation des processus</strong> de communication avec les techniciens terrain et les fournisseurs (Orange, Sewan, SFR, Linkt) pour le debugging. <br><br>
-              Demandes de services : checks flux, configurations d'équipements et surveillance Starlink.
-            </p>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Skills Matrix -->
-      <section id="skills" class="section">
-        <div class="section-title">
-          <span class="title-number">04</span>
-          Compétences
-        </div>
-        <div class="skills-matrix">
-          <div class="skill-column">
-            <h4>Réseaux</h4>
-            <div class="skill-item">
-              <span>Cisco IOS</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 95%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>VLAN/OSPF</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>QOS / Wireshark</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 85%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="skill-column">
-            <h4>Systèmes</h4>
-            <div class="skill-item">
-              <span>Linux Server</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>Docker/Proxmox</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 80%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>Netbox/Netdisco</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 82%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="skill-column">
-            <h4>Sécurité</h4>
-            <div class="skill-item">
-              <span>pfSense/Firewall</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 88%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>Kali/Pentest</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 75%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="skill-column">
-            <h4>Dev</h4>
-            <div class="skill-item">
-              <span>Python/Flask</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 78%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>HTML/CSS/JS</span>
-              <div class="skill-bar">
-                <div class="skill-fill" style="width: 85%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- ================= COMPÉTENCES ================= -->
+    <section id="competences" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">03 · Compétences</p>
+          <h2>Ma boîte à outils</h2>
+          <p class="section-sub">Ce que j'utilise en production et ce que j'ai mis en œuvre pendant le BUT.</p>
+        </header>
 
-      <!-- Certifications -->
-      <section id="certifications" class="section">
-        <div class="section-title">
-          <span class="title-number">05</span>
-          Certifications
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <header><svg class="ico"><use href="#i-network"/></svg><h3>Réseaux</h3></header>
+            <div class="chips"><span>Cisco IOS</span><span>VLAN</span><span>OSPF</span><span>QoS</span><span>WiFi</span><span>Cisco Meraki</span><span>TCP/IP</span><span>LAN / WAN</span><span>Wireshark</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <header><svg class="ico"><use href="#i-server"/></svg><h3>Systèmes &amp; virtualisation</h3></header>
+            <div class="chips"><span>Linux</span><span>Windows Server</span><span>Active Directory</span><span>DNS / DHCP</span><span>Proxmox</span><span>Docker</span><span>Docker Compose</span><span>Guacamole</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <header><svg class="ico"><use href="#i-shield"/></svg><h3>Cybersécurité</h3></header>
+            <div class="chips"><span>pfSense</span><span>Palo Alto</span><span>ACL</span><span>DMZ</span><span>VPN IPsec</span><span>IDS / IPS</span><span>DNSSEC</span><span>Fail2ban</span><span>Kali Linux</span><span>ANSSI</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <header><svg class="ico"><use href="#i-pulse"/></svg><h3>Supervision &amp; ITSM</h3></header>
+            <div class="chips"><span>EasyVista</span><span>Centreon</span><span>SolarWinds</span><span>Zabbix</span><span>Icinga2</span><span>Netbox</span><span>Netdisco</span><span>SNMP</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <header><svg class="ico"><use href="#i-code"/></svg><h3>Scripts &amp; développement</h3></header>
+            <div class="chips"><span>Python</span><span>Flask</span><span>Scapy</span><span>MySQL</span><span>HTML / CSS / JS</span><span>Portainer</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <header><svg class="ico"><use href="#i-phone"/></svg><h3>Téléphonie &amp; multimédia</h3></header>
+            <div class="chips"><span>ToIP Asterisk</span><span>SIP / RTP</span><span>Fanvil</span><span>Streaming vidéo</span><span>OpenCV</span></div>
+          </article>
         </div>
-        <div class="certifs-grid">
-          <div class="certif-card">
-            <img src="images/certifs/logo_ccna.png" alt="CCNA" class="certif-logo" />
-            <h4>Cisco CCNA</h4>
-            <p>
-              Cisco Certified Network Associate
-              <em>(en cours de préparation)</em>
-            </p>
-          </div>
-          <div class="certif-card">
-            <img src="images/certifs/logo_toeic.png" alt="TOEIC" class="certif-logo" />
-            <h4>TOEIC</h4>
-            <p>Anglais Professionnel - B2</p>
-          </div>
-          <div class="certif-card">
-            <img src="images/certifs/logo_pix.png" alt="Pix" class="certif-logo" />
-            <h4>PIX Numérique</h4>
-            <p>Compétences Digitales</p>
-          </div>
-          <div class="certif-card">
-            <img src="images/certifs/logo_anssi.png" alt="ANSSI" class="certif-logo" />
-            <h4>ANSSI SecNum</h4>
-            <p>Sécurité Numérique</p>
-          </div>
-        </div>
-      </section>
 
-      <!-- Loisirs & Passions -->
-      <section id="hobbies" class="section">
-        <div id="particles-js"></div>
-        <div class="content-above-particles">
-          <div class="section-title">
-            <span class="title-number">06</span>
-            Loisirs & Passions
-          </div>
-          <div class="hobbies-grid">
-            <div class="hobby-card music" data-hobby-id="music">
-              <div class="hobby-icon"><i class="fas fa-music"></i></div>
-              <h3>Musique</h3>
-              <p>
-                Artiste depuis 3 ans, je crée des musiques et les diffuse sur les plateformes de streaming.
-              </p>
-              <div class="hobby-glow"></div>
-            </div>
-            <div class="hobby-card it" data-hobby-id="it">
-              <div class="hobby-icon"><i class="fas fa-laptop-code"></i></div>
-              <h3>Informatique & Réseaux</h3>
-              <p>
-                Passionné par l'infrastructure, je teste et configure switches et points d'accès à domicile, explorant les limites du réseau.
-              </p>
-              <div class="hobby-glow"></div>
-            </div>
-            <div class="hobby-card gaming" data-hobby-id="gaming">
-              <div class="hobby-icon"><i class="fas fa-gamepad"></i></div>
-              <h3>Jeux Vidéo</h3>
-              <p>
-                Adepte des défis, je maîtrise les Souls-like (Sekiro, Dark Souls, Elden Ring) et m'immerge dans des univers riches comme Ghost of Tsushima.
-              </p>
-              <div class="hobby-glow"></div>
-            </div>
-          </div>
+        <h3 class="sub-title reveal">Les compétences du BUT, en images</h3>
+        <p class="section-sub reveal">Clique sur une carte pour voir les réalisations et les captures.</p>
+        <div class="but-grid">
+          <button class="but-card project-card reveal" data-project-id="comp_administrer" type="button">
+            <img src="images/adm/administrer_proxmox.jpg" alt="" loading="lazy" />
+            <div class="but-body"><span class="mono">Administrer</span><h4>Systèmes, virtualisation et services</h4><p>Proxmox, Active Directory, pfSense, portail web de création de VM.</p></div>
+          </button>
+          <button class="but-card project-card reveal" data-project-id="comp_connecter" type="button">
+            <img src="images/connec/connecter_baie.png" alt="" loading="lazy" />
+            <div class="but-body"><span class="mono">Connecter</span><h4>Réseaux, ToIP et QoS</h4><p>Baie de brassage, VLAN, ACL, téléphonie SIP, analyse Wireshark.</p></div>
+          </button>
+          <button class="but-card project-card reveal" data-project-id="comp_securiser" type="button">
+            <img src="images/secu/securiser_filtrage.jpg" alt="" loading="lazy" />
+            <div class="but-body"><span class="mono">Sécuriser</span><h4>Filtrage, DMZ et durcissement</h4><p>DMZ et filtrage, VPN site à site, DNSSEC, DHCP snooping, pentest.</p></div>
+          </button>
+          <button class="but-card project-card reveal" data-project-id="comp_surveiller" type="button">
+            <img src="images/surve/surveiller_netbox2.png" alt="" loading="lazy" />
+            <div class="but-body"><span class="mono">Surveiller</span><h4>Inventaire et supervision</h4><p>Netbox, Netdisco en conteneurs Docker, cartographie du réseau.</p></div>
+          </button>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Projets -->
-      <section id="projects" class="section">
-        <div class="section-title">
-          <span class="title-number">07</span>
-          Projets SAÉ
-        </div>
+    <!-- ================= PROJETS ================= -->
+    <section id="projets" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">04 · Projets</p>
+          <h2>Projets techniques</h2>
+          <p class="section-sub">Des projets menés de A à Z, du schéma à la soutenance.</p>
+        </header>
         <div class="projects-grid">
-          <div class="project-card" data-project-id="supervision_but3">
-            <div class="project-header">
-              <i class="fas fa-server project-icon"></i>
-              <h4>Supervision Open Source (Fin de BUT3)</h4>
+          <button class="project project-card reveal featured" data-project-id="supervision_but3" type="button">
+            <div class="project-media viz" aria-hidden="true">
+              <svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="g-line" x1="0" x2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+                  <linearGradient id="g-area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#22d3ee" stop-opacity=".35"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></linearGradient>
+                </defs>
+                <rect width="520" height="300" fill="#0b1222"/>
+                <g stroke="rgba(255,255,255,.06)"><path d="M0 60h520M0 120h520M0 180h520M0 240h520"/></g>
+                <g font-family="JetBrains Mono, monospace" font-size="11" fill="#a3aec4">
+                  <rect x="24" y="22" width="150" height="26" rx="7" fill="rgba(52,211,153,.12)" stroke="rgba(52,211,153,.4)"/>
+                  <circle cx="40" cy="35" r="4" fill="#34d399"/><text x="52" y="39">Cisco · UP</text>
+                  <rect x="186" y="22" width="150" height="26" rx="7" fill="rgba(52,211,153,.12)" stroke="rgba(52,211,153,.4)"/>
+                  <circle cx="202" cy="35" r="4" fill="#34d399"/><text x="214" y="39">Meraki · UP</text>
+                  <rect x="348" y="22" width="150" height="26" rx="7" fill="rgba(248,113,113,.12)" stroke="rgba(248,113,113,.5)"/>
+                  <circle cx="364" cy="35" r="4" fill="#f87171"/><text x="376" y="39">Huawei · DOWN</text>
+                </g>
+                <path d="M0 210 C40 200 60 170 100 180 S160 150 200 160 S260 120 300 140 S360 190 400 120 S470 110 520 100 V300 H0Z" fill="url(#g-area)"/>
+                <path d="M0 210 C40 200 60 170 100 180 S160 150 200 160 S260 120 300 140 S360 190 400 120 S470 110 520 100" fill="none" stroke="url(#g-line)" stroke-width="3"/>
+                <g font-family="JetBrains Mono, monospace" font-size="11">
+                  <rect x="300" y="232" width="196" height="44" rx="9" fill="rgba(10,16,30,.92)" stroke="rgba(34,211,238,.5)"/>
+                  <text x="314" y="251" fill="#22d3ee">webhook → EasyVista</text>
+                  <text x="314" y="267" fill="#a3aec4">ticket incident créé ✓</text>
+                </g>
+              </svg>
             </div>
-            <p>
-              Déploiement d'outils conteneurisés en parfaite harmonie avec l'écosystème SI (EasyVista, Google Suite, équipements Meraki, Cisco, Huawei).
-            </p>
-            <div class="project-tags">
-              <span>Zabbix</span>
-              <span>Icinga2</span>
-              <span>Docker</span>
-              <span>EasyVista</span>
+            <div class="project-body">
+              <span class="tag mono">Projet de fin de BUT</span>
+              <h3>Supervision open source reliée à l'ITSM</h3>
+              <p>Stack de supervision conteneurisée, monitoring multi-constructeurs (Cisco, Meraki, Huawei) via SNMP et API, et création automatique de tickets EasyVista par webhooks.</p>
+              <div class="chips"><span>Zabbix</span><span>Icinga2</span><span>Docker</span><span>EasyVista</span></div>
+              <span class="more">Voir le détail <svg class="ico"><use href="#i-arrow"/></svg></span>
             </div>
-          </div>
-          <div class="project-card" data-project-id="pepiniere">
-            <div class="project-header">
-              <i class="fas fa-network-wired project-icon"></i>
-              <h4>Pépinière Entreprise</h4>
+          </button>
+          <button class="project project-card reveal" data-project-id="sae501" type="button">
+            <div class="project-media"><img src="images/projets/SAE/connecter_docker.png" alt="" loading="lazy" /></div>
+            <div class="project-body">
+              <span class="tag mono">SAÉ 501 · 17/20</span>
+              <h3>Infrastructure DevOps et API</h3>
+              <p>API Python Flask et base MySQL en conteneurs Docker Compose, administrés avec Portainer.</p>
+              <div class="chips"><span>Docker</span><span>Flask</span><span>MySQL</span><span>Portainer</span></div>
+              <span class="more">Voir le détail <svg class="ico"><use href="#i-arrow"/></svg></span>
             </div>
-            <p>
-              Infrastructure Cisco complète - VLANs ToIP AD - Note <strong>16/20</strong>
-            </p>
-            <div class="project-tags">
-              <span>Cisco IOS</span>
-              <span>Asterisk</span>
-              <span>Docker</span>
+          </button>
+          <button class="project project-card reveal" data-project-id="pepiniere" type="button">
+            <div class="project-media"><img src="images/connec/connecter_infra.jpg" alt="" loading="lazy" /></div>
+            <div class="project-body">
+              <span class="tag mono">SAÉ · 16/20</span>
+              <h3>Réseau d'une pépinière d'entreprises</h3>
+              <p>VLAN, routage OSPF, Active Directory, ToIP Asterisk, accès Guacamole et filtrage pfSense.</p>
+              <div class="chips"><span>Cisco IOS</span><span>Asterisk</span><span>pfSense</span><span>AD</span></div>
+              <span class="more">Voir le détail <svg class="ico"><use href="#i-arrow"/></svg></span>
             </div>
-          </div>
-          <div class="project-card" data-project-id="sae501">
-            <div class="project-header">
-              <i class="fab fa-docker project-icon"></i>
-              <h4>SAE 501 DevOps</h4>
+          </button>
+          <button class="project project-card reveal" data-project-id="sae503" type="button">
+            <div class="project-media"><img src="images/connec/connecter_camqrcode.jpg" alt="" loading="lazy" /></div>
+            <div class="project-body">
+              <span class="tag mono">SAÉ 503 · 15/20</span>
+              <h3>Communications VoIP et détection QR</h3>
+              <p>Système VoIP Asterisk, détection de QR codes en temps réel avec OpenCV et analyse des flux avec Wireshark.</p>
+              <div class="chips"><span>Asterisk</span><span>OpenCV</span><span>Wireshark</span></div>
+              <span class="more">Voir le détail <svg class="ico"><use href="#i-arrow"/></svg></span>
             </div>
-            <p>
-              API Flask Docker Portainer MySQL - Note <strong>17/20</strong>
-            </p>
-            <div class="project-tags">
-              <span>Docker</span>
-              <span>Flask Python</span>
-              <span>Portainer</span>
-            </div>
-          </div>
-          <div class="project-card" data-project-id="sae503">
-            <div class="project-header">
-              <i class="fas fa-video project-icon"></i>
-              <h4>SAE 503 Communications</h4>
-            </div>
-            <p>VoIP OpenCV QR realtime - Note <strong>15/20</strong></p>
-            <div class="project-tags">
-              <span>VoIP Asterisk</span>
-              <span>OpenCV Python</span>
-              <span>Wireshark</span>
-            </div>
-          </div>
+          </button>
         </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section">
-        <div class="section-title">
-          <span class="title-number">08</span>
-          Contact
-        </div>
-        <div class="contact-wrapper">
-          <div class="contact-main">
-            <h3>Contact direct</h3>
-            <div class="contact-links">
-              <a href="mailto:negrilaroman@gmail.com" class="contact-link">
-                <i class="fas fa-envelope"></i> negrilaroman@gmail.com
-              </a>
-              <a href="tel:+33781439130" class="contact-link">
-                <i class="fas fa-phone"></i> +33 7 81 43 91 30
-              </a>
-            </div>
-          </div>
-          <div class="contact-side">
-            <h4>Localisation</h4>
-            <p>Dunkerque / Arras</p>
-            <div
-              class="badge-base LI-profile-badge"
-              data-locale="fr_FR"
-              data-size="medium"
-              data-theme="light"
-              data-type="VERTICAL"
-              data-vanity="roman-negrila"
-              data-version="v1"
-            >
-              <a
-                class="badge-base__link LI-simple-link"
-                href="https://fr.linkedin.com/in/roman-negrila?trk=profile-badge"
-              ></a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Modal Overlay -->
-    <div id="modal-overlay" class="modal-overlay">
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">
-          <i class="fas fa-times"></i>
-        </button>
-        <div id="modal-body"></div>
       </div>
-    </div>
-    <div id="lightbox-overlay" class="lightbox-overlay">
-      <div class="lightbox-content">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-image" src="" alt="Image en plein écran" />
-        <div id="lightbox-description" class="lightbox-description"></div>
+    </section>
+
+    <!-- ================= FORMATION & CERTIFS ================= -->
+    <section id="formation" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">05 · Formation</p>
+          <h2>Formation &amp; certifications</h2>
+        </header>
+        <div class="edu-grid">
+          <div class="edu-col">
+            <article class="edu-card reveal highlight">
+              <div class="edu-ico"><svg class="ico"><use href="#i-cap"/></svg></div>
+              <div>
+                <span class="tl-date mono">2022 → 2026 · Diplômé</span>
+                <h3>BUT Réseaux &amp; Télécommunications (Bac+3)</h3>
+                <p class="tl-org">IUT de Béthune · Parcours Cybersécurité · En alternance</p>
+                <p>Administrer les réseaux et l'Internet, administrer et surveiller un système d'information sécurisé, créer des outils pour les R&amp;T. Au programme : switching, réseaux sans fil, TCP/IP, firewalls, IDS/IPS, VPN, SIEM, réponse à incident, cryptographie, virtualisation, scripts.</p>
+              </div>
+            </article>
+            <article class="edu-card reveal">
+              <div class="edu-ico"><svg class="ico"><use href="#i-cap"/></svg></div>
+              <div>
+                <span class="tl-date mono">2022</span>
+                <h3>Baccalauréat général, mention Assez Bien</h3>
+                <p class="tl-org">Lycée de l'Europe · Mathématiques, NSI, section européenne anglais</p>
+              </div>
+            </article>
+          </div>
+          <div class="certs">
+            <article class="cert reveal"><img src="images/certifs/logo_toeic.png" alt="" /><div><h4>TOEIC</h4><p>Anglais professionnel, niveau B2</p></div></article>
+            <article class="cert reveal"><img src="images/certifs/logo_anssi.png" alt="" /><div><h4>ANSSI SecNumacadémie</h4><p>Sécurité numérique</p></div></article>
+            <article class="cert reveal"><img src="images/certifs/logo_pix.png" alt="" /><div><h4>PIX</h4><p>Compétences numériques</p></div></article>
+            <article class="cert reveal"><img src="images/certifs/logo_ccna.png" alt="" /><div><h4>Cisco CCNA</h4><p>En préparation</p></div></article>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- ================= LOISIRS ================= -->
+    <section id="loisirs" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">06 · En dehors du travail</p>
+          <h2>Ce qui m'anime</h2>
+        </header>
+        <div class="hobbies">
+          <button class="hobby hobby-card reveal" data-hobby-id="it" type="button">
+            <svg class="ico"><use href="#i-lab"/></svg>
+            <h3>Homelab réseau</h3>
+            <p>Switchs, points d'accès, Proxmox et VLAN à la maison : mon bac à sable pour tester et casser sans risque.</p>
+          </button>
+          <button class="hobby hobby-card reveal" data-hobby-id="music" type="button">
+            <svg class="ico"><use href="#i-music"/></svg>
+            <h3>Création musicale</h3>
+            <p>Artiste depuis 3 ans, je compose et diffuse mes morceaux sur les plateformes de streaming.</p>
+          </button>
+          <button class="hobby hobby-card reveal" data-hobby-id="gaming" type="button">
+            <svg class="ico"><use href="#i-game"/></svg>
+            <h3>Jeux vidéo</h3>
+            <p>Fan de Souls-like : la persévérance et l'analyse de patterns, utiles aussi en debugging.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-text">
+            <p class="eyebrow mono">07 · Contact</p>
+            <h2>Un poste en infrastructure à pourvoir&nbsp;?</h2>
+            <p>Je suis disponible pour un poste de technicien infrastructure, réseaux ou support IT dans les Hauts-de-France. Parlons-en.</p>
+            <div class="hero-actions">
+              <a href="mailto:negrilaroman@gmail.com" class="btn btn-primary"><svg class="ico"><use href="#i-mail"/></svg> M'écrire</a>
+              <a href="Roman_Negrila_CV.pdf" download class="btn btn-ghost"><svg class="ico"><use href="#i-download"/></svg> CV PDF</a>
+            </div>
+          </div>
+          <ul class="contact-list">
+            <li><a href="mailto:negrilaroman@gmail.com"><svg class="ico"><use href="#i-mail"/></svg><span>negrilaroman@gmail.com</span></a></li>
+            <li><a href="tel:+33781439130"><svg class="ico"><use href="#i-phone"/></svg><span>07 81 43 91 30</span></a></li>
+            <li><a href="https://www.linkedin.com/in/roman-negrila" target="_blank" rel="noopener"><svg class="ico"><use href="#i-linkedin"/></svg><span>linkedin.com/in/roman-negrila</span></a></li>
+            <li><span class="no-link"><svg class="ico"><use href="#i-pin"/></svg><span>Dunkerque / Arras · Hauts-de-France</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Roman Negrila · Technicien Infrastructure &amp; Réseaux</p>
+      <a href="cv-pdf.html" target="_blank" rel="noopener">Version imprimable du CV</a>
     </div>
+  </footer>
 
-    <div id="bg-particles"></div>
-    <script src="js/modals.js"></script>
-    <script src="js/main.js"></script>
-    <!-- Scripts Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-      particlesJS("bg-particles", {
-        particles: {
-          number: { value: 80, density: { enable: true, value_area: 1000 } },
-          color: { value: "#ffffff" },
-          shape: { type: "circle" },
-          opacity: { value: 0.3, random: true },
-          size: { value: 3, random: true },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#ffffff",
-            opacity: 0.15,
-            width: 1,
-          },
-          move: {
-            enable: true,
-            speed: 0.5,
-            direction: "none",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-          },
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "bubble" },
-            onclick: { enable: false },
-          },
-          modes: {
-            bubble: {
-              distance: 200,
-              size: 4,
-              duration: 2,
-              opacity: 0.4,
-              speed: 3,
-            },
-          },
-        },
-        retina_detect: true,
-      });
+  <!-- Modale et lightbox (contenu géré par js/modals.js) -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Détail">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fermer"><svg class="ico"><use href="#i-close"/></svg></button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <div id="lightbox-overlay" class="lightbox-overlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Fermer">&times;</button>
+      <img id="lightbox-image" src="" alt="Image en plein écran" />
+      <div id="lightbox-description" class="lightbox-description"></div>
+    </div>
+  </div>
 
-      particlesJS.load("particles-js", "assets/particles.json", function () {
-        console.log("callback - particles.js config loaded");
-      });
-    </script>
-  </body>
+  <script src="js/modals.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>

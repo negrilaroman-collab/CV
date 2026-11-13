@@ -1,147 +1,140 @@
-// main.js
+// main.js · navigation, animations et fond réseau du CV web
 
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarToggleBtn = document.getElementById('sidebar-toggle');
+document.addEventListener('DOMContentLoaded', () => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // --- LOGIQUE POUR LE BOUTON BASCULE ---
-    if (sidebarToggleBtn) {
-        sidebarToggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-    }
+  // --- Barre du haut : fond au défilement + barre de progression ---
+  const topbar = document.getElementById('topbar');
+  const progress = document.getElementById('progress-bar');
+  const navLinks = [...document.querySelectorAll('.nav-item')];
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
 
-    // --- ADAPTATION DE LA LOGIQUE DES LIENS DE NAVIGATION ---
-    document.querySelectorAll('.nav-item').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  let ticking = false;
+  const onScroll = () => {
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    topbar.classList.toggle('scrolled', y > 20);
+    progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
 
-                if (window.innerWidth < 1024 || sidebar.classList.contains('active')) {
-                    sidebar.classList.remove('active');
-                }
-
-                document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            }
-        });
+    // Lien actif selon la section visible
+    let current = null;
+    sections.forEach(sec => {
+      if (sec.getBoundingClientRect().top <= 140) current = sec.id;
     });
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
 
-    // --- ADAPTATION DE LA LOGIQUE DE DÉFILEMENT (Active Nav) ---
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                const sections = document.querySelectorAll('section[id]');
-                let current = '';
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top <= 150 && rect.bottom >= 150) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                document.querySelectorAll('.nav-item').forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
-                ticking = false;
-            });
-            ticking = true;
+  // --- Menu mobile ---
+  const nav = document.getElementById('nav');
+  const menuBtn = document.getElementById('menu-btn');
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.innerHTML = `<svg class="ico"><use href="#i-${open ? 'close' : 'menu'}"/></svg>`;
+  };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  navLinks.forEach(l => l.addEventListener('click', () => setMenu(false)));
+
+  // --- Apparition au défilement ---
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          // léger décalage entre cartes d'une même grille
+          const siblings = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+          el.style.transitionDelay = Math.min(siblings.indexOf(el), 5) * 70 + 'ms';
+          el.classList.add('visible');
+          io.unobserve(el);
         }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  // --- Rôle tapé façon terminal ---
+  const typed = document.getElementById('typed');
+  if (typed && !reduceMotion) {
+    const words = [
+      'Technicien Infrastructure & Réseaux',
+      'Exploitation réseau · Auchan Retail',
+      'Supervision & ITSM · EasyVista',
+      'BUT R&T Cybersécurité · Bac+3'
+    ];
+    let w = 0, c = words[0].length, deleting = true;
+    const tick = () => {
+      const word = words[w];
+      c += deleting ? -1 : 1;
+      typed.textContent = word.slice(0, c);
+      let delay = deleting ? 28 : 55;
+      if (!deleting && c === word.length) { deleting = true; delay = 2200; }
+      else if (deleting && c === 0) { deleting = false; w = (w + 1) % words.length; delay = 350; }
+      setTimeout(tick, delay);
+    };
+    setTimeout(tick, 2600);
+  }
+
+  // --- Fond : petit réseau de nœuds animé ---
+  const canvas = document.getElementById('net-bg');
+  if (canvas && !reduceMotion) {
+    const ctx = canvas.getContext('2d');
+    let nodes = [], W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const resize = () => {
+      W = canvas.clientWidth; H = canvas.clientHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.round(Math.min(70, (W * H) / 22000));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+        r: Math.random() * 1.6 + 0.6
+      }));
+    };
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      }
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 140) {
+            ctx.strokeStyle = `rgba(96, 165, 250, ${0.14 * (1 - d / 140)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      for (const n of nodes) {
+        ctx.fillStyle = 'rgba(125, 211, 252, 0.55)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    requestAnimationFrame(draw);
+  }
+
+  // --- Fermer la modale avec Échap ou en cliquant à côté ---
+  const modalOverlay = document.getElementById('modal-overlay');
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('show')) closeModal();
     });
-
-    // La logique des modals et lightbox est maintenant centralisée dans modals.js
-    // et les écouteurs de clic sont attachés là-bas.
-
-// Typing Animation (Nom)
-const typingEl = document.querySelector('.typing-name');
-if (typingEl) {
-    const texts = ['ROMAN NEGRILA', 'TECHNICIEN INFRA & RÉSEAUX', 'DIPLÔMÉ BUT R&T'];
-    let textIndex = 0; // Index du texte actuel dans le tableau 'texts'
-    let charIndex = 0; // Index du caractère actuel dans le texte en cours
-    let isDeleting = false; // true si on efface, false si on écrit
-
-    const typingSpeed = 100; // Vitesse d'écriture (ms par caractère)
-    const deletingSpeed = 50; // Vitesse d'effacement (ms par caractère)
-    const pauseAfterWord = 2000; // Durée de la pause après qu'un mot est entièrement tapé (en ms)
-
-    function type() {
-        if (!typingEl) return; // S'assurer que l'élément existe toujours
-
-        const currentText = texts[textIndex];
-        let currentDisplayedText = '';
-        let timeoutDuration = typingSpeed;
-
-        if (isDeleting) {
-            // Mode effacement
-            currentDisplayedText = currentText.substring(0, charIndex - 1);
-            charIndex--;
-            timeoutDuration = deletingSpeed;
-
-            if (charIndex < 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length; // Passe au texte suivant
-                charIndex = 0; // Réinitialise l'index des caractères pour le nouveau mot
-                // Pas de setTimeout ici, le prochain appel de type() commencera à écrire
-                timeoutDuration = typingSpeed; // Pour le prochain cycle d'écriture
-            }
-        } else {
-            // Mode écriture
-            currentDisplayedText = currentText.substring(0, charIndex + 1);
-            charIndex++;
-            timeoutDuration = typingSpeed;
-
-            if (charIndex > currentText.length) {
-                isDeleting = true;
-                // Le mot est entièrement tapé, on ajoute une pause avant de commencer à effacer
-                timeoutDuration = pauseAfterWord; // La pause avant l'effacement
-            }
-        }
-        
-        // Mise à jour de l'affichage avec le curseur clignotant
-        typingEl.textContent = currentDisplayedText + '|';
-
-        // Planifie la prochaine étape
-        setTimeout(type, timeoutDuration);
-    }
-    
-    // Démarre l'animation
-    type();
-}
-    // Intersection Observer Animations
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // S'assure que l'animation ne se déclenche que pour les sections NON-hero
-                if (!entry.target.matches('#hero')) { // <-- AJOUT DE CETTE CONDITION
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
-                }
-            }
-        });
-    }, { threshold: 0.1 });
-
-    // Observe toutes les sections pour l'animation, SAUF la section #hero
-    document.querySelectorAll('section').forEach(section => {
-        if (!section.matches('#hero')) { // <-- AJOUT DE CETTE CONDITION
-            observer.observe(section);
-        }
-    });
-
-// --- NOUVELLE FONCTION POUR IMPRIMER LE CV PDF DÉDIÉ ---
-// Cette fonction reste inchangée, mais assurez-vous que cv-pdf.html existe.
-window.printDedicatedCvPdf = function() {
-    const printWindow = window.open('cv-pdf.html', '_blank');
-    if (printWindow) { // Assurez-vous que la fenêtre a été ouverte
-        printWindow.onload = function() {
-            printWindow.print();
-        };
-    } else {
-        alert('Veuillez autoriser les pop-ups pour imprimer le CV.');
-    }
-};
+  }
 });
